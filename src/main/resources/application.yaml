@@ -1,0 +1,27 @@
+server:
+  port:  #端口
+  address:  0.0.0.0 #本地调试时允许连接
+spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url:
+    username:
+    password:
+    hikari:
+      minimum-idle:
+      max-lifetime:
+      maximum-pool-size:
+
+  redis:
+    host:
+    port: 6379
+    database: 0
+    password:
+
+mybatis-plus:
+  type-aliases-package: com/nian/business/entry #简化别名，用类的名字充当
+  mapper-locations: classpath:mapper/*.xml #类路径下
+
+logging:
+  config: classpath:log/logback-spring.xml
+  #level自行设定
