@@ -12,7 +12,7 @@ import java.nio.charset.StandardCharsets;
 @Component
 public class TokenUtil {
     private static final int TOKEN_TIME = 60;
-    @Resource
+//    @Resource
 //    private RedisUtil redisUtil;
     /**
      * 生成 token
