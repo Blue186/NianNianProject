@@ -1,5 +1,5 @@
 server:
-  port: 8088 #端口
+  port: 5207 #端口
   address:  0.0.0.0 #本地调试时允许连接
 spring:
   datasource:
@@ -12,11 +12,11 @@ spring:
       max-lifetime: 1800000
       maximum-pool-size: 5
 
-#  redis:
-#    host:
-#    port: 6379
-#    database: 0
-#    password:
+  redis:
+    host: 139.186.170.118
+    port: 6379
+    database: 6
+    password: keepacat
 
 mybatis-plus:
   type-aliases-package: com/nian/business/entry #简化别名，用类的名字充当

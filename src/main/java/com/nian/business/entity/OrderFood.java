@@ -7,16 +7,13 @@ import lombok.Data;
 
 import java.io.Serializable;
 
-@TableName("business")
+@TableName("order_food")
 @Data
-public class Business implements Serializable {
+public class OrderFood implements Serializable {
     @TableId(type = IdType.AUTO)
     private Integer id;
-    private String shopName;
-    private String phone;
-    private String address;
-    private String openid;
-    private String password;
-    private String image;
-    private String bossName;
+    private Integer foodId;
+    private Integer orderId;
+    private Integer foodNums;
+    private String remark;
 }

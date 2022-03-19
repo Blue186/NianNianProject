@@ -1,0 +1,14 @@
+2022-03-19 21:33:41.744|[main]|DEBUG|c.n.b.BusinessApplication-Running with Spring Boot v2.6.4, Spring v5.3.16
+2022-03-19 21:41:11.460|[main]|DEBUG|c.n.b.BusinessApplication-Running with Spring Boot v2.6.4, Spring v5.3.16
+2022-03-19 21:43:44.530|[main]|DEBUG|c.n.b.BusinessApplication-Running with Spring Boot v2.6.4, Spring v5.3.16
+2022-03-19 21:45:49.598|[main]|DEBUG|c.n.b.BusinessApplication-Running with Spring Boot v2.6.4, Spring v5.3.16
+2022-03-19 21:46:04.177|[http-nio-0.0.0.0-5207-exec-2]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (openid = ?)
+2022-03-19 21:46:04.191|[http-nio-0.0.0.0-5207-exec-2]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: oIbYi6LIW5VlXmN8FHzCYB2L0WzE(String)
+2022-03-19 21:46:04.211|[http-nio-0.0.0.0-5207-exec-2]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 0
+2022-03-19 21:49:26.510|[main]|DEBUG|c.n.b.BusinessApplication-Running with Spring Boot v2.6.4, Spring v5.3.16
+2022-03-19 21:49:52.132|[http-nio-0.0.0.0-5207-exec-1]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (openid = ?)
+2022-03-19 21:49:52.145|[http-nio-0.0.0.0-5207-exec-1]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: oIbYi6LIW5VlXmN8FHzCYB2L0WzE(String)
+2022-03-19 21:49:52.161|[http-nio-0.0.0.0-5207-exec-1]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 0
+2022-03-19 21:49:52.169|[http-nio-0.0.0.0-5207-exec-1]|DEBUG|c.n.b.m.BusinessMapper.insert-==>  Preparing: INSERT INTO business ( openid ) VALUES ( ? )
+2022-03-19 21:49:52.170|[http-nio-0.0.0.0-5207-exec-1]|DEBUG|c.n.b.m.BusinessMapper.insert-==> Parameters: oIbYi6LIW5VlXmN8FHzCYB2L0WzE(String)
+2022-03-19 21:49:52.179|[http-nio-0.0.0.0-5207-exec-1]|DEBUG|c.n.b.m.BusinessMapper.insert-<==    Updates: 1

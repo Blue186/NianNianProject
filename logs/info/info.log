@@ -1,0 +1,29 @@
+2022-03-19 21:33:41.741|[main]|INFO |c.n.b.BusinessApplication-Starting BusinessApplication using Java 1.8.0_202 on LAPTOP-B8LA37VK with PID 17328 (D:\Desktop\薪火技术部\微信小程序\NianNianProject\target\classes started by 79014 in D:\Desktop\薪火技术部\微信小程序\NianNianProject)
+2022-03-19 21:33:41.744|[main]|INFO |c.n.b.BusinessApplication-No active profile set, falling back to 1 default profile: "default"
+2022-03-19 21:33:45.550|[main]|INFO |c.n.b.config.RedissonConfig-布隆过滤器初始化成功
+2022-03-19 21:33:46.121|[main]|INFO |c.n.b.BusinessApplication-Started BusinessApplication in 4.977 seconds (JVM running for 5.902)
+2022-03-19 21:41:11.457|[main]|INFO |c.n.b.BusinessApplication-Starting BusinessApplication using Java 1.8.0_202 on LAPTOP-B8LA37VK with PID 20840 (D:\Desktop\薪火技术部\微信小程序\NianNianProject\target\classes started by 79014 in D:\Desktop\薪火技术部\微信小程序\NianNianProject)
+2022-03-19 21:41:11.461|[main]|INFO |c.n.b.BusinessApplication-No active profile set, falling back to 1 default profile: "default"
+2022-03-19 21:41:16.123|[main]|INFO |c.n.b.config.RedissonConfig-布隆过滤器初始化成功
+2022-03-19 21:41:16.945|[main]|INFO |c.n.b.BusinessApplication-Started BusinessApplication in 6.22 seconds (JVM running for 7.271)
+2022-03-19 21:43:44.528|[main]|INFO |c.n.b.BusinessApplication-Starting BusinessApplication using Java 1.8.0_202 on LAPTOP-B8LA37VK with PID 18768 (D:\Desktop\薪火技术部\微信小程序\NianNianProject\target\classes started by 79014 in D:\Desktop\薪火技术部\微信小程序\NianNianProject)
+2022-03-19 21:43:44.531|[main]|INFO |c.n.b.BusinessApplication-No active profile set, falling back to 1 default profile: "default"
+2022-03-19 21:43:49.235|[main]|INFO |c.n.b.config.RedissonConfig-布隆过滤器初始化成功
+2022-03-19 21:43:49.795|[main]|INFO |c.n.b.BusinessApplication-Started BusinessApplication in 5.893 seconds (JVM running for 6.836)
+2022-03-19 21:44:01.831|[http-nio-0.0.0.0-5207-exec-1]|INFO |c.n.business.utils.OpenIdUtil-code:{
+    "code": "093ok9ll2sGJP84Lyunl2c5kzU2ok9lP"
+}
+2022-03-19 21:45:49.596|[main]|INFO |c.n.b.BusinessApplication-Starting BusinessApplication using Java 1.8.0_202 on LAPTOP-B8LA37VK with PID 20844 (D:\Desktop\薪火技术部\微信小程序\NianNianProject\target\classes started by 79014 in D:\Desktop\薪火技术部\微信小程序\NianNianProject)
+2022-03-19 21:45:49.599|[main]|INFO |c.n.b.BusinessApplication-No active profile set, falling back to 1 default profile: "default"
+2022-03-19 21:45:53.951|[main]|INFO |c.n.b.config.RedissonConfig-布隆过滤器初始化成功
+2022-03-19 21:45:54.569|[main]|INFO |c.n.b.BusinessApplication-Started BusinessApplication in 5.768 seconds (JVM running for 6.708)
+2022-03-19 21:46:03.100|[http-nio-0.0.0.0-5207-exec-2]|INFO |c.n.business.utils.OpenIdUtil-code:{
+    "code": "0439s9ll2UzJP84N6Vol2VtdXm39s9l4"
+}
+2022-03-19 21:49:26.508|[main]|INFO |c.n.b.BusinessApplication-Starting BusinessApplication using Java 1.8.0_202 on LAPTOP-B8LA37VK with PID 1212 (D:\Desktop\薪火技术部\微信小程序\NianNianProject\target\classes started by 79014 in D:\Desktop\薪火技术部\微信小程序\NianNianProject)
+2022-03-19 21:49:26.511|[main]|INFO |c.n.b.BusinessApplication-No active profile set, falling back to 1 default profile: "default"
+2022-03-19 21:49:30.312|[main]|INFO |c.n.b.config.RedissonConfig-布隆过滤器初始化成功
+2022-03-19 21:49:30.911|[main]|INFO |c.n.b.BusinessApplication-Started BusinessApplication in 5.021 seconds (JVM running for 5.945)
+2022-03-19 21:49:51.147|[http-nio-0.0.0.0-5207-exec-1]|INFO |c.n.business.utils.OpenIdUtil-code:{
+    "code": "093HPYll2C9UO84V6Ekl2d9MmP3HPYlN"
+}

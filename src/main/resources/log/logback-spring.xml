@@ -4,7 +4,7 @@
     <property name="log.level" value="debug"/>
     <property name="log.maxHistory" value="15"/>
 <!--    <property name="log.filePath" value="${user.dir}/static/logs"/> 服务器上可以这样对应-->
-<!--    <property name="log.filePath" value="${user.dir}/static/logs"/> 本地这里改成绝对路径-->
+    <property name="log.filePath" value="${user.dir}/logs"/>
     <property name="log.pattern"
               value="%d{yyyy-MM-dd HH:mm:ss.SSS}|[%thread]|%-5level|%logger{30}-%msg%n"/>
 <!--控制台输出-->

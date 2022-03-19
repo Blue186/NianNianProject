@@ -6,17 +6,12 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 import java.io.Serializable;
-
-@TableName("business")
+@TableName("category")
 @Data
-public class Business implements Serializable {
+public class Category implements Serializable {
     @TableId(type = IdType.AUTO)
     private Integer id;
-    private String shopName;
-    private String phone;
-    private String address;
-    private String openid;
-    private String password;
-    private String image;
-    private String bossName;
+    private String name;
+    private Integer priority;
+    private Integer businessId;
 }
