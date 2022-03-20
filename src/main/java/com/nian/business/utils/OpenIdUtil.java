@@ -18,13 +18,12 @@ import java.net.URLConnection;
 @Slf4j
 @Component
 public class OpenIdUtil {
-
-    private String secret = "44f414d6c5b0f92e998d99b32c2fb2b1";
-    private String appid = "wx9e563fb3b3e19d91";
+    @Value("${wechat.secret}")
+    private String secret;
+    @Value("${wechat.appid}")
+    private String appid;
 
     public  String getOpenid(String code) {
-        log.info("code:{}",code);
-
         JSONObject codeJson = new JSONObject(code);
         String s = codeJson.get("code").toString();
 
@@ -48,8 +47,14 @@ public class OpenIdUtil {
                 sb.append(line);
             }
             JSONObject jsonObject = new JSONObject(sb.toString());
+
             Object openid = jsonObject.get("openid");
-            return openid.toString();
+
+            if ((int)jsonObject.get("errcode") == 0){
+                return openid.toString();
+            }else {
+                return null;
+            }
         } catch (Exception e1) {
             throw new RuntimeException(e1);
         }

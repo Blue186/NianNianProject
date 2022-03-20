@@ -79,6 +79,13 @@
             <version>3.16.8</version>
         </dependency>
 
+        <!-- token 生成 -->
+        <dependency>
+            <groupId>io.fusionauth</groupId>
+            <artifactId>fusionauth-jwt</artifactId>
+            <version>5.0.0</version>
+        </dependency>
+
     </dependencies>
 
     <build>
