@@ -1,5 +1,6 @@
 package com.nian.business.controller;
 
+import cn.hutool.http.HttpResponse;
 import cn.hutool.json.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.nian.business.entity.Business;
@@ -13,6 +14,7 @@ import org.omg.CORBA.OBJ_ADAPTER;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -41,9 +43,10 @@ public class BusinessController {
 
 
     @PostMapping("/login")
-    public R<?> Login(@RequestBody String code){
+    public R<?> Login(@RequestBody String code, HttpServletResponse response){
         String openid = openIdUtil.getOpenid(code);
         if(openid == null){
+            response.setStatus(HttpServletResponse.SC_FORBIDDEN);
             return R.error().message("获取openid失败");
         }
 
@@ -56,6 +59,7 @@ public class BusinessController {
             business.setOpenid(openid);
             int insert = businessService.getBaseMapper().insert(business);
             if (insert != 1){
+                response.setStatus(HttpServletResponse.SC_FORBIDDEN);
                 return R.error().message("未注册，注册失败");
             }
         }
