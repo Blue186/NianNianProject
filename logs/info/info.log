@@ -172,3 +172,51 @@
 2022-03-20 12:29:37.019|[main]|INFO |c.n.b.BusinessApplication-No active profile set, falling back to 1 default profile: "default"
 2022-03-20 12:29:39.319|[main]|INFO |c.n.b.config.RedissonConfig-布隆过滤器初始化成功
 2022-03-20 12:29:39.682|[main]|INFO |c.n.b.BusinessApplication-Started BusinessApplication in 3.015 seconds (JVM running for 3.599)
+2022-03-20 13:51:33.395|[main]|INFO |c.n.b.BusinessApplication-Starting BusinessApplication using Java 1.8.0_322 on CommonRom-Laptop with PID 24344 (P:\JavaProject\NianNianProject\target\classes started by CommonRom in P:\JavaProject\NianNianProject)
+2022-03-20 13:51:33.395|[main]|INFO |c.n.b.BusinessApplication-No active profile set, falling back to 1 default profile: "default"
+2022-03-20 13:51:36.533|[main]|INFO |c.n.b.config.RedissonConfig-布隆过滤器初始化成功
+2022-03-20 13:51:37.019|[main]|INFO |c.n.b.BusinessApplication-Started BusinessApplication in 3.978 seconds (JVM running for 4.796)
+2022-03-20 14:40:56.853|[main]|INFO |c.n.b.BusinessApplication-Starting BusinessApplication using Java 1.8.0_322 on CommonRom-Laptop with PID 20248 (P:\JavaProject\NianNianProject\target\classes started by CommonRom in P:\JavaProject\NianNianProject)
+2022-03-20 14:40:56.856|[main]|INFO |c.n.b.BusinessApplication-No active profile set, falling back to 1 default profile: "default"
+2022-03-20 14:40:59.316|[main]|INFO |c.n.b.config.RedissonConfig-布隆过滤器初始化成功
+2022-03-20 14:40:59.681|[main]|INFO |c.n.b.BusinessApplication-Started BusinessApplication in 3.134 seconds (JVM running for 3.966)
+2022-03-20 14:44:25.001|[main]|INFO |c.n.b.BusinessApplication-Starting BusinessApplication using Java 1.8.0_322 on CommonRom-Laptop with PID 26288 (P:\JavaProject\NianNianProject\target\classes started by CommonRom in P:\JavaProject\NianNianProject)
+2022-03-20 14:44:25.003|[main]|INFO |c.n.b.BusinessApplication-No active profile set, falling back to 1 default profile: "default"
+2022-03-20 14:44:27.414|[main]|INFO |c.n.b.config.RedissonConfig-布隆过滤器初始化成功
+2022-03-20 14:44:27.786|[main]|INFO |c.n.b.BusinessApplication-Started BusinessApplication in 3.095 seconds (JVM running for 3.74)
+2022-03-20 14:49:03.380|[main]|INFO |c.n.b.BusinessApplication-Starting BusinessApplication using Java 1.8.0_322 on CommonRom-Laptop with PID 15792 (P:\JavaProject\NianNianProject\target\classes started by CommonRom in P:\JavaProject\NianNianProject)
+2022-03-20 14:49:03.383|[main]|INFO |c.n.b.BusinessApplication-No active profile set, falling back to 1 default profile: "default"
+2022-03-20 14:49:06.003|[main]|INFO |c.n.b.config.RedissonConfig-布隆过滤器初始化成功
+2022-03-20 14:49:06.459|[main]|INFO |c.n.b.BusinessApplication-Started BusinessApplication in 3.441 seconds (JVM running for 4.216)
+2022-03-20 14:51:11.009|[main]|INFO |c.n.b.BusinessApplication-Starting BusinessApplication using Java 1.8.0_322 on CommonRom-Laptop with PID 1928 (P:\JavaProject\NianNianProject\target\classes started by CommonRom in P:\JavaProject\NianNianProject)
+2022-03-20 14:51:11.012|[main]|INFO |c.n.b.BusinessApplication-No active profile set, falling back to 1 default profile: "default"
+2022-03-20 14:51:13.354|[main]|INFO |c.n.b.config.RedissonConfig-布隆过滤器初始化成功
+2022-03-20 14:51:13.935|[main]|INFO |c.n.b.BusinessApplication-Started BusinessApplication in 3.265 seconds (JVM running for 3.849)
+2022-03-20 14:56:34.655|[main]|INFO |c.n.b.BusinessApplication-Starting BusinessApplication using Java 1.8.0_322 on CommonRom-Laptop with PID 24968 (P:\JavaProject\NianNianProject\target\classes started by CommonRom in P:\JavaProject\NianNianProject)
+2022-03-20 14:56:34.657|[main]|INFO |c.n.b.BusinessApplication-No active profile set, falling back to 1 default profile: "default"
+2022-03-20 14:56:37.310|[main]|INFO |c.n.b.config.RedissonConfig-布隆过滤器初始化成功
+2022-03-20 14:56:37.731|[main]|INFO |c.n.b.BusinessApplication-Started BusinessApplication in 3.384 seconds (JVM running for 3.965)
+2022-03-20 14:58:20.662|[main]|INFO |c.n.b.BusinessApplication-Starting BusinessApplication using Java 1.8.0_322 on CommonRom-Laptop with PID 20236 (P:\JavaProject\NianNianProject\target\classes started by CommonRom in P:\JavaProject\NianNianProject)
+2022-03-20 14:58:20.662|[main]|INFO |c.n.b.BusinessApplication-No active profile set, falling back to 1 default profile: "default"
+2022-03-20 14:58:23.849|[main]|INFO |c.n.b.config.RedissonConfig-布隆过滤器初始化成功
+2022-03-20 14:58:24.455|[main]|INFO |c.n.b.BusinessApplication-Started BusinessApplication in 4.301 seconds (JVM running for 5.253)
+2022-03-20 14:58:59.692|[main]|INFO |c.n.b.BusinessApplication-Starting BusinessApplication using Java 1.8.0_322 on CommonRom-Laptop with PID 16640 (P:\JavaProject\NianNianProject\target\classes started by CommonRom in P:\JavaProject\NianNianProject)
+2022-03-20 14:58:59.692|[main]|INFO |c.n.b.BusinessApplication-No active profile set, falling back to 1 default profile: "default"
+2022-03-20 14:59:02.371|[main]|INFO |c.n.b.config.RedissonConfig-布隆过滤器初始化成功
+2022-03-20 14:59:02.750|[main]|INFO |c.n.b.BusinessApplication-Started BusinessApplication in 3.551 seconds (JVM running for 4.507)
+2022-03-20 15:00:18.892|[main]|INFO |c.n.b.BusinessApplication-Starting BusinessApplication using Java 1.8.0_322 on CommonRom-Laptop with PID 8588 (P:\JavaProject\NianNianProject\target\classes started by CommonRom in P:\JavaProject\NianNianProject)
+2022-03-20 15:00:18.894|[main]|INFO |c.n.b.BusinessApplication-No active profile set, falling back to 1 default profile: "default"
+2022-03-20 15:00:21.151|[main]|INFO |c.n.b.config.RedissonConfig-布隆过滤器初始化成功
+2022-03-20 15:00:21.503|[main]|INFO |c.n.b.BusinessApplication-Started BusinessApplication in 2.888 seconds (JVM running for 3.481)
+2022-03-20 15:04:34.978|[main]|INFO |c.n.b.BusinessApplication-Starting BusinessApplication using Java 1.8.0_322 on CommonRom-Laptop with PID 2268 (P:\JavaProject\NianNianProject\target\classes started by CommonRom in P:\JavaProject\NianNianProject)
+2022-03-20 15:04:34.978|[main]|INFO |c.n.b.BusinessApplication-No active profile set, falling back to 1 default profile: "default"
+2022-03-20 15:04:37.839|[main]|INFO |c.n.b.config.RedissonConfig-布隆过滤器初始化成功
+2022-03-20 15:04:38.298|[main]|INFO |c.n.b.BusinessApplication-Started BusinessApplication in 3.618 seconds (JVM running for 4.19)
+2022-03-20 15:09:22.495|[main]|INFO |c.n.b.BusinessApplication-Starting BusinessApplication using Java 1.8.0_322 on CommonRom-Laptop with PID 5748 (P:\JavaProject\NianNianProject\target\classes started by CommonRom in P:\JavaProject\NianNianProject)
+2022-03-20 15:09:22.511|[main]|INFO |c.n.b.BusinessApplication-No active profile set, falling back to 1 default profile: "default"
+2022-03-20 15:09:25.115|[main]|INFO |c.n.b.config.RedissonConfig-布隆过滤器初始化成功
+2022-03-20 15:09:25.686|[main]|INFO |c.n.b.BusinessApplication-Started BusinessApplication in 3.56 seconds (JVM running for 4.127)
+2022-03-20 15:18:49.362|[main]|INFO |c.n.b.BusinessApplication-Starting BusinessApplication using Java 1.8.0_322 on CommonRom-Laptop with PID 2004 (P:\JavaProject\NianNianProject\target\classes started by CommonRom in P:\JavaProject\NianNianProject)
+2022-03-20 15:18:49.368|[main]|INFO |c.n.b.BusinessApplication-No active profile set, falling back to 1 default profile: "default"
+2022-03-20 15:18:51.888|[main]|INFO |c.n.b.config.RedissonConfig-布隆过滤器初始化成功
+2022-03-20 15:18:52.257|[main]|INFO |c.n.b.BusinessApplication-Started BusinessApplication in 3.271 seconds (JVM running for 4.087)

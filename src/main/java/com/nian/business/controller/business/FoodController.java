@@ -1,7 +1,7 @@
-package com.nian.business.controller;
+package com.nian.business.controller.business;
 
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class ConsumerController {
+public class FoodController {
 }

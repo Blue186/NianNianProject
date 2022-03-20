@@ -1,5 +1,6 @@
 package com.nian.business.utils;
 
+import io.fusionauth.jwt.JWTExpiredException;
 import io.fusionauth.jwt.Signer;
 import io.fusionauth.jwt.Verifier;
 import io.fusionauth.jwt.domain.JWT;
@@ -51,7 +52,6 @@ public class JwtUtil {
     }
 
     public String encodeToken(Map<String, Object> payload) {
-        System.out.println(getRsaPrivateKey());
         Signer signer = RSASigner.newSHA256Signer(getRsaPrivateKey()); // 用私钥签名
 
         JWT jwt = new JWT()
@@ -65,8 +65,9 @@ public class JwtUtil {
         return JWT.getEncoder().encode(jwt, signer);
     }
 
-    public Map<String, Object> decodeToken(String token){
+    public Map<String, Object> decodeToken(String token) throws JWTExpiredException {
         Verifier verifier = RSAVerifier.newVerifier(getRsaPublicKey());  // 用公钥解密
+
         JWT jwt = JWT.getDecoder().decode(token, verifier);
 
         if(jwt.isExpired()) return null;

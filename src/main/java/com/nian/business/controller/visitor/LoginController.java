@@ -1,6 +1,5 @@
-package com.nian.business.controller;
+package com.nian.business.controller.visitor;
 
-import cn.hutool.http.HttpResponse;
 import cn.hutool.json.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.nian.business.entity.Business;
@@ -8,22 +7,18 @@ import com.nian.business.service.BusinessService;
 import com.nian.business.utils.JwtUtil;
 import com.nian.business.utils.OpenIdUtil;
 import com.nian.business.utils.R;
-import javafx.beans.value.ObservableObjectValue;
 import lombok.extern.slf4j.Slf4j;
-import org.omg.CORBA.OBJ_ADAPTER;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @Slf4j
 @RestController
-@RequestMapping("/api/business")
-public class BusinessController {
+@RequestMapping("/api/visitor")
+public class LoginController {
 
     private final BusinessService businessService;
     private final OpenIdUtil openIdUtil;
@@ -31,7 +26,7 @@ public class BusinessController {
 
 //    注入bean即可使用，这里可以不写@Autowired
     @Autowired
-    public BusinessController(
+    public LoginController(
             BusinessService businessService,
             OpenIdUtil openIdUtil,
             JwtUtil jwtUtil
@@ -42,9 +37,10 @@ public class BusinessController {
     }
 
 
-    @PostMapping("/login")
+    @PostMapping("/login/wechat")
     public R<?> Login(@RequestBody String code, HttpServletResponse response){
-        String openid = openIdUtil.getOpenid(code);
+//        String openid = openIdUtil.getOpenid(code);
+        String openid = "asd";
         if(openid == null){
             response.setStatus(HttpServletResponse.SC_FORBIDDEN);
             return R.error().message("获取openid失败");

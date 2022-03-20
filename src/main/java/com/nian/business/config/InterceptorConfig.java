@@ -1,5 +1,6 @@
 package com.nian.business.config;
 
+import com.nian.business.Interceptor.BusinessInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -12,10 +13,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 public class InterceptorConfig implements WebMvcConfigurer {
-    private Interceptor interceptor;
+    private final BusinessInterceptor interceptor;
 
     @Autowired
-    public InterceptorConfig(com.nian.business.config.Interceptor interceptor) {
+    public InterceptorConfig(BusinessInterceptor interceptor) {
         this.interceptor = interceptor;
     }
 
@@ -25,7 +26,7 @@ public class InterceptorConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         String[] path = {
-
+                "/api/business/**"
         };
         String[] excludePath = {
 
