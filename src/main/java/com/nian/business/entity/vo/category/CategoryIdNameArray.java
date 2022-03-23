@@ -1,5 +1,4 @@
-package com.nian.business.entity.vo;
-import com.nian.business.entity.Category;
+package com.nian.business.entity.vo.category;
 import lombok.Data;
 
 import java.util.List;

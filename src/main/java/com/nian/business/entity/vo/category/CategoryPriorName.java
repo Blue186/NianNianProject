@@ -1,4 +1,4 @@
-package com.nian.business.entity.vo;
+package com.nian.business.entity.vo.category;
 
 import lombok.Data;
 
