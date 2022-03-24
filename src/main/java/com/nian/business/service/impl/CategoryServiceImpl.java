@@ -1,5 +1,6 @@
 package com.nian.business.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.nian.business.entity.Category;
 import com.nian.business.mapper.CategoryMapper;
@@ -14,8 +15,8 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
     @Resource
     private CategoryMapper categoryMapper;
     @Override
-    public List<Category> selectAll() {
-        return categoryMapper.selectList(null);
+    public List<Category> selectAll(QueryWrapper<Category> wrapper) {
+        return categoryMapper.selectList(wrapper);
     }
 
     @Override

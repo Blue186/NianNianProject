@@ -1,5 +1,8 @@
 package com.nian.business.controller.business;
 
+
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.nian.business.entity.Business;
 import com.nian.business.entity.Category;
 import com.nian.business.entity.vo.category.CategoryIdNameArray;
 import com.nian.business.entity.vo.category.CategoryIdName;
@@ -9,6 +12,7 @@ import com.nian.business.utils.R;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,8 +23,12 @@ public class CategoryController {
     private CategoryService categoryService;
 
     @GetMapping
-    public R<?> selectCategory() {
-        List<Category> categories = categoryService.selectAll();
+    public R<?> selectCategory(HttpServletRequest request) {
+        Business business = (Business) request.getAttribute("business");
+        Integer businessId = business.getId();
+        QueryWrapper<Category> wrapper= new QueryWrapper<>();
+        wrapper.eq("business_id",businessId);
+        List<Category> categories = categoryService.selectAll(wrapper);
         CategoryIdNameArray categoryIdNameArray =new CategoryIdNameArray();
         List<CategoryIdName> categoryIdNameList=new ArrayList<>();
         for (Category category : categories) {
@@ -34,10 +42,13 @@ public class CategoryController {
     }
 
     @PostMapping
-    public R<?> insertCategory(@RequestBody CategoryPriorName categoryPriorName) {
+    public R<?> insertCategory(@RequestBody CategoryPriorName categoryPriorName ,HttpServletRequest request) {
         Category category = new Category();
         category.setPriority(categoryPriorName.getPriority());
         category.setName(categoryPriorName.getName());
+        Business business = (Business) request.getAttribute("business");
+        Integer businessId = business.getId();
+        category.setBusinessId(businessId);
         int insert = categoryService.insert(category);
         if(insert==0){
             return R.error().message("插入失败");
