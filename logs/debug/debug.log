@@ -13,3 +13,20 @@
 2022-03-24 18:29:24.044|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.C.selectList-==>  Preparing: SELECT id,name,priority,business_id FROM category
 2022-03-24 18:29:24.044|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.C.selectList-==> Parameters: 
 2022-03-24 18:29:24.049|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.C.selectList-<==      Total: 5
+2022-03-24 21:54:22.967|[main]|DEBUG|c.n.b.BusinessApplication-Running with Spring Boot v2.6.4, Spring v5.3.16
+2022-03-24 21:54:30.653|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-03-24 21:54:30.677|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-03-24 21:54:30.700|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-03-24 21:55:31.245|[main]|DEBUG|c.n.b.BusinessApplication-Running with Spring Boot v2.6.4, Spring v5.3.16
+2022-03-24 21:55:37.923|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-03-24 21:55:37.937|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-03-24 21:55:37.956|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-03-24 21:55:37.980|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.TableMapper.selectList-==>  Preparing: SELECT id,name,people_nums,business_id FROM table WHERE (business_id = ?)
+2022-03-24 21:55:37.992|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.TableMapper.selectList-==> Parameters: 2(Integer)
+2022-03-24 22:12:01.984|[main]|DEBUG|c.n.b.BusinessApplication-Running with Spring Boot v2.6.4, Spring v5.3.16
+2022-03-24 22:12:21.534|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-03-24 22:12:21.549|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-03-24 22:12:21.569|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-03-24 22:12:21.594|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.TableMapper.selectList-==>  Preparing: SELECT id,name,people_nums,business_id FROM room WHERE (business_id = ?)
+2022-03-24 22:12:21.595|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.TableMapper.selectList-==> Parameters: 2(Integer)
+2022-03-24 22:12:21.602|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.TableMapper.selectList-<==      Total: 0

@@ -10,3 +10,15 @@
 2022-03-24 18:29:19.839|[main]|INFO |c.n.b.BusinessApplication-No active profile set, falling back to 1 default profile: "default"
 2022-03-24 18:29:22.158|[main]|INFO |c.n.b.config.RedissonConfig-布隆过滤器初始化成功
 2022-03-24 18:29:22.577|[main]|INFO |c.n.b.BusinessApplication-Started BusinessApplication in 3.039 seconds (JVM running for 3.608)
+2022-03-24 21:54:22.962|[main]|INFO |c.n.b.BusinessApplication-Starting BusinessApplication using Java 1.8.0_322 on CommonRom-Laptop with PID 25072 (P:\JavaProject\NianNianProject\target\classes started by CommonRom in P:\JavaProject\NianNianProject)
+2022-03-24 21:54:22.968|[main]|INFO |c.n.b.BusinessApplication-No active profile set, falling back to 1 default profile: "default"
+2022-03-24 21:54:27.986|[main]|INFO |c.n.b.config.RedissonConfig-布隆过滤器初始化成功
+2022-03-24 21:54:28.738|[main]|INFO |c.n.b.BusinessApplication-Started BusinessApplication in 6.457 seconds (JVM running for 7.462)
+2022-03-24 21:55:31.242|[main]|INFO |c.n.b.BusinessApplication-Starting BusinessApplication using Java 1.8.0_322 on CommonRom-Laptop with PID 11060 (P:\JavaProject\NianNianProject\target\classes started by CommonRom in P:\JavaProject\NianNianProject)
+2022-03-24 21:55:31.245|[main]|INFO |c.n.b.BusinessApplication-No active profile set, falling back to 1 default profile: "default"
+2022-03-24 21:55:35.905|[main]|INFO |c.n.b.config.RedissonConfig-布隆过滤器初始化成功
+2022-03-24 21:55:36.627|[main]|INFO |c.n.b.BusinessApplication-Started BusinessApplication in 5.909 seconds (JVM running for 6.944)
+2022-03-24 22:12:01.980|[main]|INFO |c.n.b.BusinessApplication-Starting BusinessApplication using Java 1.8.0_322 on CommonRom-Laptop with PID 15920 (P:\JavaProject\NianNianProject\target\classes started by CommonRom in P:\JavaProject\NianNianProject)
+2022-03-24 22:12:01.985|[main]|INFO |c.n.b.BusinessApplication-No active profile set, falling back to 1 default profile: "default"
+2022-03-24 22:12:06.560|[main]|INFO |c.n.b.config.RedissonConfig-布隆过滤器初始化成功
+2022-03-24 22:12:07.351|[main]|INFO |c.n.b.BusinessApplication-Started BusinessApplication in 5.9 seconds (JVM running for 7.005)
