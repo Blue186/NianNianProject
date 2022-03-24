@@ -5,6 +5,5 @@
 
 
 <mapper namespace="com.nian.business.mapper.BusinessMapper">
-    <!--获取所有的子志愿活动-->
 
 </mapper>

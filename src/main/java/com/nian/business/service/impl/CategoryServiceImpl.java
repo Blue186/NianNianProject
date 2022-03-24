@@ -13,6 +13,7 @@ import java.util.List;
 public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> implements CategoryService {
     @Resource
     private CategoryMapper categoryMapper;
+
     @Override
     public List<Category> selectAll() {
         return categoryMapper.selectList(null);

@@ -1,5 +1,6 @@
 package com.nian.business.controller.business;
 
+import com.nian.business.entity.Business;
 import com.nian.business.entity.Category;
 import com.nian.business.entity.vo.category.CategoryIdNameArray;
 import com.nian.business.entity.vo.category.CategoryIdName;
@@ -9,6 +10,7 @@ import com.nian.business.utils.R;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +21,7 @@ public class CategoryController {
     private CategoryService categoryService;
 
     @GetMapping
-    public R<?> selectCategory() {
+    public R<?> selectCategory(HttpServletRequest request) {
         List<Category> categories = categoryService.selectAll();
         CategoryIdNameArray categoryIdNameArray =new CategoryIdNameArray();
         List<CategoryIdName> categoryIdNameList=new ArrayList<>();

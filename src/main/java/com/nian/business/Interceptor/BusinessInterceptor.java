@@ -60,6 +60,7 @@ public class BusinessInterceptor implements HandlerInterceptor {
 
         QueryWrapper<Business> wrapper = new QueryWrapper<>();
         wrapper.eq("id", payload.get("uid"));
+
         Business business = businessService.getBaseMapper().selectOne(wrapper);
         if (business == null){
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
