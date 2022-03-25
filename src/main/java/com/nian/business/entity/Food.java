@@ -18,4 +18,5 @@ public class Food implements Serializable {
     private Integer categoryId;
     private Float price;
     private Integer status;
+    private Integer businessId;
 }
