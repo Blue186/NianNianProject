@@ -7,9 +7,9 @@ import lombok.Data;
 
 import java.io.Serializable;
 
-@TableName("tables")
+@TableName("room")
 @Data
-public class Tables implements Serializable {
+public class Table implements Serializable {
     @TableId(type = IdType.AUTO)
     private Integer id;
     private String name;
