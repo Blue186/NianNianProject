@@ -33,3 +33,78 @@
 2022-03-25 13:05:19.936|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.TableMapper.delete-==>  Preparing: DELETE FROM room WHERE (id = ? AND business_id = ?)
 2022-03-25 13:05:19.936|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.TableMapper.delete-==> Parameters: 2(Integer), 2(Integer)
 2022-03-25 13:05:19.944|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.TableMapper.delete-<==    Updates: 1
+2022-03-25 13:17:04.995|[main]|DEBUG|c.n.b.BusinessApplication-Running with Spring Boot v2.6.4, Spring v5.3.16
+2022-03-25 13:17:20.278|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-03-25 13:17:20.302|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-03-25 13:17:20.327|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-03-25 13:17:24.465|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-03-25 13:17:24.473|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-03-25 13:17:24.473|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-03-25 13:17:31.057|[http-nio-0.0.0.0-5208-exec-4]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-03-25 13:17:31.057|[http-nio-0.0.0.0-5208-exec-4]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-03-25 13:17:31.065|[http-nio-0.0.0.0-5208-exec-4]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-03-25 13:17:31.089|[http-nio-0.0.0.0-5208-exec-4]|DEBUG|c.n.b.m.TableMapper.insert-==>  Preparing: INSERT INTO room ( name, people_nums, business_id ) VALUES ( ?, ?, ? )
+2022-03-25 13:17:31.089|[http-nio-0.0.0.0-5208-exec-4]|DEBUG|c.n.b.m.TableMapper.insert-==> Parameters: fugiat enim(String), 553893(Integer), 2(Integer)
+2022-03-25 13:17:31.097|[http-nio-0.0.0.0-5208-exec-4]|DEBUG|c.n.b.m.TableMapper.insert-<==    Updates: 1
+2022-03-25 13:17:32.901|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-03-25 13:17:32.901|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-03-25 13:17:32.909|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-03-25 13:17:32.909|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.TableMapper.insert-==>  Preparing: INSERT INTO room ( name, people_nums, business_id ) VALUES ( ?, ?, ? )
+2022-03-25 13:17:32.909|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.TableMapper.insert-==> Parameters: fugiat enim(String), 553893(Integer), 2(Integer)
+2022-03-25 13:17:32.925|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.TableMapper.insert-<==    Updates: 1
+2022-03-25 13:17:37.901|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-03-25 13:17:37.901|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-03-25 13:17:37.909|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-03-25 13:17:37.909|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.TableMapper.insert-==>  Preparing: INSERT INTO room ( name, people_nums, business_id ) VALUES ( ?, ?, ? )
+2022-03-25 13:17:37.909|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.TableMapper.insert-==> Parameters: id(String), -60103938(Integer), 2(Integer)
+2022-03-25 13:17:37.917|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.TableMapper.insert-<==    Updates: 1
+2022-03-25 13:18:59.612|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-03-25 13:18:59.612|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-03-25 13:18:59.620|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-03-25 13:18:59.628|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.TableMapper.update-==>  Preparing: UPDATE room SET name=?, people_nums=? WHERE (id = ? AND business_id = ?)
+2022-03-25 13:18:59.628|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.TableMapper.update-==> Parameters: ut Excepteur eiusmod do in(String), -88842583(Integer), 3(Integer), 2(Integer)
+2022-03-25 13:18:59.644|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.TableMapper.update-<==    Updates: 1
+2022-03-25 13:19:04.935|[http-nio-0.0.0.0-5208-exec-9]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-03-25 13:19:04.943|[http-nio-0.0.0.0-5208-exec-9]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-03-25 13:19:04.943|[http-nio-0.0.0.0-5208-exec-9]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-03-25 13:19:04.951|[http-nio-0.0.0.0-5208-exec-9]|DEBUG|c.n.b.m.TableMapper.update-==>  Preparing: UPDATE room SET name=?, people_nums=? WHERE (id = ? AND business_id = ?)
+2022-03-25 13:19:04.951|[http-nio-0.0.0.0-5208-exec-9]|DEBUG|c.n.b.m.TableMapper.update-==> Parameters: ut Excepteur eiusmod do in(String), -88842583(Integer), 3(Integer), 2(Integer)
+2022-03-25 13:19:04.959|[http-nio-0.0.0.0-5208-exec-9]|DEBUG|c.n.b.m.TableMapper.update-<==    Updates: 1
+2022-03-25 13:17:04.995|[main]|DEBUG|c.n.b.BusinessApplication-Running with Spring Boot v2.6.4, Spring v5.3.16
+2022-03-25 13:17:20.278|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-03-25 13:17:20.302|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-03-25 13:17:20.327|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-03-25 13:17:24.465|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-03-25 13:17:24.473|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-03-25 13:17:24.473|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-03-25 13:17:31.057|[http-nio-0.0.0.0-5208-exec-4]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-03-25 13:17:31.057|[http-nio-0.0.0.0-5208-exec-4]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-03-25 13:17:31.065|[http-nio-0.0.0.0-5208-exec-4]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-03-25 13:17:31.089|[http-nio-0.0.0.0-5208-exec-4]|DEBUG|c.n.b.m.TableMapper.insert-==>  Preparing: INSERT INTO room ( name, people_nums, business_id ) VALUES ( ?, ?, ? )
+2022-03-25 13:17:31.089|[http-nio-0.0.0.0-5208-exec-4]|DEBUG|c.n.b.m.TableMapper.insert-==> Parameters: fugiat enim(String), 553893(Integer), 2(Integer)
+2022-03-25 13:17:31.097|[http-nio-0.0.0.0-5208-exec-4]|DEBUG|c.n.b.m.TableMapper.insert-<==    Updates: 1
+2022-03-25 13:17:32.901|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-03-25 13:17:32.901|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-03-25 13:17:32.909|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-03-25 13:17:32.909|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.TableMapper.insert-==>  Preparing: INSERT INTO room ( name, people_nums, business_id ) VALUES ( ?, ?, ? )
+2022-03-25 13:17:32.909|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.TableMapper.insert-==> Parameters: fugiat enim(String), 553893(Integer), 2(Integer)
+2022-03-25 13:17:32.925|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.TableMapper.insert-<==    Updates: 1
+2022-03-25 13:17:37.901|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-03-25 13:17:37.901|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-03-25 13:17:37.909|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-03-25 13:17:37.909|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.TableMapper.insert-==>  Preparing: INSERT INTO room ( name, people_nums, business_id ) VALUES ( ?, ?, ? )
+2022-03-25 13:17:37.909|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.TableMapper.insert-==> Parameters: id(String), -60103938(Integer), 2(Integer)
+2022-03-25 13:17:37.917|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.TableMapper.insert-<==    Updates: 1
+2022-03-25 13:18:59.612|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-03-25 13:18:59.612|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-03-25 13:18:59.620|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-03-25 13:18:59.628|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.TableMapper.update-==>  Preparing: UPDATE room SET name=?, people_nums=? WHERE (id = ? AND business_id = ?)
+2022-03-25 13:18:59.628|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.TableMapper.update-==> Parameters: ut Excepteur eiusmod do in(String), -88842583(Integer), 3(Integer), 2(Integer)
+2022-03-25 13:18:59.644|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.TableMapper.update-<==    Updates: 1
+2022-03-25 13:19:04.935|[http-nio-0.0.0.0-5208-exec-9]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-03-25 13:19:04.943|[http-nio-0.0.0.0-5208-exec-9]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-03-25 13:19:04.943|[http-nio-0.0.0.0-5208-exec-9]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-03-25 13:19:04.951|[http-nio-0.0.0.0-5208-exec-9]|DEBUG|c.n.b.m.TableMapper.update-==>  Preparing: UPDATE room SET name=?, people_nums=? WHERE (id = ? AND business_id = ?)
+2022-03-25 13:19:04.951|[http-nio-0.0.0.0-5208-exec-9]|DEBUG|c.n.b.m.TableMapper.update-==> Parameters: ut Excepteur eiusmod do in(String), -88842583(Integer), 3(Integer), 2(Integer)
+2022-03-25 13:19:04.959|[http-nio-0.0.0.0-5208-exec-9]|DEBUG|c.n.b.m.TableMapper.update-<==    Updates: 1
+2022-03-25 22:26:56.443|[main]|DEBUG|c.n.b.BusinessApplication-Running with Spring Boot v2.6.4, Spring v5.3.16

@@ -20,6 +20,7 @@ public class FoodController {
     @PostMapping
     public R<?> insertFood(@RequestBody FoodNoId foodNoId ,HttpServletRequest request){
         Business business=(Business) request.getAttribute("business");
+
         Food food=new Food();
         food.setName(foodNoId.getName());
         food.setImage(foodNoId.getImage());
@@ -28,14 +29,17 @@ public class FoodController {
         food.setPrice(foodNoId.getPrice());
         food.setStatus(foodNoId.getStatus());
         food.setBusinessId(business.getId());
+
         int insert = foodService.insert(food);
         if (insert==0){
             return R.error().message("插入失败");
         }
         return R.ok().message("成功");
     }
+
     @PutMapping("/{food_id}")
     public R<?> updateFood(@PathVariable int food_id, @RequestBody FoodNoStatus foodNoStatus){
+
         Food food = foodService.select(food_id);
         food.setPrice(foodNoStatus.getPrice());
         food.setImage(foodNoStatus.getImage());
@@ -49,6 +53,7 @@ public class FoodController {
 
         return R.ok().message("成功");
     }
+
     @PutMapping("/{food_id}/status")
     public R<?> updateStatus(@PathVariable int food_id, @RequestBody Status status){
         Food food = foodService.select(food_id);

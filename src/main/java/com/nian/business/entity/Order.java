@@ -17,7 +17,7 @@ public class Order implements Serializable {
     private Integer creatorId;
     private Integer status;
     private Date updateTime;
-    private Integer tableId;
+    private Integer roomId;
     private String key;
     private Integer peopleNums;
     private Date submitTime;
