@@ -3,40 +3,56 @@ package com.nian.business.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.nian.business.entity.Category;
+import com.nian.business.entity.vo.category.CategoryIdName;
+import com.nian.business.entity.vo.category.CategoryPriorName;
 import com.nian.business.mapper.CategoryMapper;
 import com.nian.business.service.CategoryService;
 import org.springframework.stereotype.Service;
-
-import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> implements CategoryService {
-    @Resource
-    private CategoryMapper categoryMapper;
 
     @Override
-    public List<Category> selectAll(QueryWrapper<Category> wrapper) {
-        return categoryMapper.selectList(wrapper);
+    public List<CategoryIdName> selectAll(Integer businessId) {
+        QueryWrapper<Category> wrapper= new QueryWrapper<>();
+        wrapper.eq("business_id",businessId);
+        List<Category> categories = baseMapper.selectList(wrapper);
+        List<CategoryIdName> categoryIdNameList=new ArrayList<>();
+        for (Category category : categories) {
+            CategoryIdName categoryIdName=new CategoryIdName();
+            categoryIdName.setId(category.getId());
+            categoryIdName.setName(category.getName());
+            categoryIdNameList.add(categoryIdName);
+        }
+        return categoryIdNameList;
     }
 
     @Override
-    public Category select(int id) {
-        return categoryMapper.selectById(id);
+    public int insertCategory(CategoryPriorName categoryPriorName,Integer business_id) {
+        Category category = new Category();
+        category.setPriority(categoryPriorName.getPriority());
+        category.setName(categoryPriorName.getName());
+        category.setBusinessId(business_id);
+        return baseMapper.insert(category);
     }
 
     @Override
-    public int insert(Category category) {
-        return categoryMapper.insert(category);
+    public int deleteCategory(Integer categoryID) {
+        return baseMapper.deleteById(categoryID);
     }
 
     @Override
-    public int delete(int id) {
-        return categoryMapper.deleteById(id);
-    }
-
-    @Override
-    public int update(Category category) {
-        return categoryMapper.updateById(category);
+    public int updateCategory(CategoryPriorName categoryPriorName,Integer categoryId,Integer businessId) {
+        Category category = new Category();
+        category.setName(categoryPriorName.getName());
+        category.setPriority(categoryPriorName.getPriority());
+        Map<String , Object> map = new HashMap<>();
+        map.put("business_id" , businessId);
+        map.put("id" ,categoryId);
+        return baseMapper.update(category,new QueryWrapper<Category>().allEq(map));
     }
 }
