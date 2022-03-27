@@ -9,7 +9,7 @@ import java.io.Serializable;
 
 @TableName("room")
 @Data
-public class Table implements Serializable {
+public class Room implements Serializable {
     @TableId(type = IdType.AUTO)
     private Integer id;
     private String name;
