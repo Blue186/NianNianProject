@@ -7,13 +7,19 @@ import lombok.Data;
 
 import java.io.Serializable;
 
-@TableName("order_food")
+@TableName("order_foods")
 @Data
 public class OrderFood implements Serializable {
     @TableId(type = IdType.AUTO)
     private Integer id;
-    private Integer foodId;
     private Integer orderId;
     private Integer foodNums;
     private String remark;
+
+    // 食物区
+    private Integer foodId;
+    private String name;
+    private String image;
+    private String introduce;
+    private Float price;
 }

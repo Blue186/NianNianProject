@@ -8,7 +8,7 @@ import lombok.Data;
 import java.io.Serializable;
 import java.util.Date;
 
-@TableName("order")
+@TableName("`order`")
 @Data
 public class Order implements Serializable {
     @TableId(type = IdType.AUTO)
@@ -18,7 +18,7 @@ public class Order implements Serializable {
     private Integer status;
     private Date updateTime;
     private Integer roomId;
-    private String key;
+    private String password;
     private Integer peopleNums;
     private Date submitTime;
 }
