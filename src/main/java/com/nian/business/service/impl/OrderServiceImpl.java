@@ -33,12 +33,17 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         wrapper.ge("unix_timestamp(submit_time)", today.getTime()/1000);
         wrapper.lt("unix_timestamp(submit_time)", tomorrow.getTime()/1000);
         wrapper.eq("business_id", businessID);
+        wrapper.orderByDesc("submit_time");
 
         return baseMapper.selectList(wrapper);
     }
 
     @Override
     public List<Order> getHistoryOrder(Integer businessID) {
-        return null;
+        var wrapper = new QueryWrapper<Order>();
+        wrapper.eq("business_id", businessID);
+        wrapper.orderByDesc("submit_time");
+
+        return baseMapper.selectList(wrapper);
     }
 }

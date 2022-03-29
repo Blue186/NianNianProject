@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.nian.business.entity.Room;
 import com.nian.business.mapper.RoomMapper;
 import com.nian.business.service.RoomService;
+import lombok.var;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -17,6 +18,15 @@ public class RoomServiceImpl extends ServiceImpl<RoomMapper, Room> implements Ro
     @Override
     public List<Room> selectAll(Integer businessID) {
         return baseMapper.selectList(new QueryWrapper<Room>().eq("business_id", businessID));
+    }
+
+    @Override
+    public Room selectRoom(Integer businessID, Integer roomID) {
+        var wrapper = new QueryWrapper<Room>();
+        wrapper.eq("business_id", businessID);
+        wrapper.eq("id", roomID);
+
+        return baseMapper.selectOne(wrapper);
     }
 
     @Override
