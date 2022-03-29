@@ -218,3 +218,23 @@
 2022-03-29 18:44:45.770|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.O.selectList-==>  Preparing: SELECT id,order_id,food_nums,remark,food_id,name,image,introduce,price FROM order_foods WHERE (order_id = ?)
 2022-03-29 18:44:45.770|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.O.selectList-==> Parameters: 4(Integer)
 2022-03-29 18:44:45.777|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.O.selectList-<==      Total: 2
+2022-03-29 18:45:43.885|[main]|DEBUG|c.n.b.BusinessApplication-Running with Spring Boot v2.6.4, Spring v5.3.16
+2022-03-29 19:02:06.253|[main]|DEBUG|c.n.b.BusinessApplication-Running with Spring Boot v2.6.4, Spring v5.3.16
+2022-03-29 19:02:20.146|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-03-29 19:02:20.162|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-03-29 19:02:20.186|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-03-29 19:02:20.247|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.BusinessMapper.update-==>  Preparing: UPDATE business SET phone=?, address=?, image=? WHERE (id = ?)
+2022-03-29 19:02:20.251|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.BusinessMapper.update-==> Parameters: tempor nisi irure commodo est(String), nulla ullamco sunt(String), labore occaecat do ad(String), 2(Integer)
+2022-03-29 19:02:20.265|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.BusinessMapper.update-<==    Updates: 1
+2022-03-29 19:02:59.038|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-03-29 19:02:59.038|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-03-29 19:02:59.046|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-03-29 19:02:59.054|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.BusinessMapper.update-==>  Preparing: UPDATE business SET phone=?, address=?, image=? WHERE (id = ?)
+2022-03-29 19:02:59.054|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.BusinessMapper.update-==> Parameters: minim esse(String), do sed elit consectetur pariatur(String), http://dummyimage.com/250x250(String), 2(Integer)
+2022-03-29 19:02:59.063|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.BusinessMapper.update-<==    Updates: 1
+2022-03-29 19:03:37.403|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-03-29 19:03:37.403|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-03-29 19:03:37.411|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-03-29 19:03:37.415|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.BusinessMapper.update-==>  Preparing: UPDATE business SET phone=?, address=?, image=? WHERE (id = ?)
+2022-03-29 19:03:37.415|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.BusinessMapper.update-==> Parameters: 18138228000(String), adipisicing(String), http://dummyimage.com/120x60(String), 2(Integer)
+2022-03-29 19:03:37.423|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.BusinessMapper.update-<==    Updates: 1

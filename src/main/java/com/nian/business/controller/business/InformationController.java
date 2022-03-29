@@ -2,6 +2,8 @@ package com.nian.business.controller.business;
 
 import cn.hutool.json.JSONObject;
 import com.nian.business.entity.Business;
+import com.nian.business.entity.vo.business.BusinessInformation;
+import com.nian.business.service.BusinessService;
 import com.nian.business.service.OrderFoodService;
 import com.nian.business.service.OrderService;
 import com.nian.business.utils.R;
@@ -21,9 +23,11 @@ public class InformationController {
     OrderService orderService;
     @Resource
     OrderFoodService orderFoodService;
+    @Resource
+    BusinessService businessService;
 
     @GetMapping("/information")
-    public R<?> GetBusinessInformation(HttpServletRequest request, HttpServletResponse response){
+    public R<?> getBusinessInformation(HttpServletRequest request, HttpServletResponse response){
         Business business = (Business) request.getAttribute("business");
 
         double money = 0.0, pendingMoney = 0.0;
@@ -66,5 +70,20 @@ public class InformationController {
         detailJson.set("statistics", statisticsJson);
 
         return R.ok().detail(detailJson);
+    }
+
+    @PutMapping("/information")
+    public R<?> updateBusinessInformation(
+            HttpServletRequest request, HttpServletResponse response,
+            @RequestBody BusinessInformation information
+            ){
+        var business = (Business) request.getAttribute("business");
+
+        if (!businessService.updateInformation(business.getId(), information)){
+            response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+            return R.error().message("更新失败");
+        }
+
+        return R.ok().message("update business information success");
     }
 }
