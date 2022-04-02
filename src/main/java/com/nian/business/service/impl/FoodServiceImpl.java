@@ -2,16 +2,19 @@ package com.nian.business.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.nian.business.entity.Category;
 import com.nian.business.entity.Food;
 import com.nian.business.entity.vo.food.FoodMenuItem;
 import com.nian.business.entity.vo.food.FoodNoId;
 import com.nian.business.entity.vo.food.FoodNoStatus;
 import com.nian.business.entity.vo.food.FoodStatus;
 import com.nian.business.mapper.FoodMapper;
+import com.nian.business.service.CategoryService;
 import com.nian.business.service.FoodService;
 import lombok.var;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -19,12 +22,18 @@ import java.util.Map;
 
 @Service
 public class FoodServiceImpl extends ServiceImpl<FoodMapper, Food> implements FoodService {
+    @Resource
+    private CategoryService categoryService;
     public int insertFood(FoodNoId foodNoId,Integer businessId){
+        Category category = categoryService.selectById(businessId, foodNoId.getCategoryId());
+        if(category==null){
+            return 0;
+        }
         Food food=new Food();
         food.setName(foodNoId.getName());
         food.setImage(foodNoId.getImage());
         food.setIntroduce(foodNoId.getIntroduce());
-        food.setCategoryId(foodNoId.getCategoryId());
+        food.setCategoryId(category.getId());
         food.setPrice(foodNoId.getPrice());
         food.setStatus(foodNoId.getStatus());
         food.setBusinessId(businessId);

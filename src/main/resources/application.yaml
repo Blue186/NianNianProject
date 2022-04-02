@@ -4,9 +4,9 @@ server:
 spring:
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://139.186.170.118:3306/dingdang?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8
-    username: root
-    password: mycentos7.6
+    url: jdbc:mysql://cq-cdb-b1svc1fj.sql.tencentcdb.com:63753/dingdang-debug?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8
+    username: dingdang_debug
+    password: 5d46077ceddfadd21e959845b24306f2a37d2141f6e7018c
     hikari:
       minimum-idle: 3
       max-lifetime: 1800000

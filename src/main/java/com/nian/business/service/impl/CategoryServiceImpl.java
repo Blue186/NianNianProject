@@ -15,11 +15,17 @@ import java.util.Map;
 
 @Service
 public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> implements CategoryService {
-
+    public Category selectById(int business_id,int category_id){
+        Category category = baseMapper.selectById(category_id);
+        if(category.getBusinessId()!=business_id){
+            return null;
+        }
+        return category;
+    }
     @Override
     public List<CategoryIdName> selectAll(Integer businessId) {
         QueryWrapper<Category> wrapper= new QueryWrapper<>();
-        wrapper.eq("business_id",businessId);
+        wrapper.eq("business_id",businessId).orderByAsc("priority");
         List<Category> categories = baseMapper.selectList(wrapper);
         List<CategoryIdName> categoryIdNameList=new ArrayList<>();
         for (Category category : categories) {

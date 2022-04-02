@@ -32,7 +32,7 @@ public class RoomController {
             RoomIDNamePeopleNum roomInformation = new RoomIDNamePeopleNum();
             roomInformation.setId(room.getId());
             roomInformation.setName(room.getName());
-            roomInformation.setPeopleNums(room.getPeopleNums());
+            roomInformation.setPeople_nums(room.getPeopleNums());
             roomsInformation.add(roomInformation);
         }
 
