@@ -1,1 +1,5 @@
-2022-03-29 17:47:23.710|[http-nio-0.0.0.0-5208-exec-3]|ERROR|c.n.b.s.impl.OrderServiceImpl-(create_time >= ? AND create_time < ? AND status > ? AND business_id = ?)
+2022-04-03 22:34:04.703|[main]|ERROR|c.n.business.utils.QrcodeUtil-{"errcode":41030,"errmsg":"invalid page rid: 6249b05a-7ceb3132-222a6add"}
+2022-04-03 22:34:38.274|[main]|ERROR|c.n.business.utils.QrcodeUtil-{"errcode":41030,"errmsg":"invalid page rid: 6249b07b-375fb415-74d3834a"}
+2022-04-03 22:34:38.274|[main]|ERROR|c.n.business.utils.QrcodeUtil-save-path is null
+2022-04-03 22:35:23.171|[main]|ERROR|c.n.business.utils.QrcodeUtil-{"errcode":41030,"errmsg":"invalid page rid: 6249b0a8-2dd6c86a-7f17f9b5"}
+2022-04-03 22:35:23.171|[main]|ERROR|c.n.business.utils.QrcodeUtil-save-path is null

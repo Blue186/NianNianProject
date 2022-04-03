@@ -36,3 +36,10 @@ jwt:
 wechat:
   appid: wx9e563fb3b3e19d91
   secret: 44f414d6c5b0f92e998d99b32c2fb2b1
+  qrcode:
+    page: pages/orderRoom/createRoom/createRoom
+    check-path: true
+    env-version: release
+    is-hyaline: false
+    width: 430
+    save-path: C:\\Users\\CommonRom\\Desktop\\qrcode.jpg
