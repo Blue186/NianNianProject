@@ -17,11 +17,12 @@ import java.util.Map;
 public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> implements CategoryService {
     public Category selectById(int business_id,int category_id){
         Category category = baseMapper.selectById(category_id);
-        if(category.getBusinessId()!=business_id){
+        if(category == null || category.getBusinessId()!=business_id){
             return null;
         }
         return category;
     }
+
     @Override
     public List<CategoryIdName> selectAll(Integer businessId) {
         QueryWrapper<Category> wrapper= new QueryWrapper<>();

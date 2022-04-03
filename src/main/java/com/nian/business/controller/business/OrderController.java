@@ -10,10 +10,7 @@ import com.nian.business.service.RoomService;
 import com.nian.business.utils.JsonUtil;
 import com.nian.business.utils.R;
 import lombok.var;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -165,6 +162,47 @@ public class OrderController {
         var detailJson = new JSONObject();
         detailJson.set("orders", ordersJson);
         detailJson.set("statistics", statisticsJson);
+
+        return R.ok().detail(detailJson);
+    }
+
+    @GetMapping("/order/{orderID}")
+    public R<?> getOrderDetail(
+            HttpServletRequest request,
+            HttpServletResponse response,
+            @PathVariable Integer orderID
+    ){
+        Business business = (Business) request.getAttribute("business");
+
+        var order = orderService.getOrderFromID(business.getId(), orderID);
+        if(order == null){
+            response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+            return R.error().message("获取订单失败");
+        }
+
+        double totalPrice = 0.0;
+        var orderFoods = orderFoodService.getOrderFoods(order.getId());
+        var foodsJson = new ArrayList<JSONObject>();
+        for(var food: orderFoods){
+            var foodJson = new JSONObject();
+            foodJson.set("name", food.getName());
+            foodJson.set("count", food.getFoodNums());
+            foodJson.set("price", food.getPrice());
+            totalPrice += food.getPrice() * food.getFoodNums();
+            foodsJson.add(foodJson);
+        }
+
+        var room = roomService.selectRoom(business.getId(), order.getRoomId());
+        var roomJson = new JSONObject();
+        roomJson.set("name", room.getName());
+        roomJson.set("id", room.getId());
+
+        var detailJson = new JSONObject();
+        detailJson.set("total_price", totalPrice);
+        detailJson.set("create_time", order.getCreateTime());
+        detailJson.set("submit_time", order.getSubmitTime());
+        detailJson.set("room", roomJson);
+        detailJson.set("foods", foodsJson);
 
         return R.ok().detail(detailJson);
     }

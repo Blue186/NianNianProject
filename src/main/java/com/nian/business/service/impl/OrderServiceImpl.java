@@ -46,4 +46,12 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
 
         return baseMapper.selectList(wrapper);
     }
+
+    @Override
+    public Order getOrderFromID(Integer businessID, Integer orderID) {
+        var wrapper = new QueryWrapper<Order>();
+        wrapper.eq("business_id", businessID);
+        wrapper.eq("id", orderID);
+        return baseMapper.selectOne(wrapper);
+    }
 }

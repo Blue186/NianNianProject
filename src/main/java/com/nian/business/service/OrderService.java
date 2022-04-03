@@ -7,4 +7,5 @@ import java.util.List;
 public interface OrderService {
     List<Order> getTodayOrder(Integer businessID);
     List<Order> getHistoryOrder(Integer businessID);
+    Order getOrderFromID(Integer businessID, Integer orderID);
 }

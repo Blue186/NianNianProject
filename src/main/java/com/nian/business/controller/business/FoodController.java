@@ -27,20 +27,22 @@ public class FoodController {
         }
         return R.ok().message("成功");
     }
-    @PutMapping("/{food_id}")
-    public R<?> updateFood(@PathVariable int food_id, @RequestBody FoodNoStatus foodNoStatus,HttpServletResponse response,HttpServletRequest request){
+
+    @PutMapping("/{foodID}")
+    public R<?> updateFood(@PathVariable int foodID, @RequestBody FoodNoStatus foodNoStatus, HttpServletResponse response, HttpServletRequest request){
         Business business=(Business) request.getAttribute("business");
-        int update = foodService.updateFoodNoStatus(foodNoStatus,food_id,business.getId());
+        int update = foodService.updateFoodNoStatus(foodNoStatus, foodID,business.getId());
         if(update==0){
             response.setStatus(HttpServletResponse.SC_FORBIDDEN);
             return R.error().message("编辑菜品失败");
         }
         return R.ok().message("成功");
     }
-    @PutMapping("/{food_id}/status")
-    public R<?> updateStatus(@PathVariable int food_id, @RequestBody FoodStatus foodstatus, HttpServletResponse response,HttpServletRequest request){
+
+    @PutMapping("/{foodID}/status")
+    public R<?> updateStatus(@PathVariable int foodID, @RequestBody FoodStatus foodstatus, HttpServletResponse response, HttpServletRequest request){
         Business business=(Business) request.getAttribute("business");
-        int update = foodService.updateFoodStatus(foodstatus,food_id,business.getId());
+        int update = foodService.updateFoodStatus(foodstatus, foodID,business.getId());
         if(update == 0){
             response.setStatus(HttpServletResponse.SC_FORBIDDEN);
             return R.error().message("更改上下架状态失败");
