@@ -34,12 +34,10 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         wrapper.orderByDesc("submit_time");
 
         if (offset != null && count != null){
-            var ordersPage = baseMapper.selectPage(new Page<>(offset + 1, count), wrapper);
-            return ordersPage.getRecords();
-        }else {
-            return baseMapper.selectList(wrapper);
+            wrapper.last("limit "+ count + " offset " + offset);
         }
 
+        return baseMapper.selectList(wrapper);
     }
 
     @Override
@@ -49,11 +47,10 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         wrapper.orderByDesc("submit_time");
 
         if (offset != null && count != null){
-            var ordersPage = baseMapper.selectPage(new Page<>(offset + 1, count), wrapper);
-            return ordersPage.getRecords();
-        }else {
-            return baseMapper.selectList(wrapper);
+            wrapper.last("limit "+ count + " offset " + offset);
         }
+
+        return baseMapper.selectList(wrapper);
     }
 
     @Override
