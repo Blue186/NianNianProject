@@ -3439,3 +3439,488 @@
 2022-04-03 14:47:17.689|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.OrderMapper.selectList-==>  Preparing: limit nulloffset null SELECT id,create_time,creator_id,status,update_time,room_id,password,people_nums,submit_time FROM `order` WHERE (unix_timestamp(submit_time) >= ? AND unix_timestamp(submit_time) < ? AND business_id = ?) ORDER BY submit_time DESC
 2022-04-03 14:47:17.689|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.OrderMapper.selectList-==> Parameters: 1648915200(Long), 1649001600(Long), 2(Integer)
 2022-04-03 14:47:55.258|[main]|DEBUG|c.n.b.BusinessApplication-Running with Spring Boot v2.6.4, Spring v5.3.16
+2022-04-03 14:48:02.349|[main]|DEBUG|c.n.b.BusinessApplication-Running with Spring Boot v2.6.4, Spring v5.3.16
+2022-04-03 14:48:05.488|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-04-03 14:48:05.496|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-04-03 14:48:05.511|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 14:48:05.532|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.OrderMapper.selectList-==>  Preparing: SELECT id,create_time,creator_id,status,update_time,room_id,password,people_nums,submit_time FROM `order` WHERE (unix_timestamp(submit_time) >= ? AND unix_timestamp(submit_time) < ? AND business_id = ?) ORDER BY submit_time DESC
+2022-04-03 14:48:05.533|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.OrderMapper.selectList-==> Parameters: 1648915200(Long), 1649001600(Long), 2(Integer)
+2022-04-03 14:48:05.539|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.OrderMapper.selectList-<==      Total: 0
+2022-04-03 14:48:20.691|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (openid = ?)
+2022-04-03 14:48:20.692|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: asd(String)
+2022-04-03 14:48:20.698|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 14:48:20.941|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-04-03 14:48:20.942|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-04-03 14:48:20.949|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 14:48:20.951|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.OrderMapper.selectList-==>  Preparing: SELECT id,create_time,creator_id,status,update_time,room_id,password,people_nums,submit_time FROM `order` WHERE (business_id = ?) ORDER BY submit_time DESC limit 10 offset 0
+2022-04-03 14:48:20.951|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.OrderMapper.selectList-==> Parameters: 2(Integer)
+2022-04-03 14:48:20.960|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.OrderMapper.selectList-<==      Total: 1
+2022-04-03 14:48:20.965|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.RoomMapper.selectOne-==>  Preparing: SELECT id,name,people_nums,business_id FROM room WHERE (business_id = ? AND id = ?)
+2022-04-03 14:48:20.965|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.RoomMapper.selectOne-==> Parameters: 2(Integer), 6(Integer)
+2022-04-03 14:48:20.975|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.RoomMapper.selectOne-<==      Total: 1
+2022-04-03 14:48:20.979|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.O.selectList-==>  Preparing: SELECT id,order_id,food_nums,remark,food_id,name,image,introduce,price FROM order_foods WHERE (order_id = ?)
+2022-04-03 14:48:20.979|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.O.selectList-==> Parameters: 1(Integer)
+2022-04-03 14:48:20.997|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.O.selectList-<==      Total: 2
+2022-04-03 14:48:47.522|[http-nio-0.0.0.0-5208-exec-4]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (openid = ?)
+2022-04-03 14:48:47.522|[http-nio-0.0.0.0-5208-exec-4]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: asd(String)
+2022-04-03 14:48:47.532|[http-nio-0.0.0.0-5208-exec-4]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 14:48:47.799|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-04-03 14:48:47.799|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-04-03 14:48:47.816|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 14:48:47.819|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.OrderMapper.selectList-==>  Preparing: SELECT id,create_time,creator_id,status,update_time,room_id,password,people_nums,submit_time FROM `order` WHERE (business_id = ?) ORDER BY submit_time DESC limit 10 offset 0
+2022-04-03 14:48:47.819|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.OrderMapper.selectList-==> Parameters: 2(Integer)
+2022-04-03 14:48:47.825|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.OrderMapper.selectList-<==      Total: 1
+2022-04-03 14:48:47.826|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.RoomMapper.selectOne-==>  Preparing: SELECT id,name,people_nums,business_id FROM room WHERE (business_id = ? AND id = ?)
+2022-04-03 14:48:47.827|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.RoomMapper.selectOne-==> Parameters: 2(Integer), 6(Integer)
+2022-04-03 14:48:47.833|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.RoomMapper.selectOne-<==      Total: 1
+2022-04-03 14:48:47.834|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.O.selectList-==>  Preparing: SELECT id,order_id,food_nums,remark,food_id,name,image,introduce,price FROM order_foods WHERE (order_id = ?)
+2022-04-03 14:48:47.834|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.O.selectList-==> Parameters: 1(Integer)
+2022-04-03 14:48:47.841|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.O.selectList-<==      Total: 2
+2022-04-03 14:48:53.563|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-04-03 14:48:53.563|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-04-03 14:48:53.570|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 14:48:53.572|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.OrderMapper.selectList-==>  Preparing: SELECT id,create_time,creator_id,status,update_time,room_id,password,people_nums,submit_time FROM `order` WHERE (business_id = ?) ORDER BY submit_time DESC limit 10 offset 1
+2022-04-03 14:48:53.572|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.OrderMapper.selectList-==> Parameters: 2(Integer)
+2022-04-03 14:48:53.579|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.OrderMapper.selectList-<==      Total: 0
+2022-04-03 14:49:01.401|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-04-03 14:49:01.401|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-04-03 14:49:01.410|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 14:49:01.413|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.OrderMapper.selectList-==>  Preparing: SELECT id,create_time,creator_id,status,update_time,room_id,password,people_nums,submit_time FROM `order` WHERE (business_id = ?) ORDER BY submit_time DESC limit 10 offset 0
+2022-04-03 14:49:01.413|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.OrderMapper.selectList-==> Parameters: 2(Integer)
+2022-04-03 14:49:01.424|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.OrderMapper.selectList-<==      Total: 1
+2022-04-03 14:49:01.425|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.RoomMapper.selectOne-==>  Preparing: SELECT id,name,people_nums,business_id FROM room WHERE (business_id = ? AND id = ?)
+2022-04-03 14:49:01.426|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.RoomMapper.selectOne-==> Parameters: 2(Integer), 6(Integer)
+2022-04-03 14:49:01.436|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.RoomMapper.selectOne-<==      Total: 1
+2022-04-03 14:49:01.437|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.O.selectList-==>  Preparing: SELECT id,order_id,food_nums,remark,food_id,name,image,introduce,price FROM order_foods WHERE (order_id = ?)
+2022-04-03 14:49:01.437|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.O.selectList-==> Parameters: 1(Integer)
+2022-04-03 14:49:01.443|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.O.selectList-<==      Total: 2
+2022-04-03 14:49:03.976|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (openid = ?)
+2022-04-03 14:49:03.977|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: asd(String)
+2022-04-03 14:49:03.984|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 14:49:04.268|[http-nio-0.0.0.0-5208-exec-9]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-04-03 14:49:04.269|[http-nio-0.0.0.0-5208-exec-9]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-04-03 14:49:04.275|[http-nio-0.0.0.0-5208-exec-9]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 14:49:04.276|[http-nio-0.0.0.0-5208-exec-9]|DEBUG|c.n.b.m.OrderMapper.selectList-==>  Preparing: SELECT id,create_time,creator_id,status,update_time,room_id,password,people_nums,submit_time FROM `order` WHERE (business_id = ?) ORDER BY submit_time DESC limit 10 offset 0
+2022-04-03 14:49:04.277|[http-nio-0.0.0.0-5208-exec-9]|DEBUG|c.n.b.m.OrderMapper.selectList-==> Parameters: 2(Integer)
+2022-04-03 14:49:04.287|[http-nio-0.0.0.0-5208-exec-9]|DEBUG|c.n.b.m.OrderMapper.selectList-<==      Total: 1
+2022-04-03 14:49:04.288|[http-nio-0.0.0.0-5208-exec-9]|DEBUG|c.n.b.m.RoomMapper.selectOne-==>  Preparing: SELECT id,name,people_nums,business_id FROM room WHERE (business_id = ? AND id = ?)
+2022-04-03 14:49:04.288|[http-nio-0.0.0.0-5208-exec-9]|DEBUG|c.n.b.m.RoomMapper.selectOne-==> Parameters: 2(Integer), 6(Integer)
+2022-04-03 14:49:04.303|[http-nio-0.0.0.0-5208-exec-9]|DEBUG|c.n.b.m.RoomMapper.selectOne-<==      Total: 1
+2022-04-03 14:49:04.304|[http-nio-0.0.0.0-5208-exec-9]|DEBUG|c.n.b.m.O.selectList-==>  Preparing: SELECT id,order_id,food_nums,remark,food_id,name,image,introduce,price FROM order_foods WHERE (order_id = ?)
+2022-04-03 14:49:04.305|[http-nio-0.0.0.0-5208-exec-9]|DEBUG|c.n.b.m.O.selectList-==> Parameters: 1(Integer)
+2022-04-03 14:49:04.313|[http-nio-0.0.0.0-5208-exec-9]|DEBUG|c.n.b.m.O.selectList-<==      Total: 2
+2022-04-03 14:49:21.215|[http-nio-0.0.0.0-5208-exec-10]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (openid = ?)
+2022-04-03 14:49:21.215|[http-nio-0.0.0.0-5208-exec-10]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: asd(String)
+2022-04-03 14:49:21.221|[http-nio-0.0.0.0-5208-exec-10]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 14:49:21.497|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-04-03 14:49:21.497|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-04-03 14:49:21.507|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 14:49:21.508|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.OrderMapper.selectList-==>  Preparing: SELECT id,create_time,creator_id,status,update_time,room_id,password,people_nums,submit_time FROM `order` WHERE (business_id = ?) ORDER BY submit_time DESC limit 10 offset 0
+2022-04-03 14:49:21.508|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.OrderMapper.selectList-==> Parameters: 2(Integer)
+2022-04-03 14:49:21.515|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.OrderMapper.selectList-<==      Total: 1
+2022-04-03 14:49:21.516|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.RoomMapper.selectOne-==>  Preparing: SELECT id,name,people_nums,business_id FROM room WHERE (business_id = ? AND id = ?)
+2022-04-03 14:49:21.516|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.RoomMapper.selectOne-==> Parameters: 2(Integer), 6(Integer)
+2022-04-03 14:49:21.522|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.RoomMapper.selectOne-<==      Total: 1
+2022-04-03 14:49:21.523|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.O.selectList-==>  Preparing: SELECT id,order_id,food_nums,remark,food_id,name,image,introduce,price FROM order_foods WHERE (order_id = ?)
+2022-04-03 14:49:21.523|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.O.selectList-==> Parameters: 1(Integer)
+2022-04-03 14:49:21.529|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.O.selectList-<==      Total: 2
+2022-04-03 14:49:26.448|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (openid = ?)
+2022-04-03 14:49:26.448|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: asd(String)
+2022-04-03 14:49:26.455|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 14:49:26.767|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-04-03 14:49:26.767|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-04-03 14:49:26.776|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 14:49:26.777|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.OrderMapper.selectList-==>  Preparing: SELECT id,create_time,creator_id,status,update_time,room_id,password,people_nums,submit_time FROM `order` WHERE (business_id = ?) ORDER BY submit_time DESC limit 10 offset 0
+2022-04-03 14:49:26.778|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.OrderMapper.selectList-==> Parameters: 2(Integer)
+2022-04-03 14:49:26.787|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.OrderMapper.selectList-<==      Total: 1
+2022-04-03 14:49:26.788|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.RoomMapper.selectOne-==>  Preparing: SELECT id,name,people_nums,business_id FROM room WHERE (business_id = ? AND id = ?)
+2022-04-03 14:49:26.788|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.RoomMapper.selectOne-==> Parameters: 2(Integer), 6(Integer)
+2022-04-03 14:49:26.794|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.RoomMapper.selectOne-<==      Total: 1
+2022-04-03 14:49:26.795|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.O.selectList-==>  Preparing: SELECT id,order_id,food_nums,remark,food_id,name,image,introduce,price FROM order_foods WHERE (order_id = ?)
+2022-04-03 14:49:26.795|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.O.selectList-==> Parameters: 1(Integer)
+2022-04-03 14:49:26.802|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.O.selectList-<==      Total: 2
+2022-04-03 14:49:30.634|[http-nio-0.0.0.0-5208-exec-4]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (openid = ?)
+2022-04-03 14:49:30.635|[http-nio-0.0.0.0-5208-exec-4]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: asd(String)
+2022-04-03 14:49:30.641|[http-nio-0.0.0.0-5208-exec-4]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 14:49:30.945|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-04-03 14:49:30.945|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-04-03 14:49:30.953|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 14:49:30.954|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.OrderMapper.selectList-==>  Preparing: SELECT id,create_time,creator_id,status,update_time,room_id,password,people_nums,submit_time FROM `order` WHERE (business_id = ?) ORDER BY submit_time DESC limit 10 offset 0
+2022-04-03 14:49:30.954|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.OrderMapper.selectList-==> Parameters: 2(Integer)
+2022-04-03 14:49:30.961|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.OrderMapper.selectList-<==      Total: 1
+2022-04-03 14:49:30.961|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.RoomMapper.selectOne-==>  Preparing: SELECT id,name,people_nums,business_id FROM room WHERE (business_id = ? AND id = ?)
+2022-04-03 14:49:30.962|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.RoomMapper.selectOne-==> Parameters: 2(Integer), 6(Integer)
+2022-04-03 14:49:30.968|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.RoomMapper.selectOne-<==      Total: 1
+2022-04-03 14:49:30.969|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.O.selectList-==>  Preparing: SELECT id,order_id,food_nums,remark,food_id,name,image,introduce,price FROM order_foods WHERE (order_id = ?)
+2022-04-03 14:49:30.970|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.O.selectList-==> Parameters: 1(Integer)
+2022-04-03 14:49:30.976|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.O.selectList-<==      Total: 2
+2022-04-03 14:49:34.009|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (openid = ?)
+2022-04-03 14:49:34.010|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: asd(String)
+2022-04-03 14:49:34.017|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 14:49:34.240|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-04-03 14:49:34.240|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-04-03 14:49:34.251|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 14:49:34.252|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.OrderMapper.selectList-==>  Preparing: SELECT id,create_time,creator_id,status,update_time,room_id,password,people_nums,submit_time FROM `order` WHERE (business_id = ?) ORDER BY submit_time DESC limit 10 offset 0
+2022-04-03 14:49:34.252|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.OrderMapper.selectList-==> Parameters: 2(Integer)
+2022-04-03 14:49:34.258|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.OrderMapper.selectList-<==      Total: 1
+2022-04-03 14:49:34.259|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.RoomMapper.selectOne-==>  Preparing: SELECT id,name,people_nums,business_id FROM room WHERE (business_id = ? AND id = ?)
+2022-04-03 14:49:34.259|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.RoomMapper.selectOne-==> Parameters: 2(Integer), 6(Integer)
+2022-04-03 14:49:34.266|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.RoomMapper.selectOne-<==      Total: 1
+2022-04-03 14:49:34.267|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.O.selectList-==>  Preparing: SELECT id,order_id,food_nums,remark,food_id,name,image,introduce,price FROM order_foods WHERE (order_id = ?)
+2022-04-03 14:49:34.267|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.O.selectList-==> Parameters: 1(Integer)
+2022-04-03 14:49:34.275|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.O.selectList-<==      Total: 2
+2022-04-03 14:49:44.413|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-04-03 14:49:44.414|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-04-03 14:49:44.421|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 14:49:44.422|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.OrderMapper.selectList-==>  Preparing: SELECT id,create_time,creator_id,status,update_time,room_id,password,people_nums,submit_time FROM `order` WHERE (business_id = ?) ORDER BY submit_time DESC limit 10 offset 0
+2022-04-03 14:49:44.422|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.OrderMapper.selectList-==> Parameters: 2(Integer)
+2022-04-03 14:49:44.434|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.OrderMapper.selectList-<==      Total: 1
+2022-04-03 14:49:44.435|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.RoomMapper.selectOne-==>  Preparing: SELECT id,name,people_nums,business_id FROM room WHERE (business_id = ? AND id = ?)
+2022-04-03 14:49:44.435|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.RoomMapper.selectOne-==> Parameters: 2(Integer), 6(Integer)
+2022-04-03 14:49:44.446|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.RoomMapper.selectOne-<==      Total: 1
+2022-04-03 14:49:44.446|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.O.selectList-==>  Preparing: SELECT id,order_id,food_nums,remark,food_id,name,image,introduce,price FROM order_foods WHERE (order_id = ?)
+2022-04-03 14:49:44.446|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.O.selectList-==> Parameters: 1(Integer)
+2022-04-03 14:49:44.453|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.O.selectList-<==      Total: 2
+2022-04-03 14:50:56.430|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (openid = ?)
+2022-04-03 14:50:56.430|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: asd(String)
+2022-04-03 14:50:56.436|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 14:50:56.731|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-04-03 14:50:56.731|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-04-03 14:50:56.738|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 14:50:56.740|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.OrderMapper.selectList-==>  Preparing: SELECT id,create_time,creator_id,status,update_time,room_id,password,people_nums,submit_time FROM `order` WHERE (business_id = ?) ORDER BY submit_time DESC limit 10 offset 0
+2022-04-03 14:50:56.740|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.OrderMapper.selectList-==> Parameters: 2(Integer)
+2022-04-03 14:50:56.746|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.OrderMapper.selectList-<==      Total: 1
+2022-04-03 14:50:56.747|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.RoomMapper.selectOne-==>  Preparing: SELECT id,name,people_nums,business_id FROM room WHERE (business_id = ? AND id = ?)
+2022-04-03 14:50:56.747|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.RoomMapper.selectOne-==> Parameters: 2(Integer), 6(Integer)
+2022-04-03 14:50:56.754|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.RoomMapper.selectOne-<==      Total: 1
+2022-04-03 14:50:56.756|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.O.selectList-==>  Preparing: SELECT id,order_id,food_nums,remark,food_id,name,image,introduce,price FROM order_foods WHERE (order_id = ?)
+2022-04-03 14:50:56.756|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.O.selectList-==> Parameters: 1(Integer)
+2022-04-03 14:50:56.761|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.O.selectList-<==      Total: 2
+2022-04-03 14:51:11.315|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (openid = ?)
+2022-04-03 14:51:11.315|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: asd(String)
+2022-04-03 14:51:11.322|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 14:51:11.598|[http-nio-0.0.0.0-5208-exec-4]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-04-03 14:51:11.598|[http-nio-0.0.0.0-5208-exec-4]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-04-03 14:51:11.606|[http-nio-0.0.0.0-5208-exec-4]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 14:51:11.607|[http-nio-0.0.0.0-5208-exec-4]|DEBUG|c.n.b.m.OrderMapper.selectList-==>  Preparing: SELECT id,create_time,creator_id,status,update_time,room_id,password,people_nums,submit_time FROM `order` WHERE (business_id = ?) ORDER BY submit_time DESC limit 10 offset 0
+2022-04-03 14:51:11.607|[http-nio-0.0.0.0-5208-exec-4]|DEBUG|c.n.b.m.OrderMapper.selectList-==> Parameters: 2(Integer)
+2022-04-03 14:51:11.614|[http-nio-0.0.0.0-5208-exec-4]|DEBUG|c.n.b.m.OrderMapper.selectList-<==      Total: 1
+2022-04-03 14:51:11.615|[http-nio-0.0.0.0-5208-exec-4]|DEBUG|c.n.b.m.RoomMapper.selectOne-==>  Preparing: SELECT id,name,people_nums,business_id FROM room WHERE (business_id = ? AND id = ?)
+2022-04-03 14:51:11.615|[http-nio-0.0.0.0-5208-exec-4]|DEBUG|c.n.b.m.RoomMapper.selectOne-==> Parameters: 2(Integer), 6(Integer)
+2022-04-03 14:51:11.622|[http-nio-0.0.0.0-5208-exec-4]|DEBUG|c.n.b.m.RoomMapper.selectOne-<==      Total: 1
+2022-04-03 14:51:11.623|[http-nio-0.0.0.0-5208-exec-4]|DEBUG|c.n.b.m.O.selectList-==>  Preparing: SELECT id,order_id,food_nums,remark,food_id,name,image,introduce,price FROM order_foods WHERE (order_id = ?)
+2022-04-03 14:51:11.623|[http-nio-0.0.0.0-5208-exec-4]|DEBUG|c.n.b.m.O.selectList-==> Parameters: 1(Integer)
+2022-04-03 14:51:11.629|[http-nio-0.0.0.0-5208-exec-4]|DEBUG|c.n.b.m.O.selectList-<==      Total: 2
+2022-04-03 14:51:41.548|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (openid = ?)
+2022-04-03 14:51:41.548|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: asd(String)
+2022-04-03 14:51:41.554|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 14:51:42.093|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-04-03 14:51:42.093|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-04-03 14:51:42.111|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 14:51:42.112|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.OrderMapper.selectList-==>  Preparing: SELECT id,create_time,creator_id,status,update_time,room_id,password,people_nums,submit_time FROM `order` WHERE (business_id = ?) ORDER BY submit_time DESC limit 10 offset 0
+2022-04-03 14:51:42.112|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.OrderMapper.selectList-==> Parameters: 2(Integer)
+2022-04-03 14:51:42.119|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.OrderMapper.selectList-<==      Total: 1
+2022-04-03 14:51:42.119|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.RoomMapper.selectOne-==>  Preparing: SELECT id,name,people_nums,business_id FROM room WHERE (business_id = ? AND id = ?)
+2022-04-03 14:51:42.119|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.RoomMapper.selectOne-==> Parameters: 2(Integer), 6(Integer)
+2022-04-03 14:51:42.127|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.RoomMapper.selectOne-<==      Total: 1
+2022-04-03 14:51:42.127|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.O.selectList-==>  Preparing: SELECT id,order_id,food_nums,remark,food_id,name,image,introduce,price FROM order_foods WHERE (order_id = ?)
+2022-04-03 14:51:42.127|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.O.selectList-==> Parameters: 1(Integer)
+2022-04-03 14:51:42.134|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.O.selectList-<==      Total: 2
+2022-04-03 14:51:58.250|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (openid = ?)
+2022-04-03 14:51:58.250|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: asd(String)
+2022-04-03 14:51:58.258|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 14:51:58.481|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-04-03 14:51:58.481|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-04-03 14:51:58.491|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 14:51:58.492|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.OrderMapper.selectList-==>  Preparing: SELECT id,create_time,creator_id,status,update_time,room_id,password,people_nums,submit_time FROM `order` WHERE (business_id = ?) ORDER BY submit_time DESC limit 10 offset 0
+2022-04-03 14:51:58.493|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.OrderMapper.selectList-==> Parameters: 2(Integer)
+2022-04-03 14:51:58.499|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.OrderMapper.selectList-<==      Total: 1
+2022-04-03 14:51:58.500|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.RoomMapper.selectOne-==>  Preparing: SELECT id,name,people_nums,business_id FROM room WHERE (business_id = ? AND id = ?)
+2022-04-03 14:51:58.500|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.RoomMapper.selectOne-==> Parameters: 2(Integer), 6(Integer)
+2022-04-03 14:51:58.506|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.RoomMapper.selectOne-<==      Total: 1
+2022-04-03 14:51:58.507|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.O.selectList-==>  Preparing: SELECT id,order_id,food_nums,remark,food_id,name,image,introduce,price FROM order_foods WHERE (order_id = ?)
+2022-04-03 14:51:58.507|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.O.selectList-==> Parameters: 1(Integer)
+2022-04-03 14:51:58.513|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.O.selectList-<==      Total: 2
+2022-04-03 14:52:13.266|[http-nio-0.0.0.0-5208-exec-9]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (openid = ?)
+2022-04-03 14:52:13.266|[http-nio-0.0.0.0-5208-exec-9]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: asd(String)
+2022-04-03 14:52:13.273|[http-nio-0.0.0.0-5208-exec-9]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 14:52:13.548|[http-nio-0.0.0.0-5208-exec-10]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-04-03 14:52:13.548|[http-nio-0.0.0.0-5208-exec-10]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-04-03 14:52:13.558|[http-nio-0.0.0.0-5208-exec-10]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 14:52:13.559|[http-nio-0.0.0.0-5208-exec-10]|DEBUG|c.n.b.m.OrderMapper.selectList-==>  Preparing: SELECT id,create_time,creator_id,status,update_time,room_id,password,people_nums,submit_time FROM `order` WHERE (business_id = ?) ORDER BY submit_time DESC limit 10 offset 0
+2022-04-03 14:52:13.559|[http-nio-0.0.0.0-5208-exec-10]|DEBUG|c.n.b.m.OrderMapper.selectList-==> Parameters: 2(Integer)
+2022-04-03 14:52:13.566|[http-nio-0.0.0.0-5208-exec-10]|DEBUG|c.n.b.m.OrderMapper.selectList-<==      Total: 1
+2022-04-03 14:52:13.566|[http-nio-0.0.0.0-5208-exec-10]|DEBUG|c.n.b.m.RoomMapper.selectOne-==>  Preparing: SELECT id,name,people_nums,business_id FROM room WHERE (business_id = ? AND id = ?)
+2022-04-03 14:52:13.567|[http-nio-0.0.0.0-5208-exec-10]|DEBUG|c.n.b.m.RoomMapper.selectOne-==> Parameters: 2(Integer), 6(Integer)
+2022-04-03 14:52:13.573|[http-nio-0.0.0.0-5208-exec-10]|DEBUG|c.n.b.m.RoomMapper.selectOne-<==      Total: 1
+2022-04-03 14:52:13.573|[http-nio-0.0.0.0-5208-exec-10]|DEBUG|c.n.b.m.O.selectList-==>  Preparing: SELECT id,order_id,food_nums,remark,food_id,name,image,introduce,price FROM order_foods WHERE (order_id = ?)
+2022-04-03 14:52:13.574|[http-nio-0.0.0.0-5208-exec-10]|DEBUG|c.n.b.m.O.selectList-==> Parameters: 1(Integer)
+2022-04-03 14:52:13.580|[http-nio-0.0.0.0-5208-exec-10]|DEBUG|c.n.b.m.O.selectList-<==      Total: 2
+2022-04-03 14:53:47.677|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (openid = ?)
+2022-04-03 14:53:47.677|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: asd(String)
+2022-04-03 14:53:47.684|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 14:53:47.810|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-04-03 14:53:47.811|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-04-03 14:53:47.818|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 14:53:47.820|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.OrderMapper.selectList-==>  Preparing: SELECT id,create_time,creator_id,status,update_time,room_id,password,people_nums,submit_time FROM `order` WHERE (business_id = ?) ORDER BY submit_time DESC limit 10 offset 0
+2022-04-03 14:53:47.820|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.OrderMapper.selectList-==> Parameters: 2(Integer)
+2022-04-03 14:53:47.826|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.OrderMapper.selectList-<==      Total: 1
+2022-04-03 14:53:47.827|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.RoomMapper.selectOne-==>  Preparing: SELECT id,name,people_nums,business_id FROM room WHERE (business_id = ? AND id = ?)
+2022-04-03 14:53:47.827|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.RoomMapper.selectOne-==> Parameters: 2(Integer), 6(Integer)
+2022-04-03 14:53:47.834|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.RoomMapper.selectOne-<==      Total: 1
+2022-04-03 14:53:47.834|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.O.selectList-==>  Preparing: SELECT id,order_id,food_nums,remark,food_id,name,image,introduce,price FROM order_foods WHERE (order_id = ?)
+2022-04-03 14:53:47.835|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.O.selectList-==> Parameters: 1(Integer)
+2022-04-03 14:53:47.841|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.O.selectList-<==      Total: 2
+2022-04-03 14:54:14.031|[http-nio-0.0.0.0-5208-exec-4]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (openid = ?)
+2022-04-03 14:54:14.031|[http-nio-0.0.0.0-5208-exec-4]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: asd(String)
+2022-04-03 14:54:14.040|[http-nio-0.0.0.0-5208-exec-4]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 14:54:14.561|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-04-03 14:54:14.562|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-04-03 14:54:14.568|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 14:54:14.569|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.OrderMapper.selectList-==>  Preparing: SELECT id,create_time,creator_id,status,update_time,room_id,password,people_nums,submit_time FROM `order` WHERE (business_id = ?) ORDER BY submit_time DESC limit 10 offset 0
+2022-04-03 14:54:14.569|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.OrderMapper.selectList-==> Parameters: 2(Integer)
+2022-04-03 14:54:14.577|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.OrderMapper.selectList-<==      Total: 1
+2022-04-03 14:54:14.577|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.RoomMapper.selectOne-==>  Preparing: SELECT id,name,people_nums,business_id FROM room WHERE (business_id = ? AND id = ?)
+2022-04-03 14:54:14.577|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.RoomMapper.selectOne-==> Parameters: 2(Integer), 6(Integer)
+2022-04-03 14:54:14.591|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.RoomMapper.selectOne-<==      Total: 1
+2022-04-03 14:54:14.592|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.O.selectList-==>  Preparing: SELECT id,order_id,food_nums,remark,food_id,name,image,introduce,price FROM order_foods WHERE (order_id = ?)
+2022-04-03 14:54:14.592|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.O.selectList-==> Parameters: 1(Integer)
+2022-04-03 14:54:14.605|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.O.selectList-<==      Total: 2
+2022-04-03 14:54:28.877|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (openid = ?)
+2022-04-03 14:54:28.877|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: asd(String)
+2022-04-03 14:54:28.883|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 14:54:29.348|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-04-03 14:54:29.348|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-04-03 14:54:29.354|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 14:54:29.355|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.OrderMapper.selectList-==>  Preparing: SELECT id,create_time,creator_id,status,update_time,room_id,password,people_nums,submit_time FROM `order` WHERE (business_id = ?) ORDER BY submit_time DESC limit 10 offset 0
+2022-04-03 14:54:29.355|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.OrderMapper.selectList-==> Parameters: 2(Integer)
+2022-04-03 14:54:29.362|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.OrderMapper.selectList-<==      Total: 1
+2022-04-03 14:54:29.362|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.RoomMapper.selectOne-==>  Preparing: SELECT id,name,people_nums,business_id FROM room WHERE (business_id = ? AND id = ?)
+2022-04-03 14:54:29.362|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.RoomMapper.selectOne-==> Parameters: 2(Integer), 6(Integer)
+2022-04-03 14:54:29.368|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.RoomMapper.selectOne-<==      Total: 1
+2022-04-03 14:54:29.369|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.O.selectList-==>  Preparing: SELECT id,order_id,food_nums,remark,food_id,name,image,introduce,price FROM order_foods WHERE (order_id = ?)
+2022-04-03 14:54:29.369|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.O.selectList-==> Parameters: 1(Integer)
+2022-04-03 14:54:29.375|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.O.selectList-<==      Total: 2
+2022-04-03 14:54:31.110|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-04-03 14:54:31.110|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-04-03 14:54:31.117|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 14:54:31.120|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.OrderMapper.selectOne-==>  Preparing: SELECT id,create_time,creator_id,status,update_time,room_id,password,people_nums,submit_time FROM `order` WHERE (business_id = ? AND id = ?)
+2022-04-03 14:54:31.120|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.OrderMapper.selectOne-==> Parameters: 2(Integer), 1(Integer)
+2022-04-03 14:54:31.127|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.OrderMapper.selectOne-<==      Total: 1
+2022-04-03 14:54:31.127|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.O.selectList-==>  Preparing: SELECT id,order_id,food_nums,remark,food_id,name,image,introduce,price FROM order_foods WHERE (order_id = ?)
+2022-04-03 14:54:31.127|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.O.selectList-==> Parameters: 1(Integer)
+2022-04-03 14:54:31.135|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.O.selectList-<==      Total: 2
+2022-04-03 14:54:31.136|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.RoomMapper.selectOne-==>  Preparing: SELECT id,name,people_nums,business_id FROM room WHERE (business_id = ? AND id = ?)
+2022-04-03 14:54:31.136|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.RoomMapper.selectOne-==> Parameters: 2(Integer), 6(Integer)
+2022-04-03 14:54:31.143|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.RoomMapper.selectOne-<==      Total: 1
+2022-04-03 14:57:32.580|[http-nio-0.0.0.0-5208-exec-10]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (openid = ?)
+2022-04-03 14:57:32.581|[http-nio-0.0.0.0-5208-exec-10]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: asd(String)
+2022-04-03 14:57:32.587|[http-nio-0.0.0.0-5208-exec-10]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 14:57:32.873|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-04-03 14:57:32.874|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-04-03 14:57:32.880|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 14:57:32.881|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.OrderMapper.selectList-==>  Preparing: SELECT id,create_time,creator_id,status,update_time,room_id,password,people_nums,submit_time FROM `order` WHERE (business_id = ?) ORDER BY submit_time DESC limit 10 offset 0
+2022-04-03 14:57:32.881|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.OrderMapper.selectList-==> Parameters: 2(Integer)
+2022-04-03 14:57:32.889|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.OrderMapper.selectList-<==      Total: 1
+2022-04-03 14:57:32.890|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.RoomMapper.selectOne-==>  Preparing: SELECT id,name,people_nums,business_id FROM room WHERE (business_id = ? AND id = ?)
+2022-04-03 14:57:32.890|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.RoomMapper.selectOne-==> Parameters: 2(Integer), 6(Integer)
+2022-04-03 14:57:32.896|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.RoomMapper.selectOne-<==      Total: 1
+2022-04-03 14:57:32.897|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.O.selectList-==>  Preparing: SELECT id,order_id,food_nums,remark,food_id,name,image,introduce,price FROM order_foods WHERE (order_id = ?)
+2022-04-03 14:57:32.897|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.O.selectList-==> Parameters: 1(Integer)
+2022-04-03 14:57:32.903|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.O.selectList-<==      Total: 2
+2022-04-03 14:57:44.510|[main]|DEBUG|c.n.b.BusinessApplication-Running with Spring Boot v2.6.4, Spring v5.3.16
+2022-04-03 14:57:49.183|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-04-03 14:57:49.192|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-04-03 14:57:49.207|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 14:57:49.227|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.OrderMapper.selectList-==>  Preparing: SELECT id,create_time,creator_id,status,update_time,room_id,password,people_nums,submit_time FROM `order` WHERE (business_id = ?) ORDER BY submit_time DESC limit 10 offset 0
+2022-04-03 14:57:49.227|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.OrderMapper.selectList-==> Parameters: 2(Integer)
+2022-04-03 14:57:49.237|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.OrderMapper.selectList-<==      Total: 1
+2022-04-03 14:57:49.242|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.RoomMapper.selectOne-==>  Preparing: SELECT id,name,people_nums,business_id FROM room WHERE (business_id = ? AND id = ?)
+2022-04-03 14:57:49.242|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.RoomMapper.selectOne-==> Parameters: 2(Integer), 6(Integer)
+2022-04-03 14:57:49.248|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.RoomMapper.selectOne-<==      Total: 1
+2022-04-03 14:57:49.258|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.O.selectList-==>  Preparing: SELECT id,order_id,food_nums,remark,food_id,name,image,introduce,price FROM order_foods WHERE (order_id = ?)
+2022-04-03 14:57:49.258|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.O.selectList-==> Parameters: 1(Integer)
+2022-04-03 14:57:49.267|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.O.selectList-<==      Total: 2
+2022-04-03 14:57:51.380|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-04-03 14:57:51.380|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-04-03 14:57:51.386|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 14:57:51.389|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.OrderMapper.selectOne-==>  Preparing: SELECT id,create_time,creator_id,status,update_time,room_id,password,people_nums,submit_time FROM `order` WHERE (business_id = ? AND id = ?)
+2022-04-03 14:57:51.389|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.OrderMapper.selectOne-==> Parameters: 2(Integer), 1(Integer)
+2022-04-03 14:57:51.398|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.OrderMapper.selectOne-<==      Total: 1
+2022-04-03 14:57:51.399|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.O.selectList-==>  Preparing: SELECT id,order_id,food_nums,remark,food_id,name,image,introduce,price FROM order_foods WHERE (order_id = ?)
+2022-04-03 14:57:51.399|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.O.selectList-==> Parameters: 1(Integer)
+2022-04-03 14:57:51.407|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.O.selectList-<==      Total: 2
+2022-04-03 14:57:51.408|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.RoomMapper.selectOne-==>  Preparing: SELECT id,name,people_nums,business_id FROM room WHERE (business_id = ? AND id = ?)
+2022-04-03 14:57:51.408|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.RoomMapper.selectOne-==> Parameters: 2(Integer), 6(Integer)
+2022-04-03 14:57:51.416|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.RoomMapper.selectOne-<==      Total: 1
+2022-04-03 14:59:21.762|[http-nio-0.0.0.0-5208-exec-4]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (openid = ?)
+2022-04-03 14:59:21.762|[http-nio-0.0.0.0-5208-exec-4]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: asd(String)
+2022-04-03 14:59:21.770|[http-nio-0.0.0.0-5208-exec-4]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 14:59:22.081|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-04-03 14:59:22.081|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-04-03 14:59:22.087|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 14:59:22.089|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.OrderMapper.selectList-==>  Preparing: SELECT id,create_time,creator_id,status,update_time,room_id,password,people_nums,submit_time FROM `order` WHERE (business_id = ?) ORDER BY submit_time DESC limit 10 offset 0
+2022-04-03 14:59:22.089|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.OrderMapper.selectList-==> Parameters: 2(Integer)
+2022-04-03 14:59:22.098|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.OrderMapper.selectList-<==      Total: 1
+2022-04-03 14:59:22.098|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.RoomMapper.selectOne-==>  Preparing: SELECT id,name,people_nums,business_id FROM room WHERE (business_id = ? AND id = ?)
+2022-04-03 14:59:22.099|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.RoomMapper.selectOne-==> Parameters: 2(Integer), 6(Integer)
+2022-04-03 14:59:22.105|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.RoomMapper.selectOne-<==      Total: 1
+2022-04-03 14:59:22.106|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.O.selectList-==>  Preparing: SELECT id,order_id,food_nums,remark,food_id,name,image,introduce,price FROM order_foods WHERE (order_id = ?)
+2022-04-03 14:59:22.106|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.O.selectList-==> Parameters: 1(Integer)
+2022-04-03 14:59:22.114|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.O.selectList-<==      Total: 2
+2022-04-03 14:59:23.581|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-04-03 14:59:23.582|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-04-03 14:59:23.588|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 14:59:23.590|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.OrderMapper.selectOne-==>  Preparing: SELECT id,create_time,creator_id,status,update_time,room_id,password,people_nums,submit_time FROM `order` WHERE (business_id = ? AND id = ?)
+2022-04-03 14:59:23.590|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.OrderMapper.selectOne-==> Parameters: 2(Integer), 1(Integer)
+2022-04-03 14:59:23.596|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.OrderMapper.selectOne-<==      Total: 1
+2022-04-03 14:59:23.598|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.O.selectList-==>  Preparing: SELECT id,order_id,food_nums,remark,food_id,name,image,introduce,price FROM order_foods WHERE (order_id = ?)
+2022-04-03 14:59:23.599|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.O.selectList-==> Parameters: 1(Integer)
+2022-04-03 14:59:23.609|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.O.selectList-<==      Total: 2
+2022-04-03 14:59:23.611|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.RoomMapper.selectOne-==>  Preparing: SELECT id,name,people_nums,business_id FROM room WHERE (business_id = ? AND id = ?)
+2022-04-03 14:59:23.611|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.RoomMapper.selectOne-==> Parameters: 2(Integer), 6(Integer)
+2022-04-03 14:59:23.617|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.RoomMapper.selectOne-<==      Total: 1
+2022-04-03 14:59:31.531|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-04-03 14:59:31.531|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-04-03 14:59:31.537|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 14:59:31.539|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.OrderMapper.selectList-==>  Preparing: SELECT id,create_time,creator_id,status,update_time,room_id,password,people_nums,submit_time FROM `order` WHERE (unix_timestamp(submit_time) >= ? AND unix_timestamp(submit_time) < ? AND business_id = ?) ORDER BY submit_time DESC
+2022-04-03 14:59:31.540|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.OrderMapper.selectList-==> Parameters: 1648915200(Long), 1649001600(Long), 2(Integer)
+2022-04-03 14:59:31.547|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.OrderMapper.selectList-<==      Total: 0
+2022-04-03 15:07:21.847|[http-nio-0.0.0.0-5208-exec-10]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-04-03 15:07:21.847|[http-nio-0.0.0.0-5208-exec-10]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-04-03 15:07:21.856|[http-nio-0.0.0.0-5208-exec-10]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 15:07:21.858|[http-nio-0.0.0.0-5208-exec-10]|DEBUG|c.n.b.m.OrderMapper.selectList-==>  Preparing: SELECT id,create_time,creator_id,status,update_time,room_id,password,people_nums,submit_time FROM `order` WHERE (business_id = ?) ORDER BY submit_time DESC limit 10 offset 0
+2022-04-03 15:07:21.858|[http-nio-0.0.0.0-5208-exec-10]|DEBUG|c.n.b.m.OrderMapper.selectList-==> Parameters: 2(Integer)
+2022-04-03 15:07:21.864|[http-nio-0.0.0.0-5208-exec-10]|DEBUG|c.n.b.m.OrderMapper.selectList-<==      Total: 1
+2022-04-03 15:07:21.865|[http-nio-0.0.0.0-5208-exec-10]|DEBUG|c.n.b.m.RoomMapper.selectOne-==>  Preparing: SELECT id,name,people_nums,business_id FROM room WHERE (business_id = ? AND id = ?)
+2022-04-03 15:07:21.865|[http-nio-0.0.0.0-5208-exec-10]|DEBUG|c.n.b.m.RoomMapper.selectOne-==> Parameters: 2(Integer), 6(Integer)
+2022-04-03 15:07:21.873|[http-nio-0.0.0.0-5208-exec-10]|DEBUG|c.n.b.m.RoomMapper.selectOne-<==      Total: 1
+2022-04-03 15:07:21.874|[http-nio-0.0.0.0-5208-exec-10]|DEBUG|c.n.b.m.O.selectList-==>  Preparing: SELECT id,order_id,food_nums,remark,food_id,name,image,introduce,price FROM order_foods WHERE (order_id = ?)
+2022-04-03 15:07:21.874|[http-nio-0.0.0.0-5208-exec-10]|DEBUG|c.n.b.m.O.selectList-==> Parameters: 1(Integer)
+2022-04-03 15:07:21.881|[http-nio-0.0.0.0-5208-exec-10]|DEBUG|c.n.b.m.O.selectList-<==      Total: 2
+2022-04-03 15:07:25.831|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (openid = ?)
+2022-04-03 15:07:25.832|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: asd(String)
+2022-04-03 15:07:25.838|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 15:07:25.983|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-04-03 15:07:25.983|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-04-03 15:07:25.989|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 15:07:25.994|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.C.selectList-==>  Preparing: SELECT id,name,priority,business_id FROM category WHERE (business_id = ?) ORDER BY priority ASC
+2022-04-03 15:07:25.995|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.C.selectList-==> Parameters: 2(Integer)
+2022-04-03 15:07:26.008|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.C.selectList-<==      Total: 5
+2022-04-03 15:07:26.013|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.FoodMapper.selectList-==>  Preparing: SELECT id,name,image,introduce,category_id,price,status,business_id FROM food WHERE (business_id = ?)
+2022-04-03 15:07:26.014|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.FoodMapper.selectList-==> Parameters: 2(Integer)
+2022-04-03 15:07:26.030|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.FoodMapper.selectList-<==      Total: 4
+2022-04-03 15:07:26.064|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-04-03 15:07:26.064|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-04-03 15:07:26.071|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 15:07:26.073|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.C.selectList-==>  Preparing: SELECT id,name,priority,business_id FROM category WHERE (business_id = ?) ORDER BY priority ASC
+2022-04-03 15:07:26.073|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.C.selectList-==> Parameters: 2(Integer)
+2022-04-03 15:07:26.079|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.C.selectList-<==      Total: 5
+2022-04-03 15:07:26.080|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.FoodMapper.selectList-==>  Preparing: SELECT id,name,image,introduce,category_id,price,status,business_id FROM food WHERE (business_id = ?)
+2022-04-03 15:07:26.080|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.FoodMapper.selectList-==> Parameters: 2(Integer)
+2022-04-03 15:07:26.095|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.FoodMapper.selectList-<==      Total: 4
+2022-04-03 15:07:26.713|[http-nio-0.0.0.0-5208-exec-9]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (openid = ?)
+2022-04-03 15:07:26.713|[http-nio-0.0.0.0-5208-exec-9]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: asd(String)
+2022-04-03 15:07:26.719|[http-nio-0.0.0.0-5208-exec-9]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 15:07:34.502|[http-nio-0.0.0.0-5208-exec-4]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-04-03 15:07:34.502|[http-nio-0.0.0.0-5208-exec-4]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-04-03 15:07:34.508|[http-nio-0.0.0.0-5208-exec-4]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 15:07:34.526|[http-nio-0.0.0.0-5208-exec-4]|DEBUG|c.n.b.mapper.FoodMapper.update-==>  Preparing: UPDATE food SET status=? WHERE (id = ? AND business_id = ?)
+2022-04-03 15:07:34.526|[http-nio-0.0.0.0-5208-exec-4]|DEBUG|c.n.b.mapper.FoodMapper.update-==> Parameters: 0(Integer), 4(Integer), 2(Integer)
+2022-04-03 15:07:34.531|[http-nio-0.0.0.0-5208-exec-4]|DEBUG|c.n.b.mapper.FoodMapper.update-<==    Updates: 1
+2022-04-03 15:07:37.635|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-04-03 15:07:37.636|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-04-03 15:07:37.643|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 15:07:37.644|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.C.selectList-==>  Preparing: SELECT id,name,priority,business_id FROM category WHERE (business_id = ?) ORDER BY priority ASC
+2022-04-03 15:07:37.645|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.C.selectList-==> Parameters: 2(Integer)
+2022-04-03 15:07:37.650|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.C.selectList-<==      Total: 5
+2022-04-03 15:07:58.251|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-04-03 15:07:58.252|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-04-03 15:07:58.258|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 15:07:58.259|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.C.selectList-==>  Preparing: SELECT id,name,priority,business_id FROM category WHERE (business_id = ?) ORDER BY priority ASC
+2022-04-03 15:07:58.259|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.C.selectList-==> Parameters: 2(Integer)
+2022-04-03 15:07:58.265|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.C.selectList-<==      Total: 5
+2022-04-03 15:08:13.912|[http-nio-0.0.0.0-5208-exec-10]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-04-03 15:08:13.913|[http-nio-0.0.0.0-5208-exec-10]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-04-03 15:08:13.918|[http-nio-0.0.0.0-5208-exec-10]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 15:08:13.920|[http-nio-0.0.0.0-5208-exec-10]|DEBUG|c.n.b.m.C.selectList-==>  Preparing: SELECT id,name,priority,business_id FROM category WHERE (business_id = ?) ORDER BY priority ASC
+2022-04-03 15:08:13.920|[http-nio-0.0.0.0-5208-exec-10]|DEBUG|c.n.b.m.C.selectList-==> Parameters: 2(Integer)
+2022-04-03 15:08:13.926|[http-nio-0.0.0.0-5208-exec-10]|DEBUG|c.n.b.m.C.selectList-<==      Total: 5
+2022-04-03 15:09:42.142|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-04-03 15:09:42.142|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-04-03 15:09:42.243|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 15:09:42.249|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.C.selectById-==>  Preparing: SELECT id,name,priority,business_id FROM category WHERE id=?
+2022-04-03 15:09:42.249|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.C.selectById-==> Parameters: 7(Integer)
+2022-04-03 15:09:42.260|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.C.selectById-<==      Total: 1
+2022-04-03 15:09:42.262|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.mapper.FoodMapper.insert-==>  Preparing: INSERT INTO food ( name, image, introduce, category_id, price, status, business_id ) VALUES ( ?, ?, ?, ?, ?, ?, ? )
+2022-04-03 15:09:42.262|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.mapper.FoodMapper.insert-==> Parameters: 年年大餐(String), https://cdn.torchcqs.cn/statics/upload/b127e22930bb44d0be0f48fbb86d88df.png(String), 吃猫娘(String), 7(Integer), 999.0(Float), 1(Integer), 2(Integer)
+2022-04-03 15:09:42.281|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.mapper.FoodMapper.insert-<==    Updates: 1
+2022-04-03 15:09:55.512|[http-nio-0.0.0.0-5208-exec-9]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-04-03 15:09:55.513|[http-nio-0.0.0.0-5208-exec-9]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-04-03 15:09:55.520|[http-nio-0.0.0.0-5208-exec-9]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 15:09:55.521|[http-nio-0.0.0.0-5208-exec-9]|DEBUG|c.n.b.m.C.selectById-==>  Preparing: SELECT id,name,priority,business_id FROM category WHERE id=?
+2022-04-03 15:09:55.521|[http-nio-0.0.0.0-5208-exec-9]|DEBUG|c.n.b.m.C.selectById-==> Parameters: 7(Integer)
+2022-04-03 15:09:55.527|[http-nio-0.0.0.0-5208-exec-9]|DEBUG|c.n.b.m.C.selectById-<==      Total: 1
+2022-04-03 15:09:55.528|[http-nio-0.0.0.0-5208-exec-9]|DEBUG|c.n.b.mapper.FoodMapper.insert-==>  Preparing: INSERT INTO food ( name, image, introduce, category_id, price, status, business_id ) VALUES ( ?, ?, ?, ?, ?, ?, ? )
+2022-04-03 15:09:55.528|[http-nio-0.0.0.0-5208-exec-9]|DEBUG|c.n.b.mapper.FoodMapper.insert-==> Parameters: 年年大餐(String), https://cdn.torchcqs.cn/statics/upload/b127e22930bb44d0be0f48fbb86d88df.png(String), 吃猫娘(String), 7(Integer), 999.0(Float), 1(Integer), 2(Integer)
+2022-04-03 15:09:55.534|[http-nio-0.0.0.0-5208-exec-9]|DEBUG|c.n.b.mapper.FoodMapper.insert-<==    Updates: 1
+2022-04-03 15:10:00.864|[http-nio-0.0.0.0-5208-exec-4]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (openid = ?)
+2022-04-03 15:10:00.864|[http-nio-0.0.0.0-5208-exec-4]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: asd(String)
+2022-04-03 15:10:00.871|[http-nio-0.0.0.0-5208-exec-4]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 15:10:01.152|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-04-03 15:10:01.153|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-04-03 15:10:01.158|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 15:10:01.159|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.C.selectList-==>  Preparing: SELECT id,name,priority,business_id FROM category WHERE (business_id = ?) ORDER BY priority ASC
+2022-04-03 15:10:01.159|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.C.selectList-==> Parameters: 2(Integer)
+2022-04-03 15:10:01.165|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.C.selectList-<==      Total: 5
+2022-04-03 15:10:01.166|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.FoodMapper.selectList-==>  Preparing: SELECT id,name,image,introduce,category_id,price,status,business_id FROM food WHERE (business_id = ?)
+2022-04-03 15:10:01.166|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.FoodMapper.selectList-==> Parameters: 2(Integer)
+2022-04-03 15:10:01.172|[http-nio-0.0.0.0-5208-exec-5]|DEBUG|c.n.b.m.FoodMapper.selectList-<==      Total: 6
+2022-04-03 15:10:01.188|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-04-03 15:10:01.188|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-04-03 15:10:01.195|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 15:10:01.196|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.C.selectList-==>  Preparing: SELECT id,name,priority,business_id FROM category WHERE (business_id = ?) ORDER BY priority ASC
+2022-04-03 15:10:01.196|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.C.selectList-==> Parameters: 2(Integer)
+2022-04-03 15:10:01.201|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.C.selectList-<==      Total: 5
+2022-04-03 15:10:01.202|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.FoodMapper.selectList-==>  Preparing: SELECT id,name,image,introduce,category_id,price,status,business_id FROM food WHERE (business_id = ?)
+2022-04-03 15:10:01.202|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.FoodMapper.selectList-==> Parameters: 2(Integer)
+2022-04-03 15:10:01.214|[http-nio-0.0.0.0-5208-exec-6]|DEBUG|c.n.b.m.FoodMapper.selectList-<==      Total: 6
+2022-04-03 15:10:26.948|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-04-03 15:10:26.948|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-04-03 15:10:26.955|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 15:10:26.956|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.C.selectList-==>  Preparing: SELECT id,name,priority,business_id FROM category WHERE (business_id = ?) ORDER BY priority ASC
+2022-04-03 15:10:26.956|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.C.selectList-==> Parameters: 2(Integer)
+2022-04-03 15:10:26.963|[http-nio-0.0.0.0-5208-exec-8]|DEBUG|c.n.b.m.C.selectList-<==      Total: 5
+2022-04-03 15:10:37.938|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-04-03 15:10:37.938|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-04-03 15:10:37.943|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 15:10:37.947|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.CategoryMapper.update-==>  Preparing: UPDATE category SET name=?, priority=? WHERE (id = ? AND business_id = ?)
+2022-04-03 15:10:37.947|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.CategoryMapper.update-==> Parameters: dog(String), 14(Integer), 4(Integer), 2(Integer)
+2022-04-03 15:10:37.953|[http-nio-0.0.0.0-5208-exec-7]|DEBUG|c.n.b.m.CategoryMapper.update-<==    Updates: 1
+2022-04-03 15:10:43.160|[http-nio-0.0.0.0-5208-exec-10]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (openid = ?)
+2022-04-03 15:10:43.160|[http-nio-0.0.0.0-5208-exec-10]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: asd(String)
+2022-04-03 15:10:43.166|[http-nio-0.0.0.0-5208-exec-10]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 15:10:43.395|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-04-03 15:10:43.395|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-04-03 15:10:43.407|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 15:10:43.408|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.C.selectList-==>  Preparing: SELECT id,name,priority,business_id FROM category WHERE (business_id = ?) ORDER BY priority ASC
+2022-04-03 15:10:43.408|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.C.selectList-==> Parameters: 2(Integer)
+2022-04-03 15:10:43.414|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.C.selectList-<==      Total: 5
+2022-04-03 15:10:43.415|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.FoodMapper.selectList-==>  Preparing: SELECT id,name,image,introduce,category_id,price,status,business_id FROM food WHERE (business_id = ?)
+2022-04-03 15:10:43.415|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.FoodMapper.selectList-==> Parameters: 2(Integer)
+2022-04-03 15:10:43.422|[http-nio-0.0.0.0-5208-exec-1]|DEBUG|c.n.b.m.FoodMapper.selectList-<==      Total: 6
+2022-04-03 15:10:43.428|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-04-03 15:10:43.428|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-04-03 15:10:43.434|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 15:10:43.435|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.C.selectList-==>  Preparing: SELECT id,name,priority,business_id FROM category WHERE (business_id = ?) ORDER BY priority ASC
+2022-04-03 15:10:43.435|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.C.selectList-==> Parameters: 2(Integer)
+2022-04-03 15:10:43.442|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.C.selectList-<==      Total: 5
+2022-04-03 15:10:43.443|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.FoodMapper.selectList-==>  Preparing: SELECT id,name,image,introduce,category_id,price,status,business_id FROM food WHERE (business_id = ?)
+2022-04-03 15:10:43.443|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.FoodMapper.selectList-==> Parameters: 2(Integer)
+2022-04-03 15:10:43.450|[http-nio-0.0.0.0-5208-exec-2]|DEBUG|c.n.b.m.FoodMapper.selectList-<==      Total: 6
+2022-04-03 15:10:50.030|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-04-03 15:10:50.030|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-04-03 15:10:50.037|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-03 15:10:50.038|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.C.selectList-==>  Preparing: SELECT id,name,priority,business_id FROM category WHERE (business_id = ?) ORDER BY priority ASC
+2022-04-03 15:10:50.038|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.C.selectList-==> Parameters: 2(Integer)
+2022-04-03 15:10:50.048|[http-nio-0.0.0.0-5208-exec-3]|DEBUG|c.n.b.m.C.selectList-<==      Total: 5

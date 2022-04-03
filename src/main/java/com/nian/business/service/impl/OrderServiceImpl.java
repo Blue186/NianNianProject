@@ -34,7 +34,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         wrapper.orderByDesc("submit_time");
 
         if (offset != null && count != null){
-            wrapper.last("limit "+ count + " offset " + offset);
+            wrapper.last(String.format("limit %d offset %d", count, offset));
         }
 
         return baseMapper.selectList(wrapper);
@@ -47,7 +47,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         wrapper.orderByDesc("submit_time");
 
         if (offset != null && count != null){
-            wrapper.last("limit "+ count + " offset " + offset);
+            wrapper.last(String.format("limit %d offset %d", count, offset));
         }
 
         return baseMapper.selectList(wrapper);
