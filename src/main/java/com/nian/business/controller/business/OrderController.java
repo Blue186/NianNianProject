@@ -32,8 +32,8 @@ public class OrderController {
     public R<?> getTodayOrder(
             HttpServletRequest request,
             HttpServletResponse response,
-            @RequestParam Integer count,
-            @RequestParam Integer offset
+            @RequestParam Integer offset,
+            @RequestParam Integer count
     ){
         Business business = (Business) request.getAttribute("business");
         double money = 0.0, pendingMoney = 0.0;
@@ -41,7 +41,7 @@ public class OrderController {
 
         // 组装orders
         var ordersJson = new ArrayList<JSONObject>();
-        var orders = orderService.getTodayOrder(business.getId());
+        var orders = orderService.getTodayOrder(business.getId(), null, null);
         for (var order: orders){
             var room = roomService.selectRoom(business.getId(), order.getRoomId());
             var roomJson = new JSONObject();
@@ -74,6 +74,7 @@ public class OrderController {
             }
 
             var orderJson = new JSONObject();
+            orderJson.set("id", order.getId());
             orderJson.set("room", roomJson);
             orderJson.set("foods", foodsJson);
             orderJson.set("total_price", foodsMoney);
@@ -101,8 +102,8 @@ public class OrderController {
     public R<?> getHistoryOrder(
             HttpServletRequest request,
             HttpServletResponse response,
-            @RequestParam Integer count,
-            @RequestParam Integer offset
+            @RequestParam Integer offset,
+            @RequestParam Integer count
     ){
         Business business = (Business) request.getAttribute("business");
         double money = 0.0, pendingMoney = 0.0;
@@ -110,7 +111,7 @@ public class OrderController {
 
         // 组装orders
         var ordersJson = new ArrayList<JSONObject>();
-        var orders = orderService.getHistoryOrder(business.getId());
+        var orders = orderService.getHistoryOrder(business.getId(), offset, count);
         for (var order: orders){
             var room = roomService.selectRoom(business.getId(), order.getRoomId());
             var roomJson = new JSONObject();
@@ -143,6 +144,7 @@ public class OrderController {
             }
 
             var orderJson = new JSONObject();
+            orderJson.set("id", order.getId());
             orderJson.set("room", roomJson);
             orderJson.set("foods", foodsJson);
             orderJson.set("total_price", foodsMoney);

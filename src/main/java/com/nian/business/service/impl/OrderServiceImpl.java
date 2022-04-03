@@ -1,24 +1,22 @@
 package com.nian.business.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.nian.business.entity.Order;
-import com.nian.business.entity.vo.food.FoodItem;
 import com.nian.business.mapper.OrderMapper;
 import com.nian.business.service.OrderService;
 import lombok.extern.slf4j.Slf4j;
 import lombok.var;
 import org.springframework.stereotype.Service;
 
-import java.sql.Time;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 @Slf4j
 @Service
 public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements OrderService {
     @Override
-    public List<Order> getTodayOrder(Integer businessID) {
+    public List<Order> getTodayOrder(Integer businessID, Integer offset, Integer count) {
         Calendar c = Calendar.getInstance();
         c.set(Calendar.SECOND, 0);
         c.set(Calendar.MINUTE, 0);
@@ -35,16 +33,27 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         wrapper.eq("business_id", businessID);
         wrapper.orderByDesc("submit_time");
 
-        return baseMapper.selectList(wrapper);
+        if (offset != null && count != null){
+            var ordersPage = baseMapper.selectPage(new Page<>(offset + 1, count), wrapper);
+            return ordersPage.getRecords();
+        }else {
+            return baseMapper.selectList(wrapper);
+        }
+
     }
 
     @Override
-    public List<Order> getHistoryOrder(Integer businessID) {
+    public List<Order> getHistoryOrder(Integer businessID, Integer offset, Integer count) {
         var wrapper = new QueryWrapper<Order>();
         wrapper.eq("business_id", businessID);
         wrapper.orderByDesc("submit_time");
 
-        return baseMapper.selectList(wrapper);
+        if (offset != null && count != null){
+            var ordersPage = baseMapper.selectPage(new Page<>(offset + 1, count), wrapper);
+            return ordersPage.getRecords();
+        }else {
+            return baseMapper.selectList(wrapper);
+        }
     }
 
     @Override

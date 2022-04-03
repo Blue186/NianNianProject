@@ -33,7 +33,7 @@ public class InformationController {
         double money = 0.0, pendingMoney = 0.0;
         int orderNums = 0, pendingOrderNums = 0;
 
-        var orders = orderService.getTodayOrder(business.getId());
+        var orders = orderService.getTodayOrder(business.getId(), null, null);
         for (var order: orders) {
             var orderFoods = orderFoodService.getOrderFoods(order.getId());
             switch (order.getStatus()){
