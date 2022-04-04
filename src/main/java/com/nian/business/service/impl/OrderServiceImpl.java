@@ -1,7 +1,6 @@
 package com.nian.business.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.nian.business.entity.Order;
 import com.nian.business.mapper.OrderMapper;
@@ -38,6 +37,38 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         }
 
         return baseMapper.selectList(wrapper);
+    }
+
+    @Override
+    public Map<String, Object> getOrderStatistics(Integer businessID, Boolean history) {
+        double money = 0.0;
+        double pendingMoney = 0.0;
+        int orderNums = 0;
+        int pendingOrderNums = 0;
+
+        // status 0: 已创建
+        // status 1: 已提交
+        // status 2: 已结算
+        var orderStatistics = baseMapper.selectOrderStatistics(businessID, history);
+        for (var orderStat: orderStatistics) {
+            switch (orderStat.getStatus()){
+                case 1:
+                    pendingMoney = orderStat.getMoney();
+                    pendingOrderNums = orderStat.getCount();
+                    break;
+                case 2:
+                    money = orderStat.getMoney();
+                    orderNums = orderStat.getCount();
+                    break;
+            }
+        }
+
+        var statisticsMap = new HashMap<String, Object>();
+        statisticsMap.put("money", money);
+        statisticsMap.put("order_nums", orderNums);
+        statisticsMap.put("pending_money", pendingMoney);
+        statisticsMap.put("pending_order_nums", pendingOrderNums);
+        return statisticsMap;
     }
 
     @Override

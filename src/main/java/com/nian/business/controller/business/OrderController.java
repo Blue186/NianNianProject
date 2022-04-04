@@ -10,11 +10,18 @@ import com.nian.business.service.RoomService;
 import com.nian.business.utils.JsonUtil;
 import com.nian.business.utils.R;
 import lombok.var;
+import org.hibernate.validator.constraints.Range;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -22,6 +29,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/business")
+@Validated
 public class OrderController {
     @Resource
     OrderService orderService;
@@ -34,16 +42,14 @@ public class OrderController {
     public R<?> getTodayOrder(
             HttpServletRequest request,
             HttpServletResponse response,
-            @RequestParam Integer offset,
-            @RequestParam Integer count
+            @RequestParam @Min(value = 0, message = "offset >= 0") Integer offset,
+            @RequestParam @Range(min = 0, max = 10, message = "0 <= count <= 10") Integer count
     ){
         Business business = (Business) request.getAttribute("business");
-        double money = 0.0, pendingMoney = 0.0;
-        int orderNums = 0, pendingOrderNums = 0;
 
         // 组装orders
         var ordersMap = new ArrayList<Map<String, Object>>();
-        var orders = orderService.getTodayOrder(business.getId(), null, null);
+        var orders = orderService.getTodayOrder(business.getId(), offset, count);
         for (var order: orders){
             var room = roomService.selectRoom(business.getId(), order.getRoomId());
             var roomMap = new HashMap<String, Object>();
@@ -64,17 +70,6 @@ public class OrderController {
                 foodsMap.add(foodMap);
             }
 
-            switch (order.getStatus()){
-                case 1: // 待支付
-                    pendingOrderNums++;
-                    pendingMoney += foodsMoney;
-                    break;
-                case 2: // 已结束
-                    orderNums++;
-                    money += foodsMoney;
-                    break;
-            }
-
             var orderMap = new HashMap<String, Object>();
             orderMap.put("id", order.getId());
             orderMap.put("room", roomMap);
@@ -86,11 +81,7 @@ public class OrderController {
         }
 
         // 组装statistics
-        var statisticsMap = new HashMap<String, Object>();
-        statisticsMap.put("money", money);
-        statisticsMap.put("order_nums", orderNums);
-        statisticsMap.put("pending_money", pendingMoney);
-        statisticsMap.put("pending_order_nums", pendingOrderNums);
+        var statisticsMap = orderService.getOrderStatistics(business.getId(), false);
 
         // 组装detail
         var detailJson = new JSONObject();
@@ -104,12 +95,10 @@ public class OrderController {
     public R<?> getHistoryOrder(
             HttpServletRequest request,
             HttpServletResponse response,
-            @RequestParam Integer offset,
-            @RequestParam Integer count
+            @RequestParam @Min(value = 0, message = "offset >= 0") Integer offset,
+            @RequestParam @Range(min = 0, max = 10, message = "0 <= count <= 10") Integer count
     ){
         Business business = (Business) request.getAttribute("business");
-        double money = 0.0, pendingMoney = 0.0;
-        int orderNums = 0, pendingOrderNums = 0;
 
         // 组装orders
         var ordersJson = new ArrayList<JSONObject>();
@@ -134,17 +123,6 @@ public class OrderController {
                 foodsJson.add(foodJson);
             }
 
-            switch (order.getStatus()){
-                case 1: // 待支付
-                    pendingOrderNums++;
-                    pendingMoney += foodsMoney;
-                    break;
-                case 2: // 已结束
-                    orderNums++;
-                    money += foodsMoney;
-                    break;
-            }
-
             var orderJson = new JSONObject();
             orderJson.set("id", order.getId());
             orderJson.set("room", roomJson);
@@ -156,11 +134,7 @@ public class OrderController {
         }
 
         // 组装statistics
-        var statisticsJson = new JSONObject();
-        statisticsJson.set("money", money);
-        statisticsJson.set("order_nums", orderNums);
-        statisticsJson.set("pending_money", pendingMoney);
-        statisticsJson.set("pending_order_nums", pendingOrderNums);
+        var statisticsJson = orderService.getOrderStatistics(business.getId(), true);
 
         // 组装detail
         var detailJson = new JSONObject();
