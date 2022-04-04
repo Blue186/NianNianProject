@@ -16,7 +16,9 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/business")
@@ -40,26 +42,26 @@ public class OrderController {
         int orderNums = 0, pendingOrderNums = 0;
 
         // 组装orders
-        var ordersJson = new ArrayList<JSONObject>();
+        var ordersMap = new ArrayList<Map<String, Object>>();
         var orders = orderService.getTodayOrder(business.getId(), null, null);
         for (var order: orders){
             var room = roomService.selectRoom(business.getId(), order.getRoomId());
-            var roomJson = new JSONObject();
-            roomJson.set("name", room.getName());
-            roomJson.set("id", room.getId());
+            var roomMap = new HashMap<String, Object>();
+            roomMap.put("name", room.getName());
+            roomMap.put("id", room.getId());
 
-            var foodsJson = new ArrayList<JSONObject>();
+            var foodsMap = new ArrayList<Map<String, Object>>();
 
             double foodsMoney =  0.0;
             var foods = orderFoodService.getOrderFoods(order.getId());
             for (var food: foods){
                 foodsMoney += food.getPrice() * food.getFoodNums();
 
-                var foodJson = new JSONObject();
-                foodJson.set("name", food.getName());
-                foodJson.set("count", food.getFoodNums());
-                foodJson.set("price", food.getPrice());
-                foodsJson.add(foodJson);
+                var foodMap = new HashMap<String, Object>();
+                foodMap.put("name", food.getName());
+                foodMap.put("count", food.getFoodNums());
+                foodMap.put("price", food.getPrice());
+                foodsMap.add(foodMap);
             }
 
             switch (order.getStatus()){
@@ -73,27 +75,27 @@ public class OrderController {
                     break;
             }
 
-            var orderJson = new JSONObject();
-            orderJson.set("id", order.getId());
-            orderJson.set("room", roomJson);
-            orderJson.set("foods", foodsJson);
-            orderJson.set("total_price", foodsMoney);
-            orderJson.set("create_time", order.getCreateTime());
-            orderJson.set("submit_time", order.getSubmitTime());
-            ordersJson.add(orderJson);
+            var orderMap = new HashMap<String, Object>();
+            orderMap.put("id", order.getId());
+            orderMap.put("room", roomMap);
+            orderMap.put("foods", foodsMap);
+            orderMap.put("total_price", foodsMoney);
+            orderMap.put("create_time", order.getCreateTime());
+            orderMap.put("submit_time", order.getSubmitTime());
+            ordersMap.add(orderMap);
         }
 
         // 组装statistics
-        var statisticsJson = new JSONObject();
-        statisticsJson.set("money", money);
-        statisticsJson.set("order_nums", orderNums);
-        statisticsJson.set("pending_money", pendingMoney);
-        statisticsJson.set("pending_order_nums", pendingOrderNums);
+        var statisticsMap = new HashMap<String, Object>();
+        statisticsMap.put("money", money);
+        statisticsMap.put("order_nums", orderNums);
+        statisticsMap.put("pending_money", pendingMoney);
+        statisticsMap.put("pending_order_nums", pendingOrderNums);
 
         // 组装detail
         var detailJson = new JSONObject();
-        detailJson.set("orders", ordersJson);
-        detailJson.set("statistics", statisticsJson);
+        detailJson.set("orders", ordersMap);
+        detailJson.set("statistics", statisticsMap);
 
         return R.ok().detail(detailJson);
     }

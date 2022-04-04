@@ -1,6 +1,5 @@
 package com.nian.business.controller.business;
 
-import cn.hutool.json.JSONObject;
 import com.nian.business.entity.Business;
 import com.nian.business.service.CategoryService;
 import com.nian.business.service.FoodService;
@@ -14,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.net.HttpCookie;
+import java.util.HashMap;
 
 @Slf4j
 @RestController
@@ -32,10 +31,10 @@ public class MenuController {
         var categories = categoryService.selectAll(business.getId());
         var foods = foodService.selectAll(business.getId());
 
-        var jsonObject = new JSONObject();
-        jsonObject.set("categories", categories);
-        jsonObject.set("foods", foods);
+        var jsonMap = new HashMap<String, Object>();
+        jsonMap.put("categories", categories);
+        jsonMap.put("foods", foods);
 
-        return R.ok().detail(jsonObject);
+        return R.ok().detail(jsonMap);
     }
 }
