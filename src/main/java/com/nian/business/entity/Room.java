@@ -15,4 +15,5 @@ public class Room implements Serializable {
     private String name;
     private Integer peopleNums;
     private Integer businessId;
+    private String qrcodeUrl;
 }

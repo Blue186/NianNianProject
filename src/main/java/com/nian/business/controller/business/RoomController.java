@@ -6,7 +6,9 @@ import com.nian.business.entity.Room;
 import com.nian.business.entity.vo.room.RoomIDNamePeopleNum;
 import com.nian.business.entity.vo.room.RoomNamePeopleNum;
 import com.nian.business.service.RoomService;
+import com.nian.business.utils.QrcodeUtil;
 import com.nian.business.utils.R;
+import lombok.var;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -20,6 +22,8 @@ import java.util.List;
 public class RoomController {
     @Resource
     private RoomService roomService;
+    @Resource
+    private QrcodeUtil qrcodeUtil;
 
     @GetMapping
     public R<?> getRooms(HttpServletRequest request) {
@@ -97,5 +101,42 @@ public class RoomController {
         }
 
         return R.ok().message("update room success");
+    }
+
+    @GetMapping("/{roomID}/qrcode")
+    public R<?> getRoomQrcode(
+            HttpServletRequest request,
+            HttpServletResponse response,
+            @PathVariable Integer roomID
+    ){
+        Business business = (Business) request.getAttribute("business");
+
+        var room = roomService.selectRoom(business.getId(), roomID);
+        if (room == null){
+            response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+            return R.error().message("获取失败");
+        }
+
+        var qrcodeUrl = room.getQrcodeUrl();
+        if (qrcodeUrl == null || qrcodeUrl.equals("")){
+            // 获取url并存储在数据库中
+            var fileBytes = qrcodeUtil.getRoomQrcode(room.getId(), business.getId());
+            var filename = qrcodeUtil.byte2image(fileBytes);
+            if (filename == null){
+                response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+                return R.error().message("服务器错误，生成二维码失败");
+            }
+
+            qrcodeUrl = String.format("https://cdn.torchcqs.cn/statics/upload/%s", filename);
+            roomService.updateRoomQrcode(business.getId(), room.getId(), qrcodeUrl);
+        }
+
+        var qrcodeJson = new JSONObject();
+        qrcodeJson.set("url", qrcodeUrl);
+
+        var detailJson = new JSONObject();
+        detailJson.set("qrcode", qrcodeJson);
+
+        return R.ok().detail(detailJson);
     }
 }

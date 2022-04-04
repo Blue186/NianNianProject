@@ -38,8 +38,8 @@ wechat:
   secret: 44f414d6c5b0f92e998d99b32c2fb2b1
   qrcode:
     page: pages/orderRoom/createRoom/createRoom
-    check-path: true
+    check-path: false
     env-version: release
     is-hyaline: false
     width: 430
-    save-path: C:\\Users\\CommonRom\\Desktop\\qrcode.jpg
+    save-path: C:\\Users\\CommonRom\\Desktop

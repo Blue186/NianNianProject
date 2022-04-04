@@ -17,6 +17,7 @@ import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.UUID;
 
 
 /**
@@ -64,21 +65,27 @@ public class QrcodeUtil {
         return accessToken;
     }
 
-    public void byte2image(byte[] data){
+    public String byte2image(byte[] data){
         if(data == null || data.length<3 || savePath.equals("")) {
             log.error("save-path is null");
-            return;
+            return null;
         }
 
+        var filename = UUID.randomUUID().toString().replace("-", "").toLowerCase() + ".png";
+        var filepath = String.format("%s/%s", savePath, filename);
+        log.debug(String.format("generate file %s", filepath));
+
         try{
-            FileImageOutputStream imageOutput = new FileImageOutputStream(new File(savePath));//打开输入流
+            FileImageOutputStream imageOutput = new FileImageOutputStream(new File(filepath));//打开输入流
             imageOutput.write(data, 0, data.length);
             imageOutput.close();
-            System.out.println("Make Picture success,Please find image in " + savePath);
+            return filename;
         } catch(Exception ex) {
             System.out.println("Exception: " + ex);
             ex.printStackTrace();
         }
+
+        return null;
     }
 
     public byte[] getRoomQrcode(Integer roomID, Integer businessID){

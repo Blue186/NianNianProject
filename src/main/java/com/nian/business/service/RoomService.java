@@ -11,4 +11,5 @@ public interface RoomService extends IService<Room> {
     Integer createRoom(Room room);
     Integer deleteRoom(Integer businessID, Integer roomID);
     Integer updateRoom(Integer businessID, Integer roomID, String name, Integer peopleNums);
+    Integer updateRoomQrcode(Integer businessID, Integer roomID, String qrcodeUrl);
 }

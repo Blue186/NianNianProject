@@ -55,4 +55,16 @@ public class RoomServiceImpl extends ServiceImpl<RoomMapper, Room> implements Ro
 
         return baseMapper.update(room, new QueryWrapper<Room>().allEq(map));
     }
+
+    @Override
+    public Integer updateRoomQrcode(Integer businessID, Integer roomID, String qrcodeUrl) {
+        var newRoom = new Room();
+        newRoom.setQrcodeUrl(qrcodeUrl);
+
+        var wrapper = new QueryWrapper<Room>();
+        wrapper.eq("business_id", businessID);
+        wrapper.eq("id", roomID);
+
+        return baseMapper.update(newRoom, wrapper);
+    }
 }
