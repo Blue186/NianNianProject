@@ -12,5 +12,5 @@ public interface CategoryService extends IService<Category> {
     int insertCategory(CategoryPriorName categoryPriorName,Integer business_id);
     int deleteCategory(Integer categoryID);
     int updateCategory(CategoryPriorName categoryPriorName,Integer categoryId,Integer businessId);
-    Category selectById(int business_id,int category_id);
+    Category selectOne(int business_id,int category_id);
 }
