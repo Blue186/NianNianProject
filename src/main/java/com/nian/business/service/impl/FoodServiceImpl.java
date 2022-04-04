@@ -1,13 +1,12 @@
 package com.nian.business.service.impl;
 
+import cn.hutool.json.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.nian.business.entity.Category;
 import com.nian.business.entity.Food;
-import com.nian.business.entity.vo.food.FoodMenuItem;
-import com.nian.business.entity.vo.food.FoodNoId;
-import com.nian.business.entity.vo.food.FoodNoStatus;
-import com.nian.business.entity.vo.food.FoodStatus;
+import com.nian.business.entity.vo.category.CategoryIdName;
+import com.nian.business.entity.vo.food.*;
 import com.nian.business.mapper.FoodMapper;
 import com.nian.business.service.CategoryService;
 import com.nian.business.service.FoodService;
@@ -80,5 +79,32 @@ public class FoodServiceImpl extends ServiceImpl<FoodMapper, Food> implements Fo
             foodMenuList.add(item);
         }
         return foodMenuList;
+    }
+
+    @Override
+    public JSONObject selectFood(Integer businessId, Integer foodId) {
+
+        Food food = baseMapper.selectById(foodId);
+        if(food.getBusinessId()!=businessId){
+            return null;
+        }
+        Integer categoryId = food.getCategoryId();
+
+        FoodNoIds foodNoIds=new FoodNoIds();
+        foodNoIds.setImage(food.getImage());
+        foodNoIds.setStatus(food.getStatus());
+        foodNoIds.setIntroduce(food.getIntroduce());
+        foodNoIds.setName(food.getName());
+        foodNoIds.setPrice(food.getPrice());
+
+        Category category = categoryService.selectById(businessId, categoryId);
+        CategoryIdName categoryIdName=new CategoryIdName();
+        categoryIdName.setId(category.getId());
+        categoryIdName.setName(category.getName());
+
+        JSONObject jsonObject=new JSONObject();
+        jsonObject.set("food",foodNoIds);
+        jsonObject.set("category",categoryIdName);
+        return jsonObject;
     }
 }

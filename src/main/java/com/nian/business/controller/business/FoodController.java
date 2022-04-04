@@ -1,9 +1,11 @@
 package com.nian.business.controller.business;
 
+import cn.hutool.json.JSONObject;
 import com.nian.business.entity.Business;
 import com.nian.business.entity.vo.food.FoodNoId;
 import com.nian.business.entity.vo.food.FoodNoStatus;
 import com.nian.business.entity.vo.food.FoodStatus;
+
 import com.nian.business.service.FoodService;
 import com.nian.business.utils.R;
 import org.springframework.web.bind.annotation.*;
@@ -49,4 +51,11 @@ public class FoodController {
         }
         return R.ok().message("成功");
     }
+    @GetMapping("/{foodID}")
+    public R<?> selectFood(@PathVariable int foodID, HttpServletRequest request){
+        Business business=(Business) request.getAttribute("business");
+        JSONObject jsonObject = foodService.selectFood(business.getId(), foodID);
+        return R.ok().message("成功").detail(jsonObject);
+    }
+
 }
