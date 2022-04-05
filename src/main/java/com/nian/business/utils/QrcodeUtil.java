@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import javax.imageio.stream.FileImageOutputStream;
-import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -26,9 +25,9 @@ import java.util.UUID;
 @Slf4j
 @Component
 public class QrcodeUtil {
-    @Value("${wechat.appid}")
+    @Value("${wechat.qrcode.appid}")
     private String appid;
-    @Value("${wechat.secret}")
+    @Value("${wechat.qrcode.secret}")
     private String secret;
 
     @Value("${wechat.qrcode.page}")

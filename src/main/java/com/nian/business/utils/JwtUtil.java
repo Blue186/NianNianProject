@@ -7,6 +7,8 @@ import io.fusionauth.jwt.domain.JWT;
 import io.fusionauth.jwt.rsa.RSASigner;
 import io.fusionauth.jwt.rsa.RSAVerifier;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ResourceUtils;
 
@@ -32,7 +34,10 @@ public class JwtUtil {
     private String getRsaPrivateKey() {
         if (rsaPrivateKey == null){
             try {
-                rsaPrivateKey = fileUtil.readFileToString(ResourceUtils.getFile(rsaPrivateKeyPath), StandardCharsets.UTF_8);
+                rsaPrivateKey = fileUtil.readFileToString(
+                        new ClassPathResource(rsaPrivateKeyPath).getInputStream(),
+                        StandardCharsets.UTF_8
+                );
             } catch (IOException e){
                 e.printStackTrace();
             }
@@ -43,7 +48,10 @@ public class JwtUtil {
     private String getRsaPublicKey() {
         if(rsaPublicKey == null){
             try {
-                rsaPublicKey = fileUtil.readFileToString(ResourceUtils.getFile(rsaPublicKeyPath), StandardCharsets.UTF_8);
+                rsaPublicKey = fileUtil.readFileToString(
+                        new ClassPathResource(rsaPublicKeyPath).getInputStream(),
+                        StandardCharsets.UTF_8
+                );
             }catch (IOException e){
                 e.printStackTrace();
             }

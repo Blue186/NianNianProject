@@ -1,6 +1,6 @@
 server:
   port: 5208 #端口
-  address:  0.0.0.0 #本地调试时允许连接
+  address:  127.0.0.1 #本地调试时允许连接
 spring:
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
@@ -28,8 +28,8 @@ logging:
 
 
 jwt:
-  rsa-private-key-path: classpath:cert/rsa/private-key.pem
-  rsa-public-key-path: classpath:cert/rsa/public-key.pem
+  rsa-private-key-path: cert/rsa/private-key.pem
+  rsa-public-key-path: cert/rsa/public-key.pem
   ttl: 60
 
 
@@ -37,9 +37,11 @@ wechat:
   appid: wx9e563fb3b3e19d91
   secret: 44f414d6c5b0f92e998d99b32c2fb2b1
   qrcode:
+    appid: wx817f441a59b696ba
+    secret: 34afb8a9f2d93e4bd538aee26f39b792
     page: pages/orderRoom/createRoom/createRoom
     check-path: false
-    env-version: release
+    env-version: trial
     is-hyaline: false
     width: 430
     save-path: C:\\Users\\CommonRom\\Desktop

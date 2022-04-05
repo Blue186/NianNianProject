@@ -11,7 +11,6 @@ import org.springframework.context.annotation.Configuration;
  * mybatis-plus分页查询配置
  */
 @Configuration
-@MapperScan("com.torch.app.mapper")
 public class MybatisPlusConfig {
     // 最新版
     @Bean

@@ -24,7 +24,7 @@ class BusinessApplicationTests {
 
     @Test
     void contextLoads() {
-        var data = qrcodeUtil.getRoomQrcode(1, 1);
-        qrcodeUtil.byte2image(data);
+//        var data = qrcodeUtil.getRoomQrcode(1, 1);
+//        qrcodeUtil.byte2image(data);
     }
 }
