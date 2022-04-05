@@ -24,7 +24,7 @@ public class FoodServiceImpl extends ServiceImpl<FoodMapper, Food> implements Fo
     @Resource
     private CategoryService categoryService;
     public int insertFood(FoodNoId foodNoId,Integer businessId){
-        Category category = categoryService.selectById(businessId, foodNoId.getCategoryId());
+        Category category = categoryService.selectOne(businessId, foodNoId.getCategoryId());
         if(category==null){
             return 0;
         }
@@ -83,12 +83,8 @@ public class FoodServiceImpl extends ServiceImpl<FoodMapper, Food> implements Fo
 
     @Override
     public JSONObject selectFood(Integer businessId, Integer foodId) {
-
-        Food food = baseMapper.selectById(foodId);
-        if(food.getBusinessId()!=businessId){
-            return null;
-        }
-        Integer categoryId = food.getCategoryId();
+        QueryWrapper<Food> wrapper = new QueryWrapper<Food>().eq("id",foodId).eq("business_id",businessId);
+        Food food = baseMapper.selectOne(wrapper);
 
         FoodNoIds foodNoIds=new FoodNoIds();
         foodNoIds.setImage(food.getImage());
@@ -97,7 +93,9 @@ public class FoodServiceImpl extends ServiceImpl<FoodMapper, Food> implements Fo
         foodNoIds.setName(food.getName());
         foodNoIds.setPrice(food.getPrice());
 
-        Category category = categoryService.selectById(businessId, categoryId);
+        Integer categoryId = food.getCategoryId();
+        Category category = categoryService.selectOne(businessId, categoryId);
+
         CategoryIdName categoryIdName=new CategoryIdName();
         categoryIdName.setId(category.getId());
         categoryIdName.setName(category.getName());

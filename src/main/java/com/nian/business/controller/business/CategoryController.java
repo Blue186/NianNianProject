@@ -36,6 +36,10 @@ public class CategoryController {
         Business business = (Business) request.getAttribute("business");
         Integer businessId = business.getId();
         int insert = categoryService.insertCategory(categoryPriorName,businessId);
+        if(insert==-1){
+            response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+            return R.error().message("类目名重复");
+        }
         if(insert==0){
             response.setStatus(HttpServletResponse.SC_FORBIDDEN);
             return R.error().message("插入失败");
