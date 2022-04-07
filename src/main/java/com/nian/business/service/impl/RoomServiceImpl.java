@@ -8,6 +8,7 @@ import com.nian.business.service.RoomService;
 import lombok.var;
 import org.springframework.stereotype.Service;
 
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -35,7 +36,12 @@ public class RoomServiceImpl extends ServiceImpl<RoomMapper, Room> implements Ro
 
     @Override
     public Integer createRoom(Room room) {
-        return baseMapper.insert(room);
+        try {
+            return baseMapper.insert(room);
+        }catch (Exception e){
+            System.out.println("insert room error");
+            return null;
+        }
     }
 
     @Override

@@ -60,9 +60,9 @@ public class RoomController {
         room.setPeopleNums(rJson.getPeopleNums());
 
         Integer ret = roomService.createRoom(room);
-        if (ret != 1){
+        if (ret == null || ret != 1){
             response.setStatus(HttpServletResponse.SC_FORBIDDEN);
-            return R.error().message("创建失败");
+            return R.error().message("创建失败，请检查名字是否重复");
         }
 
         return R.ok().message("success").detail(null);
