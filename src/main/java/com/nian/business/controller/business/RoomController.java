@@ -76,11 +76,7 @@ public class RoomController {
     ){
         Business business = (Business) request.getAttribute("business");
 
-        Integer ret = roomService.deleteRoom(business.getId(), roomID);
-        if (ret != 1){
-            response.setStatus(HttpServletResponse.SC_FORBIDDEN);
-            return R.error().message("删除失败");
-        }
+        roomService.deleteRoom(business.getId(), roomID);
 
         return R.ok().status("success").message("delete room success");
     }

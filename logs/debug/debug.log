@@ -1,56 +1,49 @@
-2022-04-06 00:13:06.971|[main]|DEBUG|c.n.b.BusinessApplication-Running with Spring Boot v2.6.4, Spring v5.3.16
-2022-04-06 00:13:12.446|[http-nio-127.0.0.1-5208-exec-3]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (openid = ?)
-2022-04-06 00:13:12.463|[http-nio-127.0.0.1-5208-exec-3]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: asd(String)
-2022-04-06 00:13:12.523|[http-nio-127.0.0.1-5208-exec-3]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
-2022-04-06 00:15:10.268|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (openid = ?)
-2022-04-06 00:15:10.269|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: asd(String)
-2022-04-06 00:15:10.349|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
-2022-04-06 00:15:48.304|[main]|DEBUG|c.n.b.BusinessApplication-Running with Spring Boot v2.6.4, Spring v5.3.16
-2022-04-06 00:15:54.840|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (openid = ?)
-2022-04-06 00:15:54.853|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: asd(String)
-2022-04-06 00:15:54.924|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
-2022-04-06 00:22:56.095|[main]|DEBUG|c.n.b.BusinessApplicationTests-Running with Spring Boot v2.6.4, Spring v5.3.16
-2022-04-06 00:23:04.258|[main]|DEBUG|c.n.business.utils.QrcodeUtil-generate file C:\\Users\\CommonRom\\Desktop/6e6efe54154a43858022740e1bf716b7.png
-2022-04-06 00:23:49.913|[main]|DEBUG|c.n.b.BusinessApplication-Running with Spring Boot v2.6.4, Spring v5.3.16
-2022-04-06 00:24:08.003|[main]|DEBUG|c.n.b.BusinessApplication-Running with Spring Boot v2.6.4, Spring v5.3.16
-2022-04-06 00:24:19.538|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (openid = ?)
-2022-04-06 00:24:19.554|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: asd(String)
-2022-04-06 00:24:19.662|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
-2022-04-06 00:25:09.872|[main]|DEBUG|c.n.b.BusinessApplication-Running with Spring Boot v2.6.4, Spring v5.3.16
-2022-04-06 00:25:14.899|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (openid = ?)
-2022-04-06 00:25:14.916|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: asd(String)
-2022-04-06 00:25:14.994|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
-2022-04-06 00:25:31.567|[main]|DEBUG|c.n.b.BusinessApplication-Running with Spring Boot v2.6.4, Spring v5.3.16
-2022-04-06 00:25:48.261|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (openid = ?)
-2022-04-06 00:25:48.277|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: asd(String)
-2022-04-06 00:25:48.345|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
-2022-04-06 00:29:14.022|[main]|DEBUG|c.n.b.BusinessApplication-Running with Spring Boot v2.6.4, Spring v5.3.16
-2022-04-06 00:29:19.312|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (openid = ?)
-2022-04-06 00:29:19.324|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: asd(String)
-2022-04-06 00:29:19.447|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
-2022-04-06 00:29:20.975|[http-nio-127.0.0.1-5208-exec-4]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (openid = ?)
-2022-04-06 00:29:20.976|[http-nio-127.0.0.1-5208-exec-4]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: asd(String)
-2022-04-06 00:29:21.018|[http-nio-127.0.0.1-5208-exec-4]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
-2022-04-06 00:30:49.039|[main]|DEBUG|c.n.b.BusinessApplicationTests-Running with Spring Boot v2.6.4, Spring v5.3.16
-2022-04-06 00:30:57.509|[main]|DEBUG|c.n.business.utils.QrcodeUtil-generate file C:\\Users\\CommonRom\\Desktop/2047bca8e930462a870f63c43745ad19.png
-2022-04-06 00:31:43.849|[main]|DEBUG|c.n.b.BusinessApplication-Running with Spring Boot v2.6.4, Spring v5.3.16
-2022-04-06 00:31:50.912|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (openid = ?)
-2022-04-06 00:31:50.930|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: asd(String)
-2022-04-06 00:31:51.074|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
-2022-04-06 00:35:10.921|[main]|DEBUG|c.n.b.BusinessApplication-Running with Spring Boot v2.6.4, Spring v5.3.16
-2022-04-06 00:35:18.279|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (openid = ?)
-2022-04-06 00:35:18.293|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: asd(String)
-2022-04-06 00:35:18.363|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
-2022-04-06 00:35:47.860|[main]|DEBUG|c.n.b.BusinessApplication-Running with Spring Boot v2.6.4, Spring v5.3.16
-2022-04-06 00:35:51.916|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (openid = ?)
-2022-04-06 00:35:51.925|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: asd(String)
-2022-04-06 00:35:51.997|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
-2022-04-06 00:38:27.887|[main]|DEBUG|c.n.b.BusinessApplication-Running with Spring Boot v2.6.4, Spring v5.3.16
-2022-04-06 00:38:32.562|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (openid = ?)
-2022-04-06 00:38:32.575|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: asd(String)
-2022-04-06 00:38:32.646|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
-2022-04-06 00:39:15.020|[main]|DEBUG|c.n.b.BusinessApplicationTests-Running with Spring Boot v2.6.4, Spring v5.3.16
-2022-04-06 00:39:23.044|[main]|DEBUG|c.n.business.utils.QrcodeUtil-generate file C:\\Users\\CommonRom\\Desktop/5db232499ad64880b3fca600fc92243e.png
-2022-04-06 00:39:41.650|[main]|DEBUG|c.n.b.BusinessApplicationTests-Running with Spring Boot v2.6.4, Spring v5.3.16
-2022-04-06 00:42:16.340|[main]|DEBUG|c.n.b.BusinessApplicationTests-Running with Spring Boot v2.6.4, Spring v5.3.16
-2022-04-06 00:42:19.400|[main]|DEBUG|c.n.b.BusinessApplication-Running with Spring Boot v2.6.4, Spring v5.3.16
+2022-04-07 14:33:27.005|[main]|DEBUG|c.n.b.BusinessApplication-Running with Spring Boot v2.6.4, Spring v5.3.16
+2022-04-07 14:33:35.173|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-04-07 14:33:35.195|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-04-07 14:33:35.220|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-07 14:33:35.254|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.RoomMapper.selectList-==>  Preparing: SELECT id,name,people_nums,business_id,qrcode_url FROM room WHERE (business_id = ?)
+2022-04-07 14:33:35.255|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.RoomMapper.selectList-==> Parameters: 2(Integer)
+2022-04-07 14:33:35.262|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.RoomMapper.selectList-<==      Total: 1
+2022-04-07 14:33:56.933|[http-nio-127.0.0.1-5208-exec-3]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-04-07 14:33:56.934|[http-nio-127.0.0.1-5208-exec-3]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-04-07 14:33:56.941|[http-nio-127.0.0.1-5208-exec-3]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-07 14:33:56.943|[http-nio-127.0.0.1-5208-exec-3]|DEBUG|c.n.b.m.RoomMapper.selectList-==>  Preparing: SELECT id,name,people_nums,business_id,qrcode_url FROM room WHERE (business_id = ?)
+2022-04-07 14:33:56.943|[http-nio-127.0.0.1-5208-exec-3]|DEBUG|c.n.b.m.RoomMapper.selectList-==> Parameters: 2(Integer)
+2022-04-07 14:33:56.949|[http-nio-127.0.0.1-5208-exec-3]|DEBUG|c.n.b.m.RoomMapper.selectList-<==      Total: 2
+2022-04-07 14:34:03.179|[http-nio-127.0.0.1-5208-exec-4]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-04-07 14:34:03.180|[http-nio-127.0.0.1-5208-exec-4]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-04-07 14:34:03.187|[http-nio-127.0.0.1-5208-exec-4]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-07 14:34:03.190|[http-nio-127.0.0.1-5208-exec-4]|DEBUG|c.n.b.m.RoomMapper.selectList-==>  Preparing: SELECT id,name,people_nums,business_id,qrcode_url FROM room WHERE (business_id = ?)
+2022-04-07 14:34:03.190|[http-nio-127.0.0.1-5208-exec-4]|DEBUG|c.n.b.m.RoomMapper.selectList-==> Parameters: 2(Integer)
+2022-04-07 14:34:03.197|[http-nio-127.0.0.1-5208-exec-4]|DEBUG|c.n.b.m.RoomMapper.selectList-<==      Total: 2
+2022-04-07 14:35:28.623|[main]|DEBUG|c.n.b.BusinessApplication-Running with Spring Boot v2.6.4, Spring v5.3.16
+2022-04-07 14:35:48.374|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-04-07 14:35:48.394|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-04-07 14:35:48.417|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-07 14:35:48.451|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.RoomMapper.selectList-==>  Preparing: SELECT id,name,people_nums,business_id,qrcode_url FROM room WHERE (business_id = ? AND is_delete = ?)
+2022-04-07 14:35:48.452|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.RoomMapper.selectList-==> Parameters: 2(Integer), 0(Integer)
+2022-04-07 14:35:48.461|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.RoomMapper.selectList-<==      Total: 1
+2022-04-07 14:36:01.478|[http-nio-127.0.0.1-5208-exec-3]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-04-07 14:36:01.479|[http-nio-127.0.0.1-5208-exec-3]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-04-07 14:36:01.486|[http-nio-127.0.0.1-5208-exec-3]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-07 14:36:01.510|[http-nio-127.0.0.1-5208-exec-3]|DEBUG|c.n.b.mapper.RoomMapper.delete-==>  Preparing: DELETE FROM room WHERE (id = ? AND business_id = ? AND is_delete = ?)
+2022-04-07 14:36:01.511|[http-nio-127.0.0.1-5208-exec-3]|DEBUG|c.n.b.mapper.RoomMapper.delete-==> Parameters: 32(Integer), 2(Integer), now()(String)
+2022-04-07 14:41:28.250|[main]|DEBUG|c.n.b.BusinessApplication-Running with Spring Boot v2.6.4, Spring v5.3.16
+2022-04-07 14:42:02.906|[main]|DEBUG|c.n.b.BusinessApplication-Running with Spring Boot v2.6.4, Spring v5.3.16
+2022-04-07 14:42:12.508|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-04-07 14:42:12.532|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-04-07 14:42:12.559|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-07 14:42:12.601|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.R.softDeleteRoom-==>  Preparing: update room set is_delete=now() where id=? and business_id=?
+2022-04-07 14:42:12.603|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.R.softDeleteRoom-==> Parameters: 32(Integer), 2(Integer)
+2022-04-07 14:44:37.866|[main]|DEBUG|c.n.b.BusinessApplication-Running with Spring Boot v2.6.4, Spring v5.3.16
+2022-04-07 14:44:42.332|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-04-07 14:44:42.344|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-04-07 14:44:42.361|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-07 14:44:42.385|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.R.softDeleteRoom-==>  Preparing: update room set is_delete=now() where id=? and business_id=?
+2022-04-07 14:44:42.386|[http-nio-127.0.0.1-5208-exec-1]|DEBUG|c.n.b.m.R.softDeleteRoom-==> Parameters: 32(Integer), 2(Integer)
+2022-04-07 14:44:50.771|[http-nio-127.0.0.1-5208-exec-2]|DEBUG|c.n.b.m.B.selectOne-==>  Preparing: SELECT id,shop_name,phone,address,openid,password,image,boss_name FROM business WHERE (id = ?)
+2022-04-07 14:44:50.771|[http-nio-127.0.0.1-5208-exec-2]|DEBUG|c.n.b.m.B.selectOne-==> Parameters: 2(BigDecimal)
+2022-04-07 14:44:50.778|[http-nio-127.0.0.1-5208-exec-2]|DEBUG|c.n.b.m.B.selectOne-<==      Total: 1
+2022-04-07 14:44:50.779|[http-nio-127.0.0.1-5208-exec-2]|DEBUG|c.n.b.m.R.softDeleteRoom-==>  Preparing: update room set is_delete=now() where id=? and business_id=?
+2022-04-07 14:44:50.779|[http-nio-127.0.0.1-5208-exec-2]|DEBUG|c.n.b.m.R.softDeleteRoom-==> Parameters: 32(Integer), 2(Integer)

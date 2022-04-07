@@ -17,7 +17,11 @@ public class RoomServiceImpl extends ServiceImpl<RoomMapper, Room> implements Ro
 
     @Override
     public List<Room> selectAll(Integer businessID) {
-        return baseMapper.selectList(new QueryWrapper<Room>().eq("business_id", businessID));
+        var wrapper = new QueryWrapper<Room>();
+        wrapper.eq("business_id", businessID);
+        wrapper.eq("is_delete",0);
+
+        return baseMapper.selectList(wrapper);
     }
 
     @Override
@@ -35,12 +39,8 @@ public class RoomServiceImpl extends ServiceImpl<RoomMapper, Room> implements Ro
     }
 
     @Override
-    public Integer deleteRoom(Integer businessID, Integer roomID) {
-        Map<String , Object> map = new HashMap<>();
-        map.put("business_id" , businessID);
-        map.put("id" , roomID);
-
-        return baseMapper.delete(new QueryWrapper<Room>().allEq(map));
+    public void deleteRoom(Integer businessID, Integer roomID) {
+        baseMapper.softDeleteRoom(businessID, roomID);
     }
 
     @Override
@@ -52,6 +52,7 @@ public class RoomServiceImpl extends ServiceImpl<RoomMapper, Room> implements Ro
         Map<String , Object> map = new HashMap<>();
         map.put("business_id" , businessID);
         map.put("id" , roomID);
+        map.put("is_delete", 0);
 
         return baseMapper.update(room, new QueryWrapper<Room>().allEq(map));
     }
@@ -64,6 +65,7 @@ public class RoomServiceImpl extends ServiceImpl<RoomMapper, Room> implements Ro
         var wrapper = new QueryWrapper<Room>();
         wrapper.eq("business_id", businessID);
         wrapper.eq("id", roomID);
+        wrapper.eq("is_delete", 0);
 
         return baseMapper.update(newRoom, wrapper);
     }
