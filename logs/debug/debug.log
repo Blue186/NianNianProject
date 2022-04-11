@@ -43,3 +43,4 @@
 2022-04-11 21:19:20.690|[http-nio-127.0.0.1-5208-exec-2]|DEBUG|c.n.b.mapper.RoomMapper.update-==>  Preparing: UPDATE room SET qrcode_url=? WHERE (business_id = ? AND id = ? AND is_delete = ?)
 2022-04-11 21:19:20.690|[http-nio-127.0.0.1-5208-exec-2]|DEBUG|c.n.b.mapper.RoomMapper.update-==> Parameters: https://cdn.torchcqs.cn/statics/upload/cd36f64909764a9dba769df11c022b63.png(String), 2(Integer), 41(Integer), 0(Integer)
 2022-04-11 21:19:20.702|[http-nio-127.0.0.1-5208-exec-2]|DEBUG|c.n.b.mapper.RoomMapper.update-<==    Updates: 1
+2022-04-11 21:20:04.765|[main]|DEBUG|c.n.b.BusinessApplicationTests-Running with Spring Boot v2.6.4, Spring v5.3.16

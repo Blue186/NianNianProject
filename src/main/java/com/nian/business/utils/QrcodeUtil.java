@@ -140,12 +140,17 @@ public class QrcodeUtil {
                 var responseJson = new JSONObject(resultString);
                 log.error(String.valueOf(responseJson));
                 log.error(contentType);
+                var errorCode = (Integer) responseJson.get("errcode");
+
+                if (errorCode == 42001 && !refresh){
+                    log.error("refresh token");
+                    // 递归获取刷新结果
+                    return this.getRoomQrcode(roomID, businessID, true);
+                }
+
             }catch (IOException e){
                 e.printStackTrace();
             }
-
-            // 递归获取刷新结果
-            return this.getRoomQrcode(roomID, businessID, true);
         }
 
         return null;
