@@ -88,6 +88,7 @@ public class RoomController {
             @PathVariable Integer roomID,
             @RequestBody RoomNamePeopleNum rJson
     ){
+        System.out.println(rJson.getPeopleNums());
         Business business = (Business) request.getAttribute("business");
 
         Integer ret = roomService.updateRoom(business.getId(), roomID, rJson.getName(), rJson.getPeopleNums());
@@ -116,7 +117,7 @@ public class RoomController {
         var qrcodeUrl = room.getQrcodeUrl();
         if (qrcodeUrl == null || qrcodeUrl.equals("")){
             // 获取url并存储在数据库中
-            var fileBytes = qrcodeUtil.getRoomQrcode(room.getId(), business.getId());
+            var fileBytes = qrcodeUtil.getRoomQrcode(room.getId(), business.getId(), false);
             var filename = qrcodeUtil.byte2image(fileBytes);
             if (filename == null){
                 response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);

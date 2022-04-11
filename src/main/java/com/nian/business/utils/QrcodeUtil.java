@@ -87,10 +87,10 @@ public class QrcodeUtil {
         return null;
     }
 
-    public byte[] getRoomQrcode(Integer roomID, Integer businessID){
+    public byte[] getRoomQrcode(Integer roomID, Integer businessID, Boolean refresh){
         String url = "https://api.weixin.qq.com/wxa/getwxacodeunlimit?access_token={access_token}";
         Map<String, String> urlParams = new HashMap<>();
-        urlParams.put("access_token", getAccessToken(false));
+        urlParams.put("access_token", getAccessToken(refresh));
 
         Map<String, Object> bodyParams = new HashMap<>();
         bodyParams.put("scene", String.format("room_id=%s&business_id=%s", roomID, businessID));
@@ -103,45 +103,49 @@ public class QrcodeUtil {
         var response = restTemplate.postForEntity(url, bodyParams, Resource.class, urlParams);
         var responseBody = response.getBody();
         var contentType = Objects.requireNonNull(response.getHeaders().get("Content-Type")).get(0);
-        if (contentType.equals("application/json; charset=UTF-8")){
-            if (responseBody != null) {
-                InputStream inputStream;
-                try {
-                    StringBuilder resultString = new StringBuilder();
-                    inputStream = responseBody.getInputStream();
-                    byte[] buf = new byte[1024];
-                    int len;
-                    while ((len = inputStream.read(buf)) != -1) {
-                        resultString.append(new String(buf, 0, len, Charset.defaultCharset()));
+        if (responseBody == null){
+            return null;
+        }
+
+        if (contentType.startsWith("image")){
+            InputStream inputStream;
+            try {
+                inputStream = responseBody.getInputStream();
+                byte[] buf = new byte[inputStream.available()];
+                int count = 0;
+                int n;
+                while (true) {
+                    n = inputStream.read();
+                    if (n == -1){
+                        break;
                     }
-                    var responseJson = new JSONObject(resultString);
-                    log.error(String.valueOf(responseJson));
-                }catch (IOException e){
-                    e.printStackTrace();
+
+                    buf[count++] = (byte) n;
                 }
+
+                return buf;
+            }catch (IOException e){
+                e.printStackTrace();
             }
         }else{
-            if (responseBody != null) {
-                InputStream inputStream;
-                try {
-                    inputStream = responseBody.getInputStream();
-                    byte[] buf = new byte[inputStream.available()];
-                    int count = 0;
-                    int n;
-                    while (true) {
-                        n = inputStream.read();
-                        if (n == -1){
-                            break;
-                        }
-
-                        buf[count++] = (byte) n;
-                    }
-
-                    return buf;
-                }catch (IOException e){
-                    e.printStackTrace();
+            InputStream inputStream;
+            try {
+                StringBuilder resultString = new StringBuilder();
+                inputStream = responseBody.getInputStream();
+                byte[] buf = new byte[1024];
+                int len;
+                while ((len = inputStream.read(buf)) != -1) {
+                    resultString.append(new String(buf, 0, len, Charset.defaultCharset()));
                 }
+                var responseJson = new JSONObject(resultString);
+                log.error(String.valueOf(responseJson));
+                log.error(contentType);
+            }catch (IOException e){
+                e.printStackTrace();
             }
+
+            // 递归获取刷新结果
+            return this.getRoomQrcode(roomID, businessID, true);
         }
 
         return null;

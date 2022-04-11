@@ -30,6 +30,7 @@ public class RoomServiceImpl extends ServiceImpl<RoomMapper, Room> implements Ro
         var wrapper = new QueryWrapper<Room>();
         wrapper.eq("business_id", businessID);
         wrapper.eq("id", roomID);
+        wrapper.eq("is_delete", 0);
 
         return baseMapper.selectOne(wrapper);
     }
