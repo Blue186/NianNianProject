@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface RoomService extends IService<Room> {
     List<Room> selectAll(Integer businessID);
-    Room selectRoom(Integer businessID, Integer roomID);
+    Room selectRoom(Integer businessID, Integer roomID, Boolean ignoreIsDelete);
     Integer createRoom(Room room);
     void deleteRoom(Integer businessID, Integer roomID);
     Integer updateRoom(Integer businessID, Integer roomID, String name, Integer peopleNums);

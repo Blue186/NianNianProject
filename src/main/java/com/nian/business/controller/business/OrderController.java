@@ -44,7 +44,7 @@ public class OrderController {
         var ordersMap = new ArrayList<Map<String, Object>>();
         var orders = orderService.getTodayOrder(business.getId(), offset, count);
         for (var order: orders){
-            var room = roomService.selectRoom(business.getId(), order.getRoomId());
+            var room = roomService.selectRoom(business.getId(), order.getRoomId(), true);
             var roomMap = new HashMap<String, Object>();
             roomMap.put("name", room.getName());
             roomMap.put("id", room.getId());
@@ -97,7 +97,7 @@ public class OrderController {
         var ordersJson = new ArrayList<JSONObject>();
         var orders = orderService.getHistoryOrder(business.getId(), offset, count);
         for (var order: orders){
-            var room = roomService.selectRoom(business.getId(), order.getRoomId());
+            var room = roomService.selectRoom(business.getId(), order.getRoomId(), true);
             var roomJson = new JSONObject();
             roomJson.set("name", room.getName());
             roomJson.set("id", room.getId());
@@ -163,7 +163,7 @@ public class OrderController {
             foodsJson.add(foodJson);
         }
 
-        var room = roomService.selectRoom(business.getId(), order.getRoomId());
+        var room = roomService.selectRoom(business.getId(), order.getRoomId(), true);
         var roomJson = new JSONObject();
         roomJson.set("name", room.getName());
         roomJson.set("id", room.getId());

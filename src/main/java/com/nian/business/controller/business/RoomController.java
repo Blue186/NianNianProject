@@ -108,7 +108,7 @@ public class RoomController {
     ){
         Business business = (Business) request.getAttribute("business");
 
-        var room = roomService.selectRoom(business.getId(), roomID);
+        var room = roomService.selectRoom(business.getId(), roomID, false);
         if (room == null){
             response.setStatus(HttpServletResponse.SC_FORBIDDEN);
             return R.error().message("获取失败");
