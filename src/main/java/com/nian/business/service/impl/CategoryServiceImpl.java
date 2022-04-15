@@ -16,7 +16,8 @@ import java.util.Map;
 @Service
 public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> implements CategoryService {
     public Category selectOne(int business_id,int category_id){
-        QueryWrapper<Category> wrapper= new QueryWrapper<Category>().eq("business_id",business_id).eq("id",category_id);
+        QueryWrapper<Category> wrapper= new QueryWrapper<Category>().eq("business_id",business_id)
+                                                                    .eq("id",category_id);
         Category category = baseMapper.selectOne(wrapper);
         return category;
     }
@@ -38,7 +39,8 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
 
     @Override
     public int insertCategory(CategoryPriorName categoryPriorName,Integer business_id) {
-        QueryWrapper<Category> nameWrapper = new QueryWrapper<Category>().eq("name", categoryPriorName.getName()).eq("business_id",business_id);
+        QueryWrapper<Category> nameWrapper = new QueryWrapper<Category>().eq("name", categoryPriorName.getName())
+                                                                        .eq("business_id",business_id);
         Category select = baseMapper.selectOne(nameWrapper);
         if (select != null){
             return -1;
