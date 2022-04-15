@@ -1,10 +1,10 @@
 server:
   port: 5208 #端口
-  address:  127.0.0.1 #本地调试时允许连接
+  address:  0.0.0.0 #本地调试时允许连接
 spring:
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mysql://cq-cdb-b1svc1fj.sql.tencentcdb.com:63753/dingdang-debug?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://db.torcher.team:63753/dingdang-debug?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8
     username: dingdang_debug
     password: 5d46077ceddfadd21e959845b24306f2a37d2141f6e7018c
     hikari:

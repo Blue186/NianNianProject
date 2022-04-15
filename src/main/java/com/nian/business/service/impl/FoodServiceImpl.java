@@ -105,4 +105,12 @@ public class FoodServiceImpl extends ServiceImpl<FoodMapper, Food> implements Fo
         jsonObject.set("category",categoryIdName);
         return jsonObject;
     }
+
+    @Override
+    public Food getFoodFromID(Integer businessID, Integer foodID) {
+        var wrapper = new QueryWrapper<Food>();
+        wrapper.eq("business_id", businessID);
+        wrapper.eq("id", foodID);
+        return baseMapper.selectOne(wrapper);
+    }
 }

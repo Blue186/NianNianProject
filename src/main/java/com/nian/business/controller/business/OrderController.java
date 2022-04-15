@@ -1,8 +1,10 @@
 package com.nian.business.controller.business;
 
 
+import cn.hutool.json.JSON;
 import cn.hutool.json.JSONObject;
 import com.nian.business.entity.Business;
+import com.nian.business.service.FoodService;
 import com.nian.business.service.OrderFoodService;
 import com.nian.business.service.OrderService;
 import com.nian.business.service.RoomService;
@@ -16,12 +18,10 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.constraints.Min;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 @RestController
-@RequestMapping("/api/business")
+@RequestMapping("/api/business/order")
 @Validated
 public class OrderController {
     @Resource
@@ -30,8 +30,10 @@ public class OrderController {
     RoomService roomService;
     @Resource
     OrderFoodService orderFoodService;
+    @Resource
+    FoodService foodService;
 
-    @GetMapping("/order/today")
+    @GetMapping("/today")
     public R<?> getTodayOrder(
             HttpServletRequest request,
             HttpServletResponse response,
@@ -54,12 +56,14 @@ public class OrderController {
             double foodsMoney =  0.0;
             var foods = orderFoodService.getOrderFoods(order.getId());
             for (var food: foods){
-                foodsMoney += food.getPrice() * food.getFoodNums();
+                if (!food.getCancel()) foodsMoney += food.getPrice() * food.getFoodNums();
 
                 var foodMap = new HashMap<String, Object>();
+                foodMap.put("id", food.getFoodId());
                 foodMap.put("name", food.getName());
                 foodMap.put("count", food.getFoodNums());
                 foodMap.put("price", food.getPrice());
+                foodMap.put("cancel", food.getCancel());
                 foodsMap.add(foodMap);
             }
 
@@ -67,7 +71,7 @@ public class OrderController {
             orderMap.put("id", order.getId());
             orderMap.put("room", roomMap);
             orderMap.put("foods", foodsMap);
-            orderMap.put("total_price", foodsMoney);
+            orderMap.put("total_price", String.format("%.2f", foodsMoney));
             orderMap.put("create_time", order.getCreateTime());
             orderMap.put("submit_time", order.getSubmitTime());
             ordersMap.add(orderMap);
@@ -84,7 +88,7 @@ public class OrderController {
         return R.ok().detail(detailJson);
     }
 
-    @GetMapping("/order/history")
+    @GetMapping("/history")
     public R<?> getHistoryOrder(
             HttpServletRequest request,
             HttpServletResponse response,
@@ -107,12 +111,14 @@ public class OrderController {
             double foodsMoney =  0.0;
             var foods = orderFoodService.getOrderFoods(order.getId());
             for (var food: foods){
-                foodsMoney += food.getPrice() * food.getFoodNums();
+                if (!food.getCancel()) foodsMoney += food.getPrice() * food.getFoodNums();
 
                 var foodJson = new JSONObject();
+                foodJson.set("id", food.getFoodId());
                 foodJson.set("name", food.getName());
                 foodJson.set("count", food.getFoodNums());
                 foodJson.set("price", food.getPrice());
+                foodJson.set("cancel", food.getCancel());
                 foodsJson.add(foodJson);
             }
 
@@ -120,7 +126,7 @@ public class OrderController {
             orderJson.set("id", order.getId());
             orderJson.set("room", roomJson);
             orderJson.set("foods", foodsJson);
-            orderJson.set("total_price", foodsMoney);
+            orderJson.set("total_price", String.format("%.2f", foodsMoney));
             orderJson.set("create_time", order.getCreateTime());
             orderJson.set("submit_time", order.getSubmitTime());
             ordersJson.add(orderJson);
@@ -137,7 +143,7 @@ public class OrderController {
         return R.ok().detail(detailJson);
     }
 
-    @GetMapping("/order/{orderID}")
+    @GetMapping("/{orderID}")
     public R<?> getOrderDetail(
             HttpServletRequest request,
             HttpServletResponse response,
@@ -153,14 +159,31 @@ public class OrderController {
 
         double totalPrice = 0.0;
         var orderFoods = orderFoodService.getOrderFoods(order.getId());
-        var foodsJson = new ArrayList<JSONObject>();
+
+        var orderedMap = new LinkedHashMap<Date, List<JSONObject>>();
         for(var food: orderFoods){
             var foodJson = new JSONObject();
+            foodJson.set("id", food.getFoodId());
             foodJson.set("name", food.getName());
             foodJson.set("count", food.getFoodNums());
             foodJson.set("price", food.getPrice());
-            totalPrice += food.getPrice() * food.getFoodNums();
-            foodsJson.add(foodJson);
+            foodJson.set("finish", food.getFinish());
+            foodJson.set("cancel", food.getCancel());
+
+            // 如果食物没有被取消，则计价
+            if (!food.getCancel()) totalPrice += food.getPrice() * food.getFoodNums();
+
+            var foodsBySubmitTime = orderedMap.computeIfAbsent(food.getSubmitTime(), k -> new ArrayList<>());
+            foodsBySubmitTime.add(foodJson);
+        }
+
+        var suborderList = new ArrayList<HashMap<String, Object>>();
+        for(var entry: orderedMap.entrySet()){
+            var info = new HashMap<String, Object>();
+            info.put("submit_time", entry.getKey());
+            info.put("submit_id", entry.getKey().getTime());
+            info.put("foods", entry.getValue());
+            suborderList.add(info);
         }
 
         var room = roomService.selectRoom(business.getId(), order.getRoomId(), true);
@@ -169,12 +192,58 @@ public class OrderController {
         roomJson.set("id", room.getId());
 
         var detailJson = new JSONObject();
-        detailJson.set("total_price", totalPrice);
+        detailJson.set("total_price", String.format("%.2f", totalPrice));
         detailJson.set("create_time", order.getCreateTime());
         detailJson.set("submit_time", order.getSubmitTime());
         detailJson.set("room", roomJson);
-        detailJson.set("foods", foodsJson);
+        detailJson.set("suborders", suborderList);
 
         return R.ok().detail(detailJson);
+    }
+
+    @PutMapping("/{orderID}/cancel/food/{foodID}")
+    public R<?> deleteOrderFood(
+            HttpServletRequest request,
+            HttpServletResponse response,
+            @PathVariable Integer foodID, @PathVariable Integer orderID, @RequestBody Map<String, Object> requestJson
+    ){
+        var business = (Business) request.getAttribute("business");
+
+        var order = orderService.getOrderFromID(business.getId(), orderID);
+        if (order == null){
+            response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+            return R.error().message("订单错误");
+        }
+
+        Long submitID = (Long) requestJson.get("submit_id");
+        if (submitID == null){
+            response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+            return R.error().message("submit id 错误");
+        }
+
+        var submitTime = new Date(submitID);
+        var ret = orderFoodService.cancelOrderFood(order, foodID, submitTime);
+        System.out.println(ret);
+        return R.ok().message("删除成功");
+    }
+
+    @PutMapping("/{orderID}/append/food/{foodID}")
+    public R<?> addOrderFood(
+            HttpServletRequest request,
+            HttpServletResponse response,
+            @PathVariable Integer foodID, @PathVariable Integer orderID
+    ){
+        var business = (Business) request.getAttribute("business");
+
+        var food = foodService.getFoodFromID(business.getId(), foodID);
+        var order = orderService.getOrderFromID(business.getId(), orderID);
+        if (food == null || order == null){
+            response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+            return R.error().message("foodID或orderID错误");
+        }
+
+//        var ret = orderFoodService.appendOrderFood(order, food);
+//        System.out.println(ret);
+        return R.ok().message("添加成功");
     }
 }
