@@ -15,4 +15,5 @@ public interface FoodService extends IService<Food> {
     List<FoodMenuItem> selectAll(Integer businessID);
     JSONObject selectFood(Integer businessId, Integer foodId);
     Food getFoodFromID(Integer businessID, Integer foodID);
+    List<Food> getFoodsFromIDList(Integer businessID, List<Integer> idList);
 }

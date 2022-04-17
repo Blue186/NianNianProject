@@ -113,4 +113,15 @@ public class FoodServiceImpl extends ServiceImpl<FoodMapper, Food> implements Fo
         wrapper.eq("id", foodID);
         return baseMapper.selectOne(wrapper);
     }
+
+    @Override
+    public List<Food> getFoodsFromIDList(Integer businessID, List<Integer> idList) {
+         var foods = baseMapper.selectBatchIds(idList);
+         for (var food: foods){
+             if (!food.getBusinessId().equals(businessID)){
+                 return null;
+             }
+         }
+        return foods;
+    }
 }

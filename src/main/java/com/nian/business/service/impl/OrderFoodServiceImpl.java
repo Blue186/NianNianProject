@@ -7,11 +7,11 @@ import com.nian.business.entity.Order;
 import com.nian.business.entity.OrderFood;
 import com.nian.business.mapper.OrderFoodMapper;
 import com.nian.business.service.OrderFoodService;
+import javafx.util.Pair;
 import lombok.var;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class OrderFoodServiceImpl extends ServiceImpl<OrderFoodMapper, OrderFood> implements OrderFoodService {
@@ -39,8 +39,28 @@ public class OrderFoodServiceImpl extends ServiceImpl<OrderFoodMapper, OrderFood
     }
 
     @Override
-    public Integer appendOrderFood(Order order, List<Food> foods) {
+    public Boolean appendOrderFood(Order order, List<Pair<Food, Integer>> foodCountList) {
+        List<OrderFood> orderFoods = new ArrayList<>();
+        for (var foodCount: foodCountList){
+            var food = foodCount.getKey();
+            var count = foodCount.getValue();
 
-        return null;
+            var newOrderFood = new OrderFood();
+            // 设置食物数量
+            newOrderFood.setFoodNums(count);
+            newOrderFood.setOrderId(order.getId());
+            newOrderFood.setRemark("老板添加的菜品");
+
+            // 设置食物参数
+            newOrderFood.setFoodId(food.getId());
+            newOrderFood.setName(food.getName());
+            newOrderFood.setImage(food.getImage());
+            newOrderFood.setIntroduce(food.getIntroduce());
+            newOrderFood.setPrice(food.getPrice());
+            newOrderFood.setSubmitTime(new Date());
+
+            orderFoods.add(newOrderFood);
+        }
+        return saveBatch(orderFoods);
     }
 }

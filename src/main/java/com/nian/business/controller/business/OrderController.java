@@ -1,14 +1,16 @@
 package com.nian.business.controller.business;
 
 
-import cn.hutool.json.JSON;
 import cn.hutool.json.JSONObject;
 import com.nian.business.entity.Business;
+import com.nian.business.entity.Food;
+import com.nian.business.entity.vo.food.FoodIDCount;
 import com.nian.business.service.FoodService;
 import com.nian.business.service.OrderFoodService;
 import com.nian.business.service.OrderService;
 import com.nian.business.service.RoomService;
 import com.nian.business.utils.R;
+import javafx.util.Pair;
 import lombok.var;
 import org.hibernate.validator.constraints.Range;
 import org.springframework.validation.annotation.Validated;
@@ -227,23 +229,47 @@ public class OrderController {
         return R.ok().message("删除成功");
     }
 
-    @PutMapping("/{orderID}/append/food/{foodID}")
-    public R<?> addOrderFood(
+    @PutMapping("/{orderID}/append/foods")
+    public R<?> appendOrderFood(
             HttpServletRequest request,
             HttpServletResponse response,
-            @PathVariable Integer foodID, @PathVariable Integer orderID
+            @PathVariable Integer orderID,
+            @RequestBody Map<String, List<FoodIDCount>> requestJson
     ){
         var business = (Business) request.getAttribute("business");
 
-        var food = foodService.getFoodFromID(business.getId(), foodID);
-        var order = orderService.getOrderFromID(business.getId(), orderID);
-        if (food == null || order == null){
-            response.setStatus(HttpServletResponse.SC_FORBIDDEN);
-            return R.error().message("foodID或orderID错误");
+        var idList = new ArrayList<Integer>();
+        var idCountMap = new LinkedHashMap<Integer, Integer>();
+        var foodInfoList = requestJson.getOrDefault("foods", new ArrayList<>());
+        for (var info: foodInfoList){
+            idList.add(info.getId());
+            if (idCountMap.get(info.getId()) != null){
+                response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+                return R.error().message("foodID重复");
+            }
+
+            idCountMap.put(info.getId(), info.getCount());
         }
 
-//        var ret = orderFoodService.appendOrderFood(order, food);
-//        System.out.println(ret);
+        var foods = foodService.getFoodsFromIDList(business.getId(), idList);
+        if (foods == null){
+            response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+            return R.error().message("food id error");
+        }
+
+        var foodCountPairList = new ArrayList<Pair<Food, Integer>>();
+        for (var food: foods){
+            var foodCountPair = new Pair<>(food, idCountMap.get(food.getId()));
+            foodCountPairList.add(foodCountPair);
+        }
+
+        var order = orderService.getOrderFromID(business.getId(), orderID);
+        if (order == null){
+            response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+            return R.error().message("orderID错误");
+        }
+
+        var ret = orderFoodService.appendOrderFood(order, foodCountPairList);
         return R.ok().message("添加成功");
     }
 }
