@@ -204,7 +204,7 @@ public class OrderController {
     }
 
     @PutMapping("/{orderID}/cancel/food/{foodID}")
-    public R<?> deleteOrderFood(
+    public R<?> cancelOrderFood(
             HttpServletRequest request,
             HttpServletResponse response,
             @PathVariable Integer foodID, @PathVariable Integer orderID, @RequestBody Map<String, Object> requestJson
@@ -212,7 +212,7 @@ public class OrderController {
         var business = (Business) request.getAttribute("business");
 
         var order = orderService.getOrderFromID(business.getId(), orderID);
-        if (order == null){
+        if (order == null || order.getStatus() != 1){
             response.setStatus(HttpServletResponse.SC_FORBIDDEN);
             return R.error().message("订单错误");
         }
@@ -226,7 +226,7 @@ public class OrderController {
         var submitTime = new Date(submitID);
         var ret = orderFoodService.cancelOrderFood(order, foodID, submitTime);
         System.out.println(ret);
-        return R.ok().message("删除成功");
+        return R.ok().message("取消成功");
     }
 
     @PutMapping("/{orderID}/append/foods")
@@ -251,6 +251,11 @@ public class OrderController {
             idCountMap.put(info.getId(), info.getCount());
         }
 
+        if (idList.size() == 0){
+            response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+            return R.error().message("foodID错误");
+        }
+
         var foods = foodService.getFoodsFromIDList(business.getId(), idList);
         if (foods == null){
             response.setStatus(HttpServletResponse.SC_FORBIDDEN);
@@ -269,7 +274,13 @@ public class OrderController {
             return R.error().message("orderID错误");
         }
 
+        if (order.getStatus() != 1){
+            response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+            return R.error().message("订单状态错误");
+        }
+
         var ret = orderFoodService.appendOrderFood(order, foodCountPairList);
+        System.out.println(ret);
         return R.ok().message("添加成功");
     }
 }

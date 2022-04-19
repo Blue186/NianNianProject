@@ -22,3 +22,9 @@
 2022-04-17 21:56:43.421|[main]|INFO |c.n.b.BusinessApplication-Starting BusinessApplication using Java 1.8.0_322 on CommonRom-Laptop with PID 27488 (P:\JavaProject\NianNianProject\target\classes started by CommonRom in P:\JavaProject\NianNianProject)
 2022-04-17 21:56:43.424|[main]|INFO |c.n.b.BusinessApplication-No active profile set, falling back to 1 default profile: "default"
 2022-04-17 21:56:47.319|[main]|INFO |c.n.b.BusinessApplication-Started BusinessApplication in 4.448 seconds (JVM running for 5.482)
+2022-04-17 22:31:17.019|[main]|INFO |c.n.b.BusinessApplication-Starting BusinessApplication using Java 1.8.0_322 on CommonRom-Laptop with PID 4676 (P:\JavaProject\NianNianProject\target\classes started by CommonRom in P:\JavaProject\NianNianProject)
+2022-04-17 22:31:17.021|[main]|INFO |c.n.b.BusinessApplication-No active profile set, falling back to 1 default profile: "default"
+2022-04-17 22:31:21.198|[main]|INFO |c.n.b.BusinessApplication-Started BusinessApplication in 4.937 seconds (JVM running for 6.136)
+2022-04-17 22:37:47.304|[main]|INFO |c.n.b.BusinessApplicationTests-Starting BusinessApplicationTests using Java 1.8.0_322 on CommonRom-Laptop with PID 18084 (started by CommonRom in P:\JavaProject\NianNianProject)
+2022-04-17 22:37:47.306|[main]|INFO |c.n.b.BusinessApplicationTests-No active profile set, falling back to 1 default profile: "default"
+2022-04-17 22:37:52.923|[main]|INFO |c.n.b.BusinessApplicationTests-Started BusinessApplicationTests in 6.027 seconds (JVM running for 7.134)
