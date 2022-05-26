@@ -73,9 +73,10 @@ public class OrderController {
             orderMap.put("id", order.getId());
             orderMap.put("room", roomMap);
             orderMap.put("foods", foodsMap);
-            orderMap.put("total_price", String.format("%.2f", foodsMoney));
+            orderMap.put("total_price", foodsMoney);
             orderMap.put("create_time", order.getCreateTime());
             orderMap.put("submit_time", order.getSubmitTime());
+            orderMap.put("status", order.getStatus());
             ordersMap.add(orderMap);
         }
 
@@ -128,9 +129,10 @@ public class OrderController {
             orderJson.set("id", order.getId());
             orderJson.set("room", roomJson);
             orderJson.set("foods", foodsJson);
-            orderJson.set("total_price", String.format("%.2f", foodsMoney));
+            orderJson.set("total_price", foodsMoney);
             orderJson.set("create_time", order.getCreateTime());
             orderJson.set("submit_time", order.getSubmitTime());
+            orderJson.set("status",order.getStatus());
             ordersJson.add(orderJson);
         }
 
