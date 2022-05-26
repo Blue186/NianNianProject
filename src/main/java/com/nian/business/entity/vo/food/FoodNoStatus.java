@@ -17,7 +17,7 @@ public class FoodNoStatus {
     @Length(min = 1,max = 10,message = "1<=length<=10")
     @NotNull
     private String name;
-    @Pattern(regexp = "(^//.|^/|^[a-zA-Z])?:?/.+(/$)?")
+//    @Pattern(regexp = "(^//.|^/|^[a-zA-Z])?:?/.+(/$)?")
     @NotNull
     private String image;
     private String introduce;
