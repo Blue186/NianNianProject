@@ -32,6 +32,7 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
             CategoryIdName categoryIdName=new CategoryIdName();
             categoryIdName.setId(category.getId());
             categoryIdName.setName(category.getName());
+            categoryIdName.setPriority(category.getPriority());
             categoryIdNameList.add(categoryIdName);
         }
         return categoryIdNameList;

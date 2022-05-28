@@ -6,4 +6,5 @@ import lombok.Data;
 public class CategoryIdName {
     private Integer id;
     private String name;
+    private Integer priority;
 }
