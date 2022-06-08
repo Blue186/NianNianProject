@@ -66,7 +66,7 @@ public class FoodServiceImpl extends ServiceImpl<FoodMapper, Food> implements Fo
     @Override
     public List<FoodMenuItem> selectAll(Integer businessID) {
         var foodMenuList = new ArrayList<FoodMenuItem>();
-        var foods = baseMapper.selectList(new QueryWrapper<Food>().eq("business_id", businessID));
+        var foods = baseMapper.selectList(new QueryWrapper<Food>().eq("business_id", businessID).eq("status",1));
         for (var food: foods){
             var item = new FoodMenuItem();
             item.setId(food.getId());
@@ -78,14 +78,18 @@ public class FoodServiceImpl extends ServiceImpl<FoodMapper, Food> implements Fo
             item.setCategoryId(food.getCategoryId());
             foodMenuList.add(item);
         }
+
         return foodMenuList;
     }
 
     @Override
     public JSONObject selectFood(Integer businessId, Integer foodId) {
-        QueryWrapper<Food> wrapper = new QueryWrapper<Food>().eq("id",foodId).eq("business_id",businessId);
+        QueryWrapper<Food> wrapper = new QueryWrapper<Food>().eq("id",foodId)
+                .eq("business_id",businessId);
         Food food = baseMapper.selectOne(wrapper);
-
+        if(food == null){
+            return null;
+        }
         FoodNoIds foodNoIds=new FoodNoIds();
         foodNoIds.setImage(food.getImage());
         foodNoIds.setStatus(food.getStatus());

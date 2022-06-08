@@ -21,4 +21,5 @@ public class Order implements Serializable {
     private String password;
     private Integer peopleNums;
     private Date submitTime;
+    private Date finishTime;
 }

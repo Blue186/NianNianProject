@@ -62,6 +62,8 @@ public class BusinessInterceptor implements HandlerInterceptor {
         wrapper.eq("id", payload.get("uid"));
 
         Business business = businessService.getBaseMapper().selectOne(wrapper);
+//        Business business=new Business();
+//        business.setId(1);
         if (business == null){
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             return false;

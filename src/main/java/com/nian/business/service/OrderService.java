@@ -10,4 +10,5 @@ public interface OrderService {
     List<Order> getHistoryOrder(Integer businessID, Integer offset, Integer count);
     Map<String, Object> getOrderStatistics(Integer businessID, Boolean history);
     Order getOrderFromID(Integer businessID, Integer orderID);
+    int updateOrderStatus(Integer order_id, Integer business_id);
 }

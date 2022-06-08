@@ -40,12 +40,14 @@ public class InformationController {
                 case 1:
                     pendingOrderNums++;
                     for (var food: orderFoods){
+                        if (!food.getCancel())
                         pendingMoney += food.getPrice() * food.getFoodNums();
                     }
                     break;
                 case 2:
                     orderNums++;
                     for (var food: orderFoods){
+                        if (!food.getCancel())
                         money += food.getPrice() * food.getFoodNums();
                     }
                     break;

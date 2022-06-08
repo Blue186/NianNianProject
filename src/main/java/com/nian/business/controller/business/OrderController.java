@@ -20,6 +20,8 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.constraints.Min;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 @RestController
@@ -48,6 +50,9 @@ public class OrderController {
         var ordersMap = new ArrayList<Map<String, Object>>();
         var orders = orderService.getTodayOrder(business.getId(), offset, count);
         for (var order: orders){
+            if(order.getSubmitTime()==null||order.getFinishTime()==null){
+                continue;
+            }
             var room = roomService.selectRoom(business.getId(), order.getRoomId(), true);
             var roomMap = new HashMap<String, Object>();
             roomMap.put("name", room.getName());
@@ -74,8 +79,10 @@ public class OrderController {
             orderMap.put("room", roomMap);
             orderMap.put("foods", foodsMap);
             orderMap.put("total_price", foodsMoney);
-            orderMap.put("create_time", order.getCreateTime());
-            orderMap.put("submit_time", order.getSubmitTime());
+            DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            sdf.setTimeZone(TimeZone.getTimeZone("GMT+8"));
+            orderMap.put("finish_time", sdf.format(order.getFinishTime()));
+            orderMap.put("submit_time", sdf.format(order.getSubmitTime()));
             orderMap.put("status", order.getStatus());
             ordersMap.add(orderMap);
         }
@@ -104,6 +111,9 @@ public class OrderController {
         var ordersJson = new ArrayList<JSONObject>();
         var orders = orderService.getHistoryOrder(business.getId(), offset, count);
         for (var order: orders){
+            if(order.getSubmitTime()==null||order.getFinishTime()==null){
+                continue;
+            }
             var room = roomService.selectRoom(business.getId(), order.getRoomId(), true);
             var roomJson = new JSONObject();
             roomJson.set("name", room.getName());
@@ -130,8 +140,16 @@ public class OrderController {
             orderJson.set("room", roomJson);
             orderJson.set("foods", foodsJson);
             orderJson.set("total_price", foodsMoney);
-            orderJson.set("create_time", order.getCreateTime());
-            orderJson.set("submit_time", order.getSubmitTime());
+
+            DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            sdf.setTimeZone(TimeZone.getTimeZone("GMT+8"));
+
+            orderJson.set("finish_time", sdf.format(order.getFinishTime()));
+
+                System.out.println(sdf.format(order.getSubmitTime()));
+                orderJson.set("submit_time", sdf.format(order.getSubmitTime()));
+
+
             orderJson.set("status",order.getStatus());
             ordersJson.add(orderJson);
         }
@@ -160,7 +178,10 @@ public class OrderController {
             response.setStatus(HttpServletResponse.SC_FORBIDDEN);
             return R.error().message("获取订单失败");
         }
-
+        if(order.getSubmitTime() == null||order.getFinishTime()==null){
+            response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+            return R.error().message("获取订单失败");
+        }
         double totalPrice = 0.0;
         var orderFoods = orderFoodService.getOrderFoods(order.getId());
 
@@ -178,13 +199,19 @@ public class OrderController {
             if (!food.getCancel()) totalPrice += food.getPrice() * food.getFoodNums();
 
             var foodsBySubmitTime = orderedMap.computeIfAbsent(food.getSubmitTime(), k -> new ArrayList<>());
-            foodsBySubmitTime.add(foodJson);
+            foodsBySubmitTime.add(foodJson);//computeIfAbsent的返回值为map的value，然后可以通过操作这个返回值，直接改变map的value值。这里实际是在操作orderMap的value值。
+//            for (JSONObject jsonObject : foodsBySubmitTime) {
+//                System.out.println(jsonObject);
+//            }
         }
 
         var suborderList = new ArrayList<HashMap<String, Object>>();
         for(var entry: orderedMap.entrySet()){
             var info = new HashMap<String, Object>();
-            info.put("submit_time", entry.getKey());
+
+            DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            sdf.setTimeZone(TimeZone.getTimeZone("GMT+8"));
+            info.put("submit_time", sdf.format(entry.getKey()));
             info.put("submit_id", entry.getKey().getTime());
             info.put("foods", entry.getValue());
             suborderList.add(info);
@@ -196,12 +223,17 @@ public class OrderController {
         roomJson.set("id", room.getId());
 
         var detailJson = new JSONObject();
-        detailJson.set("total_price", String.format("%.2f", totalPrice));
-        detailJson.set("create_time", order.getCreateTime());
-        detailJson.set("submit_time", order.getSubmitTime());
+        detailJson.set("total_price", totalPrice);
+        DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        sdf.setTimeZone(TimeZone.getTimeZone("GMT+8"));
+        detailJson.set("finish_time", sdf.format(order.getFinishTime()));
+        detailJson.set("submit_time", sdf.format(order.getSubmitTime()));
+//        这种方法更好！！！
+//        detailJson.set("finish_time", order.getFinishTime());
+//        detailJson.set("submit_time", order.getSubmitTime());
         detailJson.set("room", roomJson);
         detailJson.set("suborders", suborderList);
-
+        detailJson.set("status",order.getStatus());
         return R.ok().detail(detailJson);
     }
 
@@ -227,7 +259,7 @@ public class OrderController {
 
         var submitTime = new Date(submitID);
         var ret = orderFoodService.cancelOrderFood(order, foodID, submitTime);
-        System.out.println(ret);
+//        System.out.println(ret);
         return R.ok().message("取消成功");
     }
 
@@ -284,5 +316,17 @@ public class OrderController {
         var ret = orderFoodService.appendOrderFood(order, foodCountPairList);
         System.out.println(ret);
         return R.ok().message("添加成功");
+    }
+
+    @PutMapping("{orderId}/status")
+    public R<?> updateStatus(@PathVariable @Min(value = 0, message = "order_id> 0") int orderId, HttpServletResponse response, HttpServletRequest request){
+        Business business=(Business) request.getAttribute("business");
+
+        int update = orderService.updateOrderStatus(orderId,business.getId());
+        if(update == 0){
+            response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+            return R.error().message("更改订单状态失败");
+        }
+        return R.ok().message("");
     }
 }

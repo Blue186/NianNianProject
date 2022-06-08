@@ -30,6 +30,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         wrapper.ge("unix_timestamp(submit_time)", today.getTime()/1000);
         wrapper.lt("unix_timestamp(submit_time)", tomorrow.getTime()/1000);
         wrapper.eq("business_id", businessID);
+        wrapper.ne("status",0);
         wrapper.orderByDesc("submit_time");
 
         if (offset != null && count != null){
@@ -76,7 +77,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         var wrapper = new QueryWrapper<Order>();
         wrapper.eq("business_id", businessID);
         wrapper.orderByDesc("submit_time");
-
+        wrapper.ne("status",0);
         if (offset != null && count != null){
             wrapper.last(String.format("limit %d offset %d", count, offset));
         }
@@ -89,6 +90,18 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         var wrapper = new QueryWrapper<Order>();
         wrapper.eq("business_id", businessID);
         wrapper.eq("id", orderID);
+        wrapper.ne("status",0);
         return baseMapper.selectOne(wrapper);
+    }
+
+    @Override
+    public int updateOrderStatus(Integer order_id, Integer business_id) {
+        Order order = new Order();
+        order.setStatus(2);
+        order.setFinishTime(new Date());
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("business_id",business_id);
+        map.put("id",order_id);
+        return baseMapper.update(order,new QueryWrapper<Order>().allEq(map));
     }
 }

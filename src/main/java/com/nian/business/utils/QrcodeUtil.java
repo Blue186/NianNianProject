@@ -89,6 +89,7 @@ public class QrcodeUtil {
 
     public byte[] getRoomQrcode(Integer roomID, Integer businessID, Boolean refresh){
         String url = "https://api.weixin.qq.com/wxa/getwxacodeunlimit?access_token={access_token}";
+//        57_R2nppOGzHnlcCdCWt6d_EW8LQfHdGpdPwLku3Fb9az0YUtCD7UJUUrkv8Lf-JaoJ0dFaUr9usvtB35dl9R2_riiIm65-4z9NVTrrFfSWn7XdldzY_FY0hvEuOYcl4kdyT-V0D0qA_b6_cx77DOWeAJAXIQ
         Map<String, String> urlParams = new HashMap<>();
         urlParams.put("access_token", getAccessToken(refresh));
 

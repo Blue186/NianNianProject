@@ -55,9 +55,13 @@ public class FoodController {
         return R.ok().message("成功");
     }
     @GetMapping("/{foodID}")
-    public R<?> selectFood(@PathVariable @Min(value = 0, message = "food_id > 0") int foodID, HttpServletRequest request){
+    public R<?> selectFood(@PathVariable @Min(value = 0, message = "food_id > 0") int foodID, HttpServletRequest request,HttpServletResponse response){
         Business business=(Business) request.getAttribute("business");
         JSONObject jsonObject = foodService.selectFood(business.getId(), foodID);
+        if(jsonObject == null){
+            response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+            return R.error().message("获取菜品失败");
+        }
         return R.ok().message("成功").detail(jsonObject);
     }
 
