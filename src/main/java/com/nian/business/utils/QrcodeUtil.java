@@ -45,7 +45,7 @@ public class QrcodeUtil {
 
     private String accessToken;
     private final RestTemplate restTemplate = new RestTemplate();
-
+//    获取access_token
     private String getAccessToken(boolean refresh){
         if (accessToken == null || refresh){
             String url = "https://api.weixin.qq.com/cgi-bin/token?grant_type={grant_type}&appid={appid}&secret={secret}";
@@ -63,7 +63,8 @@ public class QrcodeUtil {
 
         return accessToken;
     }
-
+//byte2image：
+//1. 将byte[ ] 写入指定的保存目录下。
     public String byte2image(byte[] data){
         if(data == null || data.length<3 || savePath.equals("")) {
             log.error("save-path is null");
@@ -86,7 +87,7 @@ public class QrcodeUtil {
 
         return null;
     }
-
+//根据access_token ,以及自身一些需求,生成二维码，并存在byte[]中
     public byte[] getRoomQrcode(Integer roomID, Integer businessID, Boolean refresh){
         String url = "https://api.weixin.qq.com/wxa/getwxacodeunlimit?access_token={access_token}";
 //        57_R2nppOGzHnlcCdCWt6d_EW8LQfHdGpdPwLku3Fb9az0YUtCD7UJUUrkv8Lf-JaoJ0dFaUr9usvtB35dl9R2_riiIm65-4z9NVTrrFfSWn7XdldzY_FY0hvEuOYcl4kdyT-V0D0qA_b6_cx77DOWeAJAXIQ

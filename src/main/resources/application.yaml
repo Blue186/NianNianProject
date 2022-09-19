@@ -1,6 +1,6 @@
 server:
   port: 5208 #端口
-  address:  0.0.0.0 #本地调试时允许连接
+  address: 0.0.0.0 #本地调试时允许连接
 #解决时间冲突问题
 spring:
   jackson:
@@ -15,11 +15,11 @@ spring:
       max-lifetime: 1800000
       maximum-pool-size: 5
 
-#  redis:
-#    host: 139.186.170.118
-#    port: 6379
-#    database: 6
-#    password: keepacat
+  redis:
+    host: 139.186.170.118
+    port: 6379
+    database: 6
+    password: keepacat
 
 mybatis-plus:
   type-aliases-package: com/nian/business/entry #简化别名，用类的名字充当
@@ -47,4 +47,6 @@ wechat:
     env-version: trial
     is-hyaline: false
     width: 430
-    save-path: C:\\Users\\CommonRom\\Desktop
+#    save-path: C:\\Users\\CommonRom\\Desktop
+    #这里是windows的电脑的路径
+    save-Path: D:\\abc

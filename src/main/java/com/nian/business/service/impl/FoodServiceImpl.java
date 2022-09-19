@@ -66,7 +66,7 @@ public class FoodServiceImpl extends ServiceImpl<FoodMapper, Food> implements Fo
     @Override
     public List<FoodMenuItem> selectAll(Integer businessID) {
         var foodMenuList = new ArrayList<FoodMenuItem>();
-        var foods = baseMapper.selectList(new QueryWrapper<Food>().eq("business_id", businessID).eq("status",1));
+        var foods = baseMapper.selectList(new QueryWrapper<Food>().eq("business_id", businessID));
         for (var food: foods){
             var item = new FoodMenuItem();
             item.setId(food.getId());

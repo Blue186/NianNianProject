@@ -19,8 +19,8 @@ public interface OrderMapper extends BaseMapper<Order> {
             "where order_foods.order_id = #{orderID}")
     List<FoodItem> selectOrderFoods(@Param("orderID") Integer orderID);
 
-    @Select("select o.status, IFNULL(sum(o_f.price * o_f.food_nums), 0) money, count(distinct o.id) as count\n" +
-            "from `order` o left join order_foods o_f on o.id = o_f.order_id where o.business_id= #{businessID} and o_f.cancel = 0 and (#{history} or date(o.submit_time) = curdate())\n" +
+    @Select("select o.status, IFNULL(sum(o_f.price * o_f.food_nums*!o_f.cancel), 0) money, count(distinct o.id) as count\n" +
+            "from `order` o left join order_foods o_f on o.id = o_f.order_id where o.business_id= #{businessID} and (#{history} or date(o.submit_time) = curdate())\n" +
             "group by o.status")
     List<StatisticsOrder> selectOrderStatistics(@Param("businessID") Integer businessID, @Param("history") Boolean history);
 }

@@ -30,7 +30,14 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         wrapper.ge("unix_timestamp(submit_time)", today.getTime()/1000);
         wrapper.lt("unix_timestamp(submit_time)", tomorrow.getTime()/1000);
         wrapper.eq("business_id", businessID);
-        wrapper.ne("status",0);
+//        wrapper.ne("status",0);
+//        wrapper.ne("status",-1);
+
+//        SELECT id,create_time,creator_id,status,update_time,room_id,password,people_nums,submit_time,finish_time
+//        FROM `order` WHERE (unix_timestamp(submit_time) >= ? AND unix_timestamp(submit_time) < ?
+//        AND business_id = ? AND (status = ? OR status = ?))
+//        ORDER BY submit_time DESC limit 10 offset 0
+        wrapper.and(w -> w.eq("status",1).or().eq("status",2));//and括号包围住这一段
         wrapper.orderByDesc("submit_time");
 
         if (offset != null && count != null){
@@ -50,6 +57,8 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         // status 0: 已创建
         // status 1: 已提交
         // status 2: 已结算
+        // status -1: 创建订单超时，已销毁
+//        用sql语句直接计算的，但是感觉这样写很受限......
         var orderStatistics = baseMapper.selectOrderStatistics(businessID, history);
         for (var orderStat: orderStatistics) {
             switch (orderStat.getStatus()){
@@ -77,7 +86,9 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         var wrapper = new QueryWrapper<Order>();
         wrapper.eq("business_id", businessID);
         wrapper.orderByDesc("submit_time");
-        wrapper.ne("status",0);
+//        wrapper.ne("status",0);
+//        wrapper.ne("status",-1);
+        wrapper.and(w -> w.eq("status",1).or().eq("status",2));//and括号包围住这一段
         if (offset != null && count != null){
             wrapper.last(String.format("limit %d offset %d", count, offset));
         }
@@ -90,7 +101,10 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         var wrapper = new QueryWrapper<Order>();
         wrapper.eq("business_id", businessID);
         wrapper.eq("id", orderID);
-        wrapper.ne("status",0);
+//        wrapper.ne("status",0);
+//        wrapper.ne("status",0);
+        wrapper.and(w -> w.eq("status",1).or().eq("status",2));//and括号包围住这一段
+
         return baseMapper.selectOne(wrapper);
     }
 
@@ -99,6 +113,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         Order order = new Order();
         order.setStatus(2);
         order.setFinishTime(new Date());
+
         HashMap<String, Object> map = new HashMap<>();
         map.put("business_id",business_id);
         map.put("id",order_id);

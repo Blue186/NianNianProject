@@ -1,15 +1,18 @@
 package com.nian.business.controller.business;
 
 
+import cn.hutool.core.convert.Convert;
 import cn.hutool.json.JSONObject;
 import com.nian.business.entity.Business;
 import com.nian.business.entity.Food;
+import com.nian.business.entity.Order;
 import com.nian.business.entity.vo.food.FoodIDCount;
 import com.nian.business.service.FoodService;
 import com.nian.business.service.OrderFoodService;
 import com.nian.business.service.OrderService;
 import com.nian.business.service.RoomService;
 import com.nian.business.utils.R;
+import com.nian.business.utils.RedissionUtil;
 import javafx.util.Pair;
 import lombok.var;
 import org.hibernate.validator.constraints.Range;
@@ -36,6 +39,8 @@ public class OrderController {
     OrderFoodService orderFoodService;
     @Resource
     FoodService foodService;
+    @Resource
+    RedissionUtil redissionUtil;
 
     @GetMapping("/today")
     public R<?> getTodayOrder(
@@ -49,10 +54,10 @@ public class OrderController {
         // 组装orders
         var ordersMap = new ArrayList<Map<String, Object>>();
         var orders = orderService.getTodayOrder(business.getId(), offset, count);
+        for (Order order : orders) {
+            System.out.println(order);
+        }
         for (var order: orders){
-            if(order.getSubmitTime()==null||order.getFinishTime()==null){
-                continue;
-            }
             var room = roomService.selectRoom(business.getId(), order.getRoomId(), true);
             var roomMap = new HashMap<String, Object>();
             roomMap.put("name", room.getName());
@@ -81,8 +86,16 @@ public class OrderController {
             orderMap.put("total_price", foodsMoney);
             DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             sdf.setTimeZone(TimeZone.getTimeZone("GMT+8"));
-            orderMap.put("finish_time", sdf.format(order.getFinishTime()));
+            if(order.getFinishTime()!=null){
+                orderMap.put("finish_time", sdf.format(order.getFinishTime()));
+            }else{
+                orderMap.put("finish_time", "0000-00-00 00:00:00");
+            }
+            if(order.getSubmitTime()!=null){
             orderMap.put("submit_time", sdf.format(order.getSubmitTime()));
+            }else {
+                orderMap.put("submit_time", "0000-00-00 00:00:00");
+            }
             orderMap.put("status", order.getStatus());
             ordersMap.add(orderMap);
         }
@@ -111,8 +124,8 @@ public class OrderController {
         var ordersJson = new ArrayList<JSONObject>();
         var orders = orderService.getHistoryOrder(business.getId(), offset, count);
         for (var order: orders){
-            if(order.getSubmitTime()==null||order.getFinishTime()==null){
-                continue;
+            if(order.getStatus() == 2){
+
             }
             var room = roomService.selectRoom(business.getId(), order.getRoomId(), true);
             var roomJson = new JSONObject();
@@ -143,12 +156,16 @@ public class OrderController {
 
             DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             sdf.setTimeZone(TimeZone.getTimeZone("GMT+8"));
-
-            orderJson.set("finish_time", sdf.format(order.getFinishTime()));
-
-                System.out.println(sdf.format(order.getSubmitTime()));
+            if(order.getFinishTime()!=null){
+                orderJson.set("finish_time", sdf.format(order.getFinishTime()));
+            }else{
+                orderJson.set("finish_time", "0000-00-00 00:00:00");
+            }
+            if(order.getSubmitTime()!=null){
                 orderJson.set("submit_time", sdf.format(order.getSubmitTime()));
-
+            }else {
+                orderJson.set("submit_time", "0000-00-00 00:00:00");
+            }
 
             orderJson.set("status",order.getStatus());
             ordersJson.add(orderJson);
@@ -175,10 +192,6 @@ public class OrderController {
 
         var order = orderService.getOrderFromID(business.getId(), orderID);
         if(order == null){
-            response.setStatus(HttpServletResponse.SC_FORBIDDEN);
-            return R.error().message("获取订单失败");
-        }
-        if(order.getSubmitTime() == null||order.getFinishTime()==null){
             response.setStatus(HttpServletResponse.SC_FORBIDDEN);
             return R.error().message("获取订单失败");
         }
@@ -226,9 +239,17 @@ public class OrderController {
         detailJson.set("total_price", totalPrice);
         DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         sdf.setTimeZone(TimeZone.getTimeZone("GMT+8"));
-        detailJson.set("finish_time", sdf.format(order.getFinishTime()));
-        detailJson.set("submit_time", sdf.format(order.getSubmitTime()));
-//        这种方法更好！！！
+        if(order.getFinishTime()!=null){
+            detailJson.set("finish_time", sdf.format(order.getFinishTime()));
+        }else{
+            detailJson.set("finish_time", "0000-00-00 00:00:00");
+        }
+        if(order.getSubmitTime()!=null){
+            detailJson.set("submit_time", sdf.format(order.getSubmitTime()));
+        }else {
+            detailJson.set("submit_time", "0000-00-00 00:00:00");
+        }
+//        改了Jackson之后，这种方法更好！！！
 //        detailJson.set("finish_time", order.getFinishTime());
 //        detailJson.set("submit_time", order.getSubmitTime());
         detailJson.set("room", roomJson);
@@ -259,7 +280,6 @@ public class OrderController {
 
         var submitTime = new Date(submitID);
         var ret = orderFoodService.cancelOrderFood(order, foodID, submitTime);
-//        System.out.println(ret);
         return R.ok().message("取消成功");
     }
 
@@ -317,16 +337,37 @@ public class OrderController {
         System.out.println(ret);
         return R.ok().message("添加成功");
     }
-
+// 实际上是结算订单的接口，令status为2，并存入finish_time
     @PutMapping("{orderId}/status")
     public R<?> updateStatus(@PathVariable @Min(value = 0, message = "order_id> 0") int orderId, HttpServletResponse response, HttpServletRequest request){
         Business business=(Business) request.getAttribute("business");
+        Integer businessId = business.getId();
 
-        int update = orderService.updateOrderStatus(orderId,business.getId());
+        Order order = orderService.getOrderFromID(businessId, orderId);
+        if(order == null){
+            response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+            return R.error().message("订单状态错误");
+        }
+        Integer roomId = order.getRoomId();
+
+        int update = orderService.updateOrderStatus(orderId, businessId);
         if(update == 0){
             response.setStatus(HttpServletResponse.SC_FORBIDDEN);
             return R.error().message("更改订单状态失败");
         }
-        return R.ok().message("");
+//        System.out.println(Convert.toStr(roomId)+Convert.toStr(orderId));
+//        redissionUtil.put(Convert.toStr(roomId)+Convert.toStr(orderId),"123456");
+//        System.out.println((String) redissionUtil.get(Convert.toStr(roomId)+Convert.toStr(orderId)));
+
+//        删除redis中的key和fakekey  （这两个在客户端添加的）
+
+        redissionUtil.remove(Convert.toStr(roomId)+Convert.toStr(orderId));
+
+//        System.out.println((String) redissionUtil.get(Convert.toStr(roomId)+Convert.toStr(orderId)));
+
+        redissionUtil.remove(Convert.toStr(roomId)+Convert.toStr(order.getCreatorId()));
+
+//        System.out.println((String)  redissionUtil.get(Convert.toStr(roomId)+Convert.toStr(order.getCreatorId())));
+        return R.ok().message("结算成功");
     }
 }
